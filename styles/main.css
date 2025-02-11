@@ -5,28 +5,37 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #000;
+    overflow: hidden;
 }
 
 .slider-container {
     width: 80vw;
     overflow: hidden;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .slider {
     display: flex;
+    flex-wrap: nowrap;
     gap: 20px;
-    transition: transform 0.5s ease-in-out;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    white-space: nowrap;
+    transition: transform 0.3s ease-out;
 }
 
 .slider img {
-    width: 150px;
+    width: 200px;
     height: auto;
+    object-fit: contain;
     cursor: pointer;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transition: outline 0.3s ease-in-out;
 }
 
-.slider img.active {
-    transform: scale(1.5);
-    opacity: 1;
+.slider img:hover {
+    outline: 3px solid white;
 }

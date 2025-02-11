@@ -4,64 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeein Park - Portfolio</title>
-    <style>
-        body {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #000;
-        }
-
-        .slider-container {
-            width: 80vw;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .slider {
-            display: flex;
-            gap: 20px;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .slider img {
-            width: 150px;
-            height: auto;
-            cursor: pointer;
-            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-        }
-
-        .slider img.active {
-            transform: scale(1.5);
-            opacity: 1;
-        }
-    </style>
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <div class="slider-container">
-        <div class="slider" id="slider">
-            <img src="assets/MedicRecallPoster.jpg" alt="Medic Recall Poster">
-        </div>
+    <div class="slider-container" id="slider-container">
+        <div class="slider" id="slider"></div>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const images = document.querySelectorAll(".slider img");
-            let currentIndex = 0;
-
-            function updateActiveImage() {
-                images.forEach(img => img.classList.remove("active"));
-                images[currentIndex].classList.add("active");
-            }
-            updateActiveImage();
-
-            function slideNext() {
-                currentIndex = (currentIndex + 1) % images.length;
-                updateActiveImage();
-            }
-            setInterval(slideNext, 2000);
-        });
-    </script>
+    <script src="scripts/app.js"></script>
 </body>
 </html>

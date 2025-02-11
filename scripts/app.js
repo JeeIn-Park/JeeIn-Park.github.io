@@ -1,36 +1,72 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const images = [
-        "./assets/MedicRecallPoster.jpg", 
-        "./assets/RepVizPoster.jpg"
-    ];
-    const links = [
-        "https://medicrecall.com/", 
-        "https://github.com/JeeIn-Park/Training-Tracker-Workout-Monitoring"
-    ];
     const slider = document.getElementById("slider");
+    const sliderContainer = document.getElementById("slider-container");
 
-    images.forEach((src, index) => {
-        const img = document.createElement("img");
-        img.src = src;
-        img.dataset.index = index;
-        img.addEventListener("click", () => {
-            window.location.href = links[index];
+    const imagesSrc = [
+        "assets/MedicRecallPoster.png",
+        "assets/RepVizPoster.png"
+    ];
+
+    // Create infinite loop by duplicating images
+    for (let i = 0; i < 10; i++) {
+        imagesSrc.forEach(src => {
+            const img = document.createElement("img");
+            img.src = src;
+            img.onclick = () => window.location.href = 
+                src.includes("MedicRecall") ? 
+                'https://medicrecall.com/' : 
+                'https://github.com/JeeIn-Park/Training-Tracker-Workout-Monitoring';
+            slider.appendChild(img);
         });
-        slider.appendChild(img);
+    }
+
+    // Dragging Logic
+    let isDragging = false;
+    let startX, scrollLeft;
+
+    sliderContainer.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+        slider.style.cursor = "grabbing";
     });
 
-    let currentIndex = 0;
-    function updateActiveImage() {
-        const imgs = document.querySelectorAll(".slider img");
-        imgs.forEach(img => img.classList.remove("active"));
-        imgs[currentIndex].classList.add("active");
-    }
-    updateActiveImage();
+    sliderContainer.addEventListener("mouseleave", () => {
+        isDragging = false;
+        slider.style.cursor = "grab";
+    });
 
-    function slideNext() {
-        currentIndex = (currentIndex + 1) % images.length;
-        slider.style.transform = `translateX(-${currentIndex * 170}px)`;
-        updateActiveImage();
-    }
-    setInterval(slideNext, 2000);
+    sliderContainer.addEventListener("mouseup", () => {
+        isDragging = false;
+        slider.style.cursor = "grab";
+    });
+
+    sliderContainer.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2; // Increase speed
+        slider.scrollLeft = scrollLeft - walk;
+    });
+
+    // Mobile touch support
+    let touchStartX = 0;
+    let touchScrollLeft = 0;
+
+    sliderContainer.addEventListener("touchstart", (e) => {
+        isDragging = true;
+        touchStartX = e.touches[0].pageX - slider.offsetLeft;
+        touchScrollLeft = slider.scrollLeft;
+    });
+
+    sliderContainer.addEventListener("touchmove", (e) => {
+        if (!isDragging) return;
+        const x = e.touches[0].pageX - slider.offsetLeft;
+        const walk = (x - touchStartX) * 2;
+        slider.scrollLeft = touchScrollLeft - walk;
+    });
+
+    sliderContainer.addEventListener("touchend", () => {
+        isDragging = false;
+    });
 });
