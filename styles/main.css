@@ -1,41 +1,126 @@
-body {
+* {
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #000;
-    overflow: hidden;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.slider-container {
-    width: 80vw;
+body {
+    width: 100%;
+    height: 100vh;
     overflow: hidden;
+    background: #f0f0f0; /* Light background to make shadows visible */
+}
+
+.container {
+    width: 100%;
+    height: 120vh; /* Adjust height so it moves up */
+    perspective: 500px;
+    transform-style: preserve-3d;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: -40px; /* Moves the slides higher */
 }
 
-.slider {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
-    white-space: nowrap;
-    transition: transform 0.3s ease-out;
-}
-
-.slider img {
+.slide {
+    transition: 0.5s;
     width: 200px;
-    height: auto;
-    object-fit: contain;
-    cursor: pointer;
-    transition: outline 0.3s ease-in-out;
+    height: 300px;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    position: absolute;
+    left: 51%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden; /* Ensure the image doesn't overflow the slide */
+    
+    /* Add shadow effect */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.slider img:hover {
-    outline: 3px solid white;
+.slide img {
+    width: 100%; /* Make the image fill the slide width */
+    height: 100%; /* Make the image fill the slide height */
+    object-fit: cover; /* Ensure the image covers the slide without distortion */
+}
+
+/* Depth effect for slides */
+.slide:nth-of-type(1), .slide:nth-of-type(2) {  
+    transform: translate(calc(-50% * 5.1), -50%) translateZ(-100px);
+    filter: brightness(80%);
+}
+
+.slide:nth-of-type(3) {
+    transform: translate(calc(-50% * 3.1), -50%) translateZ(-50px);
+    filter: brightness(90%);
+}
+
+.slide:nth-of-type(4) {
+    transform: translate(calc(-50% * 1.1), -50%) translateZ(50px);
+    filter: brightness(100%);
+}
+
+.slide:nth-of-type(5) {
+    transform: translate(calc(-50% * -0.9), -50%) translateZ(-50px);
+    filter: brightness(90%);
+}
+
+.slide:nth-of-type(6), .slide:nth-of-type(7) {
+    transform: translate(calc(-50% * -2.9), -50%) translateZ(-100px);
+    filter: brightness(80%);
+}
+
+
+/* Move the buttons higher */
+.buttons {
+    position: absolute;
+    z-index: 2;
+    bottom: 70px; /* Moves buttons up */
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    gap: 15px;
+}
+
+
+.buttons button {
+    background: linear-gradient(135deg, #31726c, #211045);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+    box-shadow: 0 5px 15px rgba(29, 25, 69, 0.3);
+}
+
+.buttons button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #55a38d, #321d80);
+}
+
+
+/* Footer Styling - Ensure it stays at the bottom */
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #181818;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+}
+
+.footer-content a {
+    color: #7695ac;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
 }
