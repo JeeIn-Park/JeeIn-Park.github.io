@@ -30,7 +30,7 @@ body {
 
 .slide {
     transition: 0.5s;
-    width: 200px;
+    width: 210px;
     height: 300px;
     background: white;
     border: 1px solid rgba(0, 0, 0, 0.1);
