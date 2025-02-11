@@ -1,30 +1,36 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const preloader = document.querySelector(".preloader");
+document.addEventListener("DOMContentLoaded", () => {
+    const images = [
+        "./assets/MedicRecallPoster.jpg", 
+        "./assets/RepVizPoster.jpg"
+    ];
+    const links = [
+        "https://medicrecall.com/", 
+        "https://github.com/JeeIn-Park/Training-Tracker-Workout-Monitoring"
+    ];
+    const slider = document.getElementById("slider");
 
-    // Ensure preloader is hidden after the page loads
-    setTimeout(() => {
-        preloader.classList.add("hidden");
-    }, 800); // Delay to match the fade-out animation
-
-    // Add page transition effect on navigation links
-    const navLinks = document.querySelectorAll(".navbar ul li a");
-
-    navLinks.forEach(link => {
-        link.addEventListener("click", function (event) {
-            event.preventDefault(); // Prevent instant navigation
-
-            const targetURL = this.href; // Get the link URL
-
-            // Show preloader before navigating
-            preloader.classList.remove("hidden");
-
-            gsap.to(preloader, { 
-                duration: 0.5, 
-                opacity: 1, 
-                onComplete: () => {
-                    window.location.href = targetURL; // Change page after animation
-                }
-            });
+    images.forEach((src, index) => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.dataset.index = index;
+        img.addEventListener("click", () => {
+            window.location.href = links[index];
         });
+        slider.appendChild(img);
     });
+
+    let currentIndex = 0;
+    function updateActiveImage() {
+        const imgs = document.querySelectorAll(".slider img");
+        imgs.forEach(img => img.classList.remove("active"));
+        imgs[currentIndex].classList.add("active");
+    }
+    updateActiveImage();
+
+    function slideNext() {
+        currentIndex = (currentIndex + 1) % images.length;
+        slider.style.transform = `translateX(-${currentIndex * 170}px)`;
+        updateActiveImage();
+    }
+    setInterval(slideNext, 2000);
 });
