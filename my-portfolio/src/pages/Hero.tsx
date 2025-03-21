@@ -1,46 +1,50 @@
 import React from "react";
 import { motion } from "framer-motion";
+import "./Hero.css"; 
 
 const Hero: React.FC = () => {
   return (
-    
-    <section className="flex flex-col items-center justify-center min-h-screen text-center bg-gradient-to-b from-blue-50 to-white">
-      {/* Profile Illustration */}
-      <motion.img
-        src="/profile.jpg"
-        alt="Jeein Park"
-        className="w-40 h-40 rounded-full shadow-lg mb-6 object-cover"
-    />
-
-
-      {/* Name & Tagline */}
-      <motion.h1
-        className="text-6xl font-extrabold text-gray-900"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+    <section className="hero-section">
+      <motion.div
+        className="hero-card"
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
       >
-        Jeein Park
-      </motion.h1>
-      <motion.p
-        className="mt-4 text-2xl text-gray-600"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 1 }}
-      >
-        Creative Software Engineer & Designer
-      </motion.p>
+        <motion.img
+          src="/profile.jpg"
+          alt="Jeein Park"
+          className="hero-image"
+        />
 
-      {/* CTA Button */}
-      <motion.a
-        href="#projects"
-        className="mt-6 px-6 py-3 bg-blue-500 text-white text-lg font-semibold rounded-full shadow-md hover:bg-blue-600 transition"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 1 }}
-      >
-        See My Work
-      </motion.a>
+        <motion.h1
+          className="hero-title"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          Jeein Park
+        </motion.h1>
+
+        <motion.p
+          className="hero-subtitle"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+        >
+          Creative Software Engineer & Designer
+        </motion.p>
+
+        <motion.a
+          href="/projects"
+          className="hero-button"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          See My Work
+        </motion.a>
+      </motion.div>
     </section>
   );
 };
