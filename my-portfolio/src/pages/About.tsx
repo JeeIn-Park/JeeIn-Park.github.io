@@ -1,14 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
+import "./About.css";
 
 const About: React.FC = () => {
   return (
-    <section
-      id="about"
-      className="flex flex-col items-center justify-center min-h-screen bg-white text-center p-8"
-    >
+    <section id="about" className="about-section">
       <motion.h2
-        className="text-4xl font-bold text-gray-900"
+        className="about-title"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -16,7 +14,7 @@ const About: React.FC = () => {
         About Me
       </motion.h2>
       <motion.p
-        className="mt-4 max-w-2xl text-lg text-gray-700"
+        className="about-description"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 1 }}
@@ -27,9 +25,9 @@ const About: React.FC = () => {
       </motion.p>
 
       {/* Skills Section */}
-      <div className="mt-8 flex flex-wrap justify-center gap-4">
+      <div className="skills-container">
         <motion.div
-          className="bg-gray-200 px-4 py-2 rounded-lg shadow-md text-gray-800"
+          className="skill-tag"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.5 }}
@@ -37,7 +35,7 @@ const About: React.FC = () => {
           React
         </motion.div>
         <motion.div
-          className="bg-gray-200 px-4 py-2 rounded-lg shadow-md text-gray-800"
+          className="skill-tag"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 0.5 }}
@@ -45,7 +43,7 @@ const About: React.FC = () => {
           TypeScript
         </motion.div>
         <motion.div
-          className="bg-gray-200 px-4 py-2 rounded-lg shadow-md text-gray-800"
+          className="skill-tag"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.6, duration: 0.5 }}
@@ -53,7 +51,7 @@ const About: React.FC = () => {
           Flutter
         </motion.div>
         <motion.div
-          className="bg-gray-200 px-4 py-2 rounded-lg shadow-md text-gray-800"
+          className="skill-tag"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.7, duration: 0.5 }}
