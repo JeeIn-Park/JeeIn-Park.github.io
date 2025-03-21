@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import "./Projects.css";
 
 const projects = [
   {
@@ -24,9 +25,9 @@ const projects = [
 
 const Projects: React.FC = () => {
   return (
-    <section className="min-h-screen bg-gray-100 text-center p-8">
+    <section className="projects-section">
       <motion.h2
-        className="text-4xl font-bold text-gray-900 mb-8"
+        className="projects-title"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -34,11 +35,11 @@ const Projects: React.FC = () => {
         My Projects
       </motion.h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="projects-grid">
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            className="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition transform hover:scale-105"
+            className="project-card"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.2, duration: 0.5 }}
@@ -46,14 +47,11 @@ const Projects: React.FC = () => {
             <img
               src={project.image}
               alt={project.title}
-              className="rounded-md mb-4"
+              className="project-image"
             />
-            <h3 className="text-2xl font-semibold">{project.title}</h3>
-            <p className="text-gray-600 mt-2">{project.description}</p>
-            <a
-              href={project.link}
-              className="inline-block mt-4 px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition"
-            >
+            <h3 className="project-card-title">{project.title}</h3>
+            <p className="project-description">{project.description}</p>
+            <a href={project.link} className="project-link">
               View Project
             </a>
           </motion.div>

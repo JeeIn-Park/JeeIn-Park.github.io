@@ -30,12 +30,12 @@ const Contact: React.FC = () => {
         <div className="contact-card linkedin">
           <a href="https://linkedin.com/in/jeein-park-36498829a" target="_blank">LinkedIn</a>
         </div>
-        <div className="contact-card email">
+        {/* <div className="contact-card email">
           <a href="mailto:1700pji@naver.com">Email</a>
         </div>
         <div className="contact-card phone">
           <a href="tel:+447724148687">+44 7724 148687</a>
-        </div>
+        </div> */}
         <div className="contact-card instagram">
           <a href="https://www.instagram.com/pji.27" target="_blank">Instagram</a>
         </div>
