@@ -16,8 +16,8 @@ const projects = [
     link: "#",
   },
   {
-    title: "Project Three",
-    description: "Something creative and fun I built.",
+    title: "3D Graphic Rendering and Animation Engine",
+    description: "September 2023 - Deve",
     image: "https://via.placeholder.com/300",
     link: "#",
   },
