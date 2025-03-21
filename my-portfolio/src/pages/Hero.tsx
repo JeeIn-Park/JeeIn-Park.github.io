@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 const Hero: React.FC = () => {
   return (
+    
     <section className="flex flex-col items-center justify-center min-h-screen text-center bg-gradient-to-b from-blue-50 to-white">
       {/* Profile Illustration */}
       <motion.img

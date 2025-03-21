@@ -1,25 +1,31 @@
+import "./Navbar.css";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+
+const navItems = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Projects", path: "/projects" },
+  { name: "Contact", path: "/contact" },
+];
 
 const Navbar: React.FC = () => {
+  const location = useLocation();
+
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-gray-900">
-          <Link to="/">Jeein Park</Link>
-        </h1>
-        <div className="space-x-6">
-          <Link to="/about" className="text-gray-700 hover:text-blue-500">
-            About
-          </Link>
-          <Link to="/projects" className="text-gray-700 hover:text-blue-500">
-            Projects
-          </Link>
-          <Link to="/contact" className="text-gray-700 hover:text-blue-500">
-            Contact
-          </Link>
-        </div>
-      </div>
+    <nav className="navbar">
+      <ul>
+        {navItems.map((item) => (
+          <li key={item.path} className="nav-item">
+            <Link
+              to={item.path}
+              className={location.pathname === item.path ? "active-link" : ""}
+            >
+              {item.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </nav>
   );
 };

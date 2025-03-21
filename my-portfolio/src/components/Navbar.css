@@ -1,0 +1,44 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #00b4db, #0083b0); /* Vibrant gradient */
+    padding: 1rem 2rem;
+    position: fixed;            /* ← changed from sticky to fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* nice subtle shadow */
+  }
+  
+  .navbar ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-item {
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .nav-item:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .nav-item a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  
+  .nav-item .active-link {
+    border-bottom: 3px solid white;
+  }
+  
