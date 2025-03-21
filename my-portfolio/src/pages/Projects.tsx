@@ -24,10 +24,7 @@ const projects = [
 
 const Projects: React.FC = () => {
   return (
-    <section
-      id="projects"
-      className="min-h-screen bg-gray-100 text-center p-8"
-    >
+    <section className="min-h-screen bg-gray-100 text-center p-8">
       <motion.h2
         className="text-4xl font-bold text-gray-900 mb-8"
         initial={{ opacity: 0, y: -20 }}
