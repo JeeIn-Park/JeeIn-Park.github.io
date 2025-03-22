@@ -1,25 +1,46 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { color, motion } from "framer-motion";
 import "./Projects.css";
 
 const projects = [
   {
-    title: "Project One",
-    description: "A brief description of this amazing project.",
-    image: "https://via.placeholder.com/300",
-    link: "#",
+    title: "RepViz - Android Developer",
+    description: "January 2024 - June 2024 : Kotlin, Jetpack Compose, MVVM, Firebase, API development",
+    describe: "",
+    image: "/posters/RepVizPoster.png",
+    color: "",
+    link: "https://github.com/JeeIn-Park/Training-Tracker-Workout-Monitoring",
   },
   {
-    title: "Project Two",
-    description: "Another cool project with a great concept.",
-    image: "https://via.placeholder.com/300",
-    link: "#",
+    title: "NHS - Cross Platform Application Developer",
+    description: "October 2022 - May 2023 : Flutter, Dart, Firebase, Linter, Dependabot, CI/CD",
+    image: "/posters/MedicRecallPoster.png",
+    color: "",
+    link: "https://medicrecall.com/",
+  },
+  {
+    title: "AI Maze Solver",
+    description: "November 2023 - December 2023 : Prolog, Pathfinding Algorithm",
+    image: "/posters/MazeSolverPoster.png",
+    link: "https://github.com/JeeIn-Park/Maze-Solving-AI",
   },
   {
     title: "3D Graphic Rendering and Animation Engine",
-    description: "September 2023 - Deve",
-    image: "https://via.placeholder.com/300",
-    link: "#",
+    description: "September 2023 - December 2023 : C++, SDL2, 3D Geometry Processing, Linear Algebra",
+    image: "/posters/GraphicEnginePoster.png",
+    link: "https://github.com/JeeIn-Park/OBJ-3D-Graphics-Animation-Engine",
+  },
+  {
+    title: "Parallel Optimisation - Conway's Game of Life",
+    description: "October 2022 - Devcember 2022 : Golang, AWS, Vagrant, Concurrency, Distributed System, TDD",
+    image: "/posters/GameOfLifePoster.png",
+    link: "https://github.com/JeeIn-Park/The-Game-of-Life-Optimisation",
+  },
+  {
+    title: "Scotland Yard Boradgame",
+    description: "March 2022 - May 2022 : Java, OOP. Factory Pattern, Observer Pattern, Singleton Pattern, TDD",
+    image: "/posters/ScotlandYardPoster.png",
+    link: "https://github.com/JeeIn-Park/Scotland-Yard-Board-Game",
   },
 ];
 
