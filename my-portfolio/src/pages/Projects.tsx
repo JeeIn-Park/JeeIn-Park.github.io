@@ -78,6 +78,11 @@ const Projects: React.FC = () => {
           </motion.div>
         ))}
       </div>
+
+      <h1></h1>
+      <div>
+        More Exciting Projects Coming Soon!
+      </div>
     </section>
   );
 };
