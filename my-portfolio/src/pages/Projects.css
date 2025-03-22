@@ -36,28 +36,29 @@
     }
   }
   
-  /* Individual project card */
   .project-card {
-    background-color: #fff;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  
-    /* Hover effects */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+    will-change: transform;
   }
   
   .project-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
   }
   
-  /* Project image */
   .project-image {
     width: 100%;
-    border-radius: 0.375rem;
+    height: auto;
+    border-radius: 0.75rem;
+    object-fit: cover;
     margin-bottom: 1rem;
+    transition: transform 0.3s ease;
   }
+  
   
   /* Project card title */
   .project-card-title {

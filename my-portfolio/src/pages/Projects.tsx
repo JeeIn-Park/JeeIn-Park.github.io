@@ -1,6 +1,8 @@
 import React from "react";
 import { color, motion } from "framer-motion";
 import "./Projects.css";
+import { useInView } from 'react-intersection-observer';
+
 
 const projects = [
   {
@@ -57,26 +59,44 @@ const Projects: React.FC = () => {
       </motion.h2>
 
       <div className="projects-grid">
-        {projects.map((project, index) => (
-          <motion.div
-            key={index}
-            className="project-card"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.2, duration: 0.5 }}
-          >
-            <img
-              src={project.image}
-              alt={project.title}
-              className="project-image"
-            />
-            <h3 className="project-card-title">{project.title}</h3>
-            <p className="project-description">{project.description}</p>
-            <a href={project.link} className="project-link">
-              View Project
-            </a>
-          </motion.div>
-        ))}
+      {projects.map((project, index) => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.15,
+  });
+
+  return (
+<motion.div
+  key={index}
+  ref={ref}
+  className="project-card"
+  initial={{ opacity: 0, y: 30 }}
+  animate={inView ? { opacity: 1, y: 0 } : {}}
+  whileHover={{ y: -10 }} // Card lifts on hover
+  transition={{ delay: index * 0.2, duration: 0.6 }}
+>
+  <motion.img
+    src={project.image}
+    alt={project.title}
+    className="project-image"
+    whileHover={{ y: 10 }} // Image moves down on hover
+    transition={{ type: "spring", stiffness: 150 }}
+  />
+  <h3 className="project-card-title">{project.title}</h3>
+  <p className="project-description">{project.description}</p>
+  <a
+    href={project.link}
+    className="project-link"
+    target="_blank"
+    rel="noreferrer"
+  >
+    View Project
+  </a>
+</motion.div>
+
+  );
+})}
+
       </div>
 
       <h1></h1>
