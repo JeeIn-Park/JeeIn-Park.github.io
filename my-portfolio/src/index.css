@@ -1,11 +1,32 @@
 /* index.css */
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+  background: radial-gradient(
+    circle at center,
+    #fffbc8,
+    #ffd7f4,
+    #b8d1fc,
+    #fad0c4,
+    #e7ffcb,  
+    #b8e5fc
+  );
+  background-size: 1000% 1000%;
+  animation: swirl 40s linear infinite;
+}
+
+@keyframes swirl {
+  0% {
+    background-position: 50% 50%;
   }
-  
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 50% 50%;
+  }
+}
+
+
   nav {
     background-color: #222;
     color: white;
@@ -20,4 +41,5 @@ body {
   html {
     scroll-padding-top: 6rem;
   }
+  
   
