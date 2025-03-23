@@ -1,6 +1,8 @@
 /* index.css */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&display=swap');
 
 body {
+  font-family: 'Fredoka', sans-serif;
   background: radial-gradient(
     circle at center,
     #fffbc8,
@@ -26,16 +28,9 @@ body {
   }
 }
 
-
-  nav {
-    background-color: #222;
-    color: white;
-    padding: 1rem;
-  }
-  
   h1 {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
   
   html {

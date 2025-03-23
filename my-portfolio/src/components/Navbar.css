@@ -1,17 +1,17 @@
 .navbar {
   position: fixed;
-  top: 1rem;
+  top: 2.5rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 50;
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
   padding: 1rem 2rem;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 10px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
@@ -19,31 +19,32 @@
   position: relative; /* ✅ anchor for absolute positioning */
   padding: 0.5rem 1.25rem;
   border-radius: 999px;
-  font-weight: 600;
-  color: #333;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: #939393;
   text-decoration: none;
   z-index: 1;
   transition: color 0.3s ease;
 }
 
 .nav-item:hover {
-  color: #111;
+  color: #dcad45;
 }
 
 .nav-item.active {
-  color: #111;
+  color: #ffa600;
 }
 
 /* Sliding pill */
 .pill {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%); /* ✅ center vertically */
-  left: 0; /* or adjust as needed */
+  transform: translateY(-50%); 
+  left: 0; 
   height: 70%;
-  width: 100%; /* or adjust width dynamically */
-  background: rgba(255, 255, 255, 0.6);
+  width: 120%; 
+  background: rgba(255, 255, 255, 0.525);
   border-radius: 999px;
   z-index: 0;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }

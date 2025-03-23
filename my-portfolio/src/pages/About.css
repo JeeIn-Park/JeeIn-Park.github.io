@@ -1,6 +1,6 @@
 .about-section {
   min-height: 100vh;
-  padding: 3rem 2rem;
+  padding: 10rem 2rem;
   text-align: center;
   color: #333;
 }
@@ -9,14 +9,20 @@
   font-size: 2.5rem;
   font-weight: 800;
   color: #1f2937;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .about-text {
+  background: #f3f4f684;
+  border-radius: 100px;
+  width: 70%;
+  padding: 3%;
   font-size: 1.125rem;
   color: #555;
   max-width: 700px;
   margin: 0 auto 3rem auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
 }
 
 .skills-container {
@@ -27,7 +33,7 @@
 }
 
 .skill-group {
-  background: #f3f4f6;
+  background: #f3f4f684;
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);

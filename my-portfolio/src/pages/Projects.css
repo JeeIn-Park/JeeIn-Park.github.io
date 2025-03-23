@@ -1,16 +1,10 @@
-/* Projects.css */
 
-/* Section container */
 .projects-section {
-    /* Height + spacing */
     min-height: 100vh;
-    padding: 2rem;
-  
-    /* Background + text alignment */
+    padding: 8rem 2rem;
     text-align: center;
   }
   
-  /* Main title */
   .projects-title {
     margin-top: 4rem;
     font-size: 2.25rem;
@@ -31,7 +25,7 @@
     }
   
     @media (min-width: 1024px) {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(1, 1fr);
     }
   }
   
