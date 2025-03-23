@@ -1,6 +1,6 @@
-import "./Navbar.css";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import "./Navbar.css";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -14,18 +14,15 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="navbar">
-      <ul>
-        {navItems.map((item) => (
-          <li key={item.path} className="nav-item">
-            <Link
-              to={item.path}
-              className={location.pathname === item.path ? "active-link" : ""}
-            >
-              {item.name}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {navItems.map((item, index) => (
+        <Link
+          key={index}
+          to={item.path}
+          className={location.pathname === item.path ? "active" : ""}
+        >
+          {item.name}
+        </Link>
+      ))}
     </nav>
   );
 };

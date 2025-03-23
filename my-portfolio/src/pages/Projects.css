@@ -61,20 +61,16 @@
     transition: transform 0.3s ease;
   }
   
-  
-  /* Project card title */
   .project-card-title {
     font-size: 1.5rem;
     font-weight: 600;
   }
   
-  /* Project description */
   .project-description {
     color: #718096;
     margin-top: 0.5rem;
   }
   
-  /* CTA link button */
   .project-link {
     display: inline-block;
     margin-top: 1rem;

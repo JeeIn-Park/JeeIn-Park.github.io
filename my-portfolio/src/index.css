@@ -17,3 +17,7 @@ body {
     margin-bottom: 1rem;
   }
   
+  html {
+    scroll-padding-top: 6rem;
+  }
+  
