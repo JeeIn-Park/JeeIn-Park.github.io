@@ -115,23 +115,22 @@
 }
 
 
-.tooltip {
+.tooltip-centered {
   position: absolute;
-  bottom: -2rem;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  background-color: #1bb152;
+  transform: translate(-50%, -120%);
+  background-color: #000;
   color: white;
   padding: 0.3rem 0.6rem;
   border-radius: 4px;
-  font-size: 1rem;
+  font-size: 0.75rem;
   font-weight: 500;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 5;
   opacity: 0;
   animation: tooltipFadeIn 0.3s forwards;
-  pointer-events: none;
-  white-space: nowrap;
-  z-index: 2;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .contact-card.email .tooltip {
@@ -145,10 +144,65 @@
 @keyframes tooltipFadeIn {
   0% {
     opacity: 0;
-    transform: translate(-50%, 4px);
+    transform: translate(-50%, -100%) scale(0.95);
   }
   100% {
     opacity: 1;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, -120%) scale(1);
+  }
+}
+
+.chat-bubble {
+  position: absolute;
+  top: -1.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1f2937; /* default */
+  color: white;
+  padding: 0.4rem 0.7rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 400;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  animation: bubbleFadeIn 0.3s forwards;
+}
+
+/* Bubble tail */
+.chat-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: #1f2937 transparent transparent transparent;
+}
+
+.contact-card.email .chat-bubble {
+  background-color: #ff9100;
+}
+.contact-card.email .chat-bubble::after {
+  border-color: #ff9100 transparent transparent transparent;
+}
+
+.contact-card.phone .chat-bubble {
+  background-color: #1bb152;
+}
+.contact-card.phone .chat-bubble::after {
+  border-color: #1bb152 transparent transparent transparent;
+}
+
+@keyframes bubbleFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
   }
 }

@@ -52,39 +52,33 @@ const cardVariants = {
 const Contact: React.FC = () => {
   const [copiedItem, setCopiedItem] = useState<string | null>(null);
 
-  const handleCopy = async (text: string, name: string) => {
+  const handleCopy = async (
+    text: string,
+    name: string,
+    e: React.MouseEvent
+  ) => {
     try {
       await navigator.clipboard.writeText(text);
       setCopiedItem(name);
-  
-      // Get the clicked icon element
-      const iconElement = document.querySelector(
-        `.contact-card.${name.toLowerCase()} .contact-icon`
-      ) as HTMLElement;
-  
-      if (iconElement) {
-        const rect = iconElement.getBoundingClientRect();
-  
-        // Calculate origin in viewport-relative coordinates (0 to 1)
-        const x = (rect.left + rect.width / 2) / window.innerWidth;
-        const y = (rect.top + rect.height / 2) / window.innerHeight;
-  
-        // Launch confetti from the icon's screen position
-        confetti({
-          particleCount: 100,
-          spread: 80,
-          startVelocity: 30,
-          origin: { x, y },
-          zIndex: 9999
-        });
-      }
-  
-      setTimeout(() => setCopiedItem(null), 1500);
+
+      confetti({
+        particleCount: 100,
+        spread: 80,
+        startVelocity: 30,
+        origin: {
+          x: e.clientX / window.innerWidth,
+          y: e.clientY / window.innerHeight,
+        },
+        zIndex: 9999,
+      });
+
+      setTimeout(() => {
+        setCopiedItem(null);
+      }, 1500);
     } catch (err) {
       console.error("Failed to copy:", err);
     }
   };
-  
 
   return (
     <section id="contact" className="contact-section">
@@ -125,37 +119,38 @@ const Contact: React.FC = () => {
             whileTap={{ scale: 0.97 }}
           >
             {item.copyText ? (
-            <div
-            onClick={() => handleCopy(item.copyText!, item.name)}
-            className="copy-card"
-            style={{ position: "relative" }}
-          >
-            <img
-              src={item.icon}
-              alt={`${item.name} icon`}
-              className="contact-icon"
-            />
-            <span>{copiedItem === item.name ? "Copied!" : item.name}</span>
-          
-            {copiedItem === item.name && (
-              <span className="tooltip">Copied to the clipboard!</span>
-            )}
-          </div>          
-          ) : (
-            <a
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src={item.icon}
-                alt={`${item.name} icon`}
-                className="contact-icon"
-              />
-              <span>{item.name}</span>
-            </a>
-          )}
+              <div
+                onClick={(e) => handleCopy(item.copyText!, item.name, e)}
+                className="copy-card"
+                style={{ position: "relative" }}
+              >
+                <img
+                  src={item.icon}
+                  alt={`${item.name} icon`}
+                  className="contact-icon"
+                />
+                <span>{item.name}</span>
 
+                {copiedItem === item.name && (
+                  <span className="tooltip chat-bubble">
+                    Copied to the clipboard!
+                  </span>
+                )}
+              </div>
+            ) : (
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={item.icon}
+                  alt={`${item.name} icon`}
+                  className="contact-icon"
+                />
+                <span>{item.name}</span>
+              </a>
+            )}
           </motion.div>
         ))}
       </motion.div>
