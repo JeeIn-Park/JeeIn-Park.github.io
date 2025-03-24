@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Hero from "./pages/Hero"; 
 import Contact from "./pages/Contact";
 import About from "./pages/About";
@@ -21,6 +22,7 @@ const App: React.FC = () => {
 
       {/* Fixed Navbar on the right */}
       <Navbar />
+      <Footer />
     </div>
   );
 };

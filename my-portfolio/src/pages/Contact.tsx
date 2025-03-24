@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "./Contact.css";
 
@@ -21,27 +21,46 @@ const contactItems = [
     icon: "/contacts/instagram.png",
     className: "instagram",
   },
-  // {
-  //   name: "Facebook",
-  //   url: "https://www.facebook.com/profile.php?id=100010788885611",
-  //   icon: "/icons/facebook.png",
-  //   className: "facebook",
-  // },
   {
     name: "Email",
-    url: "mailto:1700pji@naver.com",
+    copyText: "1700pji@naver.com",
     icon: "/contacts/email.png",
     className: "email",
   },
   {
     name: "Phone",
-    url: "tel:+447724148687",
+    copyText: "+44 7724148687",
     icon: "/contacts/whatsapp.png",
     className: "phone",
   },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.1,
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  }),
+};
+
 const Contact: React.FC = () => {
+  const [copiedItem, setCopiedItem] = useState<string | null>(null);
+
+  const handleCopy = async (text: string, name: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedItem(name);
+      setTimeout(() => setCopiedItem(null), 1500);
+    } catch (err) {
+      console.error("Failed to copy:", err);
+    }
+  };
+
   return (
     <section id="contact" className="contact-section">
       <motion.h2
@@ -59,27 +78,57 @@ const Contact: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 1 }}
       >
-        Feel free to reach out for collaborations, work opportunities, or just to chat! I’d love to hear from you.
+        Feel free to reach out for collaborations, work opportunities, or just
+        to chat! I’d love to hear from you.
       </motion.p>
 
-      <div className="contact-cards">
+      <motion.div
+        className="contact-cards"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.2 }}
+      >
         {contactItems.map((item, index) => (
           <motion.div
             className={`contact-card ${item.className}`}
             key={item.name}
+            custom={index}
+            variants={cardVariants}
+            initial="hidden"
+            animate="visible"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 + index * 0.1, duration: 0.6 }}
           >
-            <a href={item.url} target="_blank" rel="noopener noreferrer">
-              <img src={item.icon} alt={`${item.name} icon`} className="contact-icon" />
-              <span>{item.name}</span>
-            </a>
+            {item.copyText ? (
+              <div
+                onClick={() => handleCopy(item.copyText!, item.name)}
+                className="copy-card"
+                style={{ cursor: "pointer" }}
+              >
+                <img
+                  src={item.icon}
+                  alt={`${item.name} icon`}
+                  className="contact-icon"
+                />
+                <span>{copiedItem === item.name ? "Copied!" : item.name}</span>
+              </div>
+            ) : (
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={item.icon}
+                  alt={`${item.name} icon`}
+                  className="contact-icon"
+                />
+                <span>{item.name}</span>
+              </a>
+            )}
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };
