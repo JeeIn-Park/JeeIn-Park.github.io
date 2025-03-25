@@ -77,23 +77,28 @@ const Projects: React.FC = () => {
               whileHover={{ y: -10 }}
               transition={{ delay: index * 0.15, duration: 0.5 }}
             >
-              <motion.img
-                src={project.image}
-                alt={project.title}
-                className="project-image"
-                whileHover={{ y: 10 }}
-                transition={{ type: "spring", stiffness: 200 }}
-              />
+              <div className="image-container">
+                <motion.img
+                  src={project.image}
+                  alt={project.title}
+                  className="project-image"
+                  whileHover={{ y: 10 }}
+                  transition={{ type: "spring", stiffness: 200 }}
+                />
+                <div className="overlay">
+                  <a
+                    href={project.link}
+                    className="project-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Project
+                  </a>
+                </div>
+              </div>
+
               <h3 className="project-card-title">{project.title}</h3>
               <p className="project-description">{project.description}</p>
-              <a
-                href={project.link}
-                className="project-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Project
-              </a>
             </motion.div>
           );
         })}
