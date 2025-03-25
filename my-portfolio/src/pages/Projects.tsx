@@ -6,43 +6,43 @@ import "./Projects.css";
 const projects = [
   {
     title: "RepViz - Android Developer",
-    description:
-      "January 2024 - June 2024 : Kotlin, Jetpack Compose, MVVM, Firebase, API development",
+    date: "January 2024 - June 2024",
+    description: "Kotlin, Jetpack Compose, MVVM, Firebase, API development",
     image: "/posters/RepVizPoster.png",
     link: "https://github.com/JeeIn-Park/Training-Tracker-Workout-Monitoring",
   },
   {
     title: "NHS - Cross Platform Application Developer",
-    description:
-      "October 2022 - May 2023 : Flutter, Dart, Firebase, Linter, Dependabot, CI/CD",
+    date: "October 2022 - May 2023",
+    description: "Flutter, Dart, Firebase, Linter, Dependabot, CI/CD",
     image: "/posters/MedicRecallPoster.png",
     link: "https://medicrecall.com/",
   },
   {
     title: "AI Maze Solver",
-    description:
-      "November 2023 - December 2023 : Prolog, Pathfinding Algorithm",
+    date: "November 2023 - December 2023",
+    description: "Prolog, Pathfinding Algorithm",
     image: "/posters/MazeSolverPoster.png",
     link: "https://github.com/JeeIn-Park/Maze-Solving-AI",
   },
   {
     title: "3D Graphic Rendering and Animation Engine",
-    description:
-      "September 2023 - December 2023 : C++, SDL2, 3D Geometry Processing, Linear Algebra",
+    date: "September 2023 - December 2023",
+    description: "C++, SDL2, 3D Geometry Processing, Linear Algebra",
     image: "/posters/GraphicEnginePoster.png",
     link: "https://github.com/JeeIn-Park/OBJ-3D-Graphics-Animation-Engine",
   },
   {
     title: "Parallel Optimisation - Conway's Game of Life",
-    description:
-      "October 2022 - December 2022 : Golang, AWS, Vagrant, Concurrency, Distributed System, TDD",
+    date: "October 2022 - December 2022",
+    description: "Golang, AWS, Vagrant, Concurrency, Distributed System, TDD",
     image: "/posters/GameOfLifePoster.png",
     link: "https://github.com/JeeIn-Park/The-Game-of-Life-Optimisation",
   },
   {
     title: "Scotland Yard Boardgame",
-    description:
-      "March 2022 - May 2022 : Java, OOP. Factory Pattern, Observer Pattern, Singleton Pattern, TDD",
+    date: "March 2022 - May 2022",
+    description:"Java, OOP. Factory Pattern, Observer Pattern, Singleton Pattern, TDD",
     image: "/posters/ScotlandYardPoster.png",
     link: "https://github.com/JeeIn-Park/Scotland-Yard-Board-Game",
   },
@@ -87,9 +87,9 @@ const Projects: React.FC = () => {
                     alt={project.title}
                     className="project-image"
                   />
-
                   <div className="project-text">
                     <h3 className="project-card-title">{project.title}</h3>
+                    <p className="project-date">{project.date}</p>
                     <p className="project-description">{project.description}</p>
                   </div>
               </motion.div>
