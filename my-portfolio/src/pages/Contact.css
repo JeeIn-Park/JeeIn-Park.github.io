@@ -20,7 +20,7 @@
   font-size: 1rem;
   color: #555;
   max-width: 600px;
-  margin: 0 auto 2rem; /* 👈 this centers it horizontally */
+  margin: 0 auto 2rem;
   text-align: center;
 }
 
