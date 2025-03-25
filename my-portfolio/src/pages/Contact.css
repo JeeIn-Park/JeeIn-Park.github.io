@@ -1,0 +1,199 @@
+.contact-section {
+  min-height: 100vh;
+  padding: 6rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+
+.contact-title {
+  margin-top: 3rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 2rem;
+}
+
+.contact-text {
+  font-size: 1rem;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+
+.contact-card {
+  background: rgba(255, 255, 255, 0); /* semi-transparent */
+  border: 1px solid rgba(255, 255, 255, 0); /* soft border */
+  border-radius: 16px;
+  padding: 0rem 0.5rem;
+  width: 130px;
+  text-align: center;
+  /* backdrop-filter: blur(12px);  */
+  /* -webkit-backdrop-filter: blur(12px);  */
+  /* box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); */
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: scale(1.05);
+  transition-duration: 0.1s;
+  /* box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3); */
+}
+
+.contact-card a {
+  color: #000000; 
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* Hover text colours per platform */
+.contact-card.github a:hover {color: #c04040;}
+.contact-card.linkedin a:hover {color: #0077b5;}
+.contact-card.instagram a:hover {color: #e1306c;}
+.contact-card.email a:hover {color: #ff9100;}
+.contact-card.phone a:hover {color: #1bb152;}
+
+.copy-card {
+  color: #000000; 
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-card.email .copy-card:hover {color: #ff9100; }
+.contact-card.phone .copy-card:hover {color: #1bb152;}
+
+.contact-icon {
+  width: 135px;
+  height: 135px;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.199));
+}
+
+.contact-cards {
+  background: #ffffff50;
+  border-radius: 60px;
+  padding: 40px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.079);
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+
+  margin-top: 2rem;
+  max-width: 900px;
+  width: 80%;
+}
+
+.copy-card img {
+  position: relative;
+  z-index: 0;
+}
+
+
+.tooltip-centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -120%);
+  background-color: #000;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  animation: tooltipFadeIn 0.3s forwards;
+}
+
+.contact-card.email .tooltip {
+  background-color: #ff9100;
+}
+
+.contact-card.phone .tooltip {
+  background-color: #1bb152;
+}
+
+@keyframes tooltipFadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -100%) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -120%) scale(1);
+  }
+}
+
+.chat-bubble {
+  position: absolute;
+  top: -1.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1f2937; /* default */
+  color: white;
+  padding: 0.4rem 0.7rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 400;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  animation: bubbleFadeIn 0.3s forwards;
+}
+
+/* Bubble tail */
+.chat-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: #1f2937 transparent transparent transparent;
+}
+
+.contact-card.email .chat-bubble {
+  background-color: #ff9100;
+}
+.contact-card.email .chat-bubble::after {
+  border-color: #ff9100 transparent transparent transparent;
+}
+
+.contact-card.phone .chat-bubble {
+  background-color: #1bb152;
+}
+.contact-card.phone .chat-bubble::after {
+  border-color: #1bb152 transparent transparent transparent;
+}
+
+@keyframes bubbleFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
