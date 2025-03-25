@@ -66,41 +66,34 @@ const Projects: React.FC = () => {
             triggerOnce: true,
             threshold: 0.15,
           });
-
-          return (
-            <motion.div
-              key={index}
-              ref={ref}
-              className="project-card"
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              whileHover={{ y: -10 }}
-              transition={{ delay: index * 0.15, duration: 0.5 }}
-            >
-              <div className="image-container">
-                <motion.img
-                  src={project.image}
-                  alt={project.title}
-                  className="project-image"
-                  whileHover={{ y: 10 }}
-                  transition={{ type: "spring", stiffness: 200 }}
-                />
-                <div className="overlay">
-                  <a
-                    href={project.link}
-                    className="project-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View Project
-                  </a>
-                </div>
-              </div>
-
-              <h3 className="project-card-title">{project.title}</h3>
-              <p className="project-description">{project.description}</p>
-            </motion.div>
-          );
+            return (
+              <a
+                key={index}
+                href={project.link}
+                className="project-card-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <motion.div
+                  ref={ref}
+                  className="project-card"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  whileHover={{ y: -10 }}
+                  transition={{ delay: index * 0.15, duration: 0.5 }}
+                >
+                  <motion.img
+                    src={project.image}
+                    alt={project.title}
+                    className="project-image"
+                    whileHover={{ y: 10 }}
+                    transition={{ type: "spring", stiffness: 200 }}
+                  />
+                  <h3 className="project-card-title">{project.title}</h3>
+                  <p className="project-description">{project.description}</p>
+                </motion.div>
+              </a>
+            );
         })}
       </div>
 
