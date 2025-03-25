@@ -116,6 +116,7 @@ const Contact: React.FC = () => {
             initial="hidden"
             animate="visible"
             whileHover={{ scale: 1.05 }}
+            // transition={{ type: "spring", stiffness: 200, damping: 10 }}
             whileTap={{ scale: 0.97 }}
           >
             {item.copyText ? (

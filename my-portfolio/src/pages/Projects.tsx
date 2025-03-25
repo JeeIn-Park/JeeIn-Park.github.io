@@ -51,14 +51,14 @@ const projects = [
 const Projects: React.FC = () => {
   return (
     <section className="projects-section">
-      <motion.h2
+      {/* <motion.h2
         className="projects-title"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
         My Projects
-      </motion.h2>
+      </motion.h2> */}
 
       <div className="projects-grid">
         {projects.map((project, index) => {
@@ -79,19 +79,20 @@ const Projects: React.FC = () => {
                   className="project-card"
                   initial={{ opacity: 0, y: 30 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
-                  whileHover={{ y: -10 }}
-                  transition={{ delay: index * 0.15, duration: 0.5 }}
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 200, damping: 10 }}
                 >
                   <motion.img
                     src={project.image}
                     alt={project.title}
                     className="project-image"
-                    whileHover={{ y: 10 }}
-                    transition={{ type: "spring", stiffness: 200 }}
                   />
-                  <h3 className="project-card-title">{project.title}</h3>
-                  <p className="project-description">{project.description}</p>
-                </motion.div>
+
+                  <div className="project-text">
+                    <h3 className="project-card-title">{project.title}</h3>
+                    <p className="project-description">{project.description}</p>
+                  </div>
+              </motion.div>
               </a>
             );
         })}
