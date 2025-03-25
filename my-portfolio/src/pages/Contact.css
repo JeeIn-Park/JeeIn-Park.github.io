@@ -1,23 +1,23 @@
 .contact-section {
   min-height: 100vh;
-  padding: 8rem 2rem;
+  padding: 6rem 2rem;
   text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center; /* ✅ centers children horizontally */
+  align-items: center; 
 }
 
 
 .contact-title {
-  margin-top: 4rem;
-  font-size: 2.25rem;
+  margin-top: 3rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #1a202c;
   margin-bottom: 2rem;
 }
 
 .contact-text {
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: #555;
   max-width: 600px;
   margin: 0 auto 2rem; /* 👈 this centers it horizontally */
@@ -29,23 +29,14 @@
   background: rgba(255, 255, 255, 0); /* semi-transparent */
   border: 1px solid rgba(255, 255, 255, 0); /* soft border */
   border-radius: 16px;
-  padding: 1rem 1.5rem;
-  width: 150px;
+  padding: 0rem 0.5rem;
+  width: 130px;
   text-align: center;
   /* backdrop-filter: blur(12px);  */
   /* -webkit-backdrop-filter: blur(12px);  */
   /* box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); */
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
-
-/* 
-.contact-card.github { border-top: 4px solid #2b2b2b; }
-.contact-card.linkedin { border-top: 4px solid #0e76a8; }
-.contact-card.email { border-top: 4px solid #ef4444; }
-.contact-card.phone { border-top: 4px solid #10b981; }
-.contact-card.instagram { border-top: 4px solid #e1306c; }
-.contact-card.facebook { border-top: 4px solid #1877f2; } */
-
 
 .contact-card:hover {
   transform: scale(1.05);
@@ -55,7 +46,7 @@
 
 .contact-card a {
   color: #000000; 
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
   display: flex;
@@ -73,7 +64,7 @@
 
 .copy-card {
   color: #000000; 
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
   display: flex;
@@ -85,15 +76,15 @@
 .contact-card.phone .copy-card:hover {color: #1bb152;}
 
 .contact-icon {
-  width: 170px;
-  height: 170px;
+  width: 135px;
+  height: 135px;
   margin-bottom: 0.5rem;
   filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.199));
 }
 
 .contact-cards {
   background: #ffffff50;
-  border-radius: 90px;
+  border-radius: 60px;
   padding: 40px;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -105,7 +96,7 @@
   gap: 1rem;
 
   margin-top: 2rem;
-  max-width: 1200px;
+  max-width: 900px;
   width: 80%;
 }
 
