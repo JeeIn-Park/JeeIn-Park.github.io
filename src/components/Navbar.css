@@ -1,12 +1,19 @@
+.navbar-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+  margin-bottom: -6rem;
+}
+
 .navbar {
   position: fixed;
   top: 2.5rem;
   left: 50%;
-  max-width: 90vw; 
   transform: translateX(-50%);
   z-index: 50;
   display: flex;
   justify-content: center;
+  flex-wrap: nowrap;
   gap: 1.5rem;
   padding: 0.5rem 1rem;
   border-radius: 999px;
@@ -14,22 +21,11 @@
   backdrop-filter: blur(10px);
   border: 5px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 480px) {
-  .navbar {
-    gap: 0.8rem;
-    padding: 0.4rem 0.8rem;
-  }
-
-  .nav-item {
-    padding: 0.4rem 0.9rem;
-    font-size: 0.9rem;
-  }
+  max-width: 90vw;
 }
 
 .nav-item {
-  position: relative; /* ✅ anchor for absolute positioning */
+  position: relative;
   padding: 0.5rem 1.25rem;
   border-radius: 999px;
   font-weight: 500;
@@ -48,16 +44,38 @@
   color: #ffa600;
 }
 
-/* Sliding pill */
 .pill {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%); 
-  left: 0; 
+  transform: translateY(-50%);
+  left: 0;
   height: 70%;
-  width: 120%; 
+  width: 120%;
   background: rgba(255, 255, 255, 0.525);
   border-radius: 999px;
   z-index: 0;
   transition: all 0.4s ease;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    position: static;
+    transform: none;
+    margin-top: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0rem;
+    padding: 0.6rem 1rem;
+    border-radius: 999rem;
+    max-width: 95vw;
+  }
+/* 
+  .pill {
+    display: none;
+  } */
+
+  .nav-item {
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+  }
 }

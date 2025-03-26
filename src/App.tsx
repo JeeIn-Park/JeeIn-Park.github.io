@@ -10,8 +10,9 @@ import Projects from "./pages/Projects";
 const App: React.FC = () => {
   return (
     <div className="flex bg-gray-100 text-gray-900 min-h-screen">
-      {/* Main Content */}
-      <div className="flex-1 p-8 pr-48"> {/* pr-48 to give space for navbar */}
+      <Navbar />
+
+      <div className="flex-1 p-8 pr-48"> 
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/about" element={<About />} />
@@ -20,8 +21,6 @@ const App: React.FC = () => {
         </Routes>
       </div>
 
-      {/* Fixed Navbar on the right */}
-      <Navbar />
       <Footer />
     </div>
   );

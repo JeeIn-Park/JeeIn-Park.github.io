@@ -24,26 +24,57 @@ const Navbar: React.FC = () => {
   }, [location.pathname]);
 
   return (
-    <nav className="navbar" ref={containerRef}>
-      <motion.div
-        className="pill"
-        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        style={{
-          left: pillStyle.left,
-          width: pillStyle.width,
-        }}
-      />
-      {navItems.map((item, index) => (
-        <Link
-          key={index}
-          to={item.path}
-          className={`nav-item ${location.pathname === item.path ? "active" : ""}`}
-        >
-          {item.name}
-        </Link>
-      ))}
+    <nav className="navbar-wrapper">
+      <div className="navbar" ref={containerRef}>
+        <motion.div
+          className="pill"
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          style={{
+            left: pillStyle.left,
+            width: pillStyle.width,
+          }}
+        />
+        {navItems.map((item, index) => (
+          <Link
+            key={index}
+            to={item.path}
+            className={`nav-item ${location.pathname === item.path ? "active" : ""}`}
+          >
+            {item.name}
+          </Link>
+        ))}
+      </div>
     </nav>
   );
 };
 
 export default Navbar;
+
+
+//   }, [location.pathname]);
+
+//   return (
+//     <nav className={`navbar-container ${isOpen ? "open" : ""}`}>
+//       <button className="hamburger" onClick={() => setIsOpen(!isOpen)}>
+//         {isOpen ? "✕" : "☰"}
+//       </button>
+
+//       <div className="navbar" ref={containerRef}>
+//         <motion.div
+//           className="pill"
+//           transition={{ type: "spring", stiffness: 300, damping: 30 }}
+//           style={{ left: pillStyle.left, width: pillStyle.width }}
+//         />
+//         {navItems.map((item, index) => (
+//           <Link
+//             key={index}
+//             to={item.path}
+//             className={`nav-item ${location.pathname === item.path ? "active" : ""}`}
+//           >
+//             {item.name}
+//           </Link>
+//         ))}
+//       </div>
+//     </nav>
+//   );
+// };
