@@ -5,10 +5,15 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    const html = document.documentElement;
     const anchor = document.getElementById("top-anchor");
-    if (anchor) {
-      anchor.scrollIntoView({ behavior: "auto" }); // ← no smooth scroll
-    }
+
+    const prevScrollBehavior = html.style.scrollBehavior;
+    html.style.scrollBehavior = "auto";
+
+    anchor?.scrollIntoView();
+
+    html.style.scrollBehavior = prevScrollBehavior;
   }, [pathname]);
 
   return null;
