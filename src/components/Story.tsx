@@ -5,12 +5,12 @@ import { useRef } from "react";
 
 const StorySection = () => {
     const ref = useRef(null);
-const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-
-const topOpacity = useSpring(useTransform(scrollYProgress, [0, 0.2], [0, 1]), { stiffness: 100 });
-const leftOpacity = useSpring(useTransform(scrollYProgress, [0.2, 0.4], [0, 1]), { stiffness: 100 });
-const rightOpacity = useSpring(useTransform(scrollYProgress, [0.4, 0.6], [0, 1]), { stiffness: 100 });
-const centerOpacity = useSpring(useTransform(scrollYProgress, [0.6, 0.9], [0, 1]), { stiffness: 100 });
+    const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+    const topOpacity = useSpring( useTransform(scrollYProgress, [0.2, 0.3], [0, 1]), { stiffness: 100 });
+    const leftOpacity = useSpring( useTransform(scrollYProgress, [0.3, 0.4], [0, 1]), { stiffness: 100 });
+    const rightOpacity = useSpring( useTransform(scrollYProgress, [0.4, 0.5], [0, 1]), { stiffness: 100 });
+    const arrowOpacity = useSpring( useTransform(scrollYProgress, [0.45, 0.55], [0, 1]), { stiffness: 100 });
+    const centerOpacity = useSpring( useTransform(scrollYProgress, [0.6, 0.65], [0, 1]), { stiffness: 100 });
 
   return (
     <section className="story-wrapper">
@@ -195,49 +195,68 @@ const centerOpacity = useSpring(useTransform(scrollYProgress, [0.6, 0.9], [0, 1]
                     That’s one of the reasons I love upcycling, by the way (you might’ve seen it in my CV).
                     It’s all about redefining value, seeing potential where others see junk.
                 </p>
-
-
-
             </motion.p>
         </section>
 
-        <section className="triangle-scroll-section" ref={ref}>
-  <div className="sticky-wrapper">
-    <motion.div className="triangle-wrapper">
-      <motion.div
-        className="triangle-corner top"
-        style={{ opacity: topOpacity }}
-      >
-        Creativity
-      </motion.div>
+        <section className="triangle-scroll-section" ref={ref} id="proactive-problem-solving">
+            <div className="sticky-wrapper">
+                <motion.div className="triangle-wrapper">
+                <motion.div
+                    className="triangle-corner top"
+                    style={{ opacity: topOpacity }}
+                >
+                    Creativity
+                </motion.div>
 
-      <motion.div
-        className="triangle-corner left"
-        style={{ opacity: leftOpacity }}
-      >
-        Sensitivity
-      </motion.div>
+                <motion.div
+                    className="triangle-corner left"
+                    style={{ opacity: leftOpacity }}
+                >
+                    Sensitivity
+                </motion.div>
 
-      <motion.div
-        className="triangle-corner right"
-        style={{ opacity: rightOpacity }}
-      >
-        Tenacity & Curiosity
-      </motion.div>
+                <motion.div
+                    className="triangle-corner right"
+                    style={{ opacity: rightOpacity }}
+                >
+                    Tenacity & Curiosity
+                </motion.div>
 
-      <motion.div
-        className="triangle-center"
-        style={{ opacity: centerOpacity }}
-      >
-        Proactive Problem-Solving<br />through Unique Ideas
-      </motion.div>
-    </motion.div>
-  </div>
-</section>
+                {/* Arrows pointing inward */}
+                <motion.div
+                className="triangle-arrow top-arrow"
+                style={{ opacity: arrowOpacity }}
+                >
+                    ⬇
+                </motion.div>
+
+                <motion.div
+                className="triangle-arrow left-arrow"
+                style={{ opacity: arrowOpacity }}
+                >
+                    ➡
+                </motion.div>
+
+                <motion.div
+                className="triangle-arrow right-arrow"
+                style={{ opacity: arrowOpacity }}
+                >
+                    ⬅
+                </motion.div>
+
+                <motion.div
+                    className="triangle-center"
+                    style={{ opacity: centerOpacity }}
+                >
+                    Proactive Problem-Solving<br />through Unique Ideas
+                </motion.div>
+                </motion.div>
+            </div>
+            </section>
 
 
         {/* Proactive Problem Solving */}
-                <section className="story-section" id="proactive-problem-solving">
+                <section className="story-section" id="proactive-problem-solving-text">
             <motion.h2
                 className="story-title"
                 initial={{ opacity: 0, y: 30 }}
@@ -357,18 +376,6 @@ const centerOpacity = useSpring(useTransform(scrollYProgress, [0.6, 0.9], [0, 1]
 
             </motion.p>
         </section>
-
-        <div className="story-nav bottom-nav">
-            <p className="nav-label">Back to sections:</p>
-            <ul className="nav-links">
-                <li><a href="#creativity">Creativity</a></li>
-                <li><a href="#sensitivity">Sensitivity</a></li>
-                <li><a href="#tenacity-curiosity">Tenacity & Curiosity</a></li>
-                <li><a href="#proactive-problem-solving">Problem Solving</a></li>
-                <li><a href="#future-goals">Where I'm Heading</a></li>
-            </ul>
-        </div>
-
     </section>
   );
 };
