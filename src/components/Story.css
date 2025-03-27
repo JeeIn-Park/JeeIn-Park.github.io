@@ -126,18 +126,25 @@
     line-height: 1.6;
   }
   
-
-  .triangle-section {
+  
+  .triangle-scroll-section {
+    height: 120vh; /* enough room to scroll through */
+    position: relative;
+  }
+  
+  .sticky-wrapper {
+    position: sticky;
+    top: 20vh;
+    height: 80vh;
     display: flex;
+    align-items: center;
     justify-content: center;
-    padding: 4rem 1rem;
   }
   
   .triangle-wrapper {
     position: relative;
     width: 300px;
     height: 260px;
-    margin: 0 auto;
   }
   
   .triangle-corner {
@@ -147,6 +154,7 @@
     text-align: center;
     width: 100px;
     color: #333;
+    opacity: 0;
   }
   
   .triangle-corner.top {
@@ -179,6 +187,6 @@
     max-width: 200px;
     font-size: 0.95rem;
     line-height: 1.4;
+    opacity: 0;
   }
-
   

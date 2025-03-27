@@ -1,8 +1,17 @@
 import React from "react";
-import { motion } from "framer-motion";
 import "./Story.css";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { useRef } from "react";
 
 const StorySection = () => {
+    const ref = useRef(null);
+const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+
+const topOpacity = useSpring(useTransform(scrollYProgress, [0, 0.2], [0, 1]), { stiffness: 100 });
+const leftOpacity = useSpring(useTransform(scrollYProgress, [0.2, 0.4], [0, 1]), { stiffness: 100 });
+const rightOpacity = useSpring(useTransform(scrollYProgress, [0.4, 0.6], [0, 1]), { stiffness: 100 });
+const centerOpacity = useSpring(useTransform(scrollYProgress, [0.6, 0.9], [0, 1]), { stiffness: 100 });
+
   return (
     <section className="story-wrapper">
         <motion.div
@@ -192,20 +201,40 @@ const StorySection = () => {
             </motion.p>
         </section>
 
-        <section className="triangle-section">
-  <motion.div
-    className="triangle-wrapper"
-    initial={{ opacity: 0, scale: 0.9 }}
-    whileInView={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.8 }}
-    viewport={{ once: true }}
-  >
-    <div className="triangle-corner top">Creativity</div>
-    <div className="triangle-corner left">Sensitivity</div>
-    <div className="triangle-corner right">Tenacity & Curiosity</div>
-    <div className="triangle-center">Proactive Problem-Solving<br />through Unique Ideas</div>
-  </motion.div>
+        <section className="triangle-scroll-section" ref={ref}>
+  <div className="sticky-wrapper">
+    <motion.div className="triangle-wrapper">
+      <motion.div
+        className="triangle-corner top"
+        style={{ opacity: topOpacity }}
+      >
+        Creativity
+      </motion.div>
+
+      <motion.div
+        className="triangle-corner left"
+        style={{ opacity: leftOpacity }}
+      >
+        Sensitivity
+      </motion.div>
+
+      <motion.div
+        className="triangle-corner right"
+        style={{ opacity: rightOpacity }}
+      >
+        Tenacity & Curiosity
+      </motion.div>
+
+      <motion.div
+        className="triangle-center"
+        style={{ opacity: centerOpacity }}
+      >
+        Proactive Problem-Solving<br />through Unique Ideas
+      </motion.div>
+    </motion.div>
+  </div>
 </section>
+
 
         {/* Proactive Problem Solving */}
                 <section className="story-section" id="proactive-problem-solving">
