@@ -2,6 +2,7 @@ import React from "react";
 import { color, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import "./Projects.css";
+import ContextualCTA from "../components/ContextualCTA";
 
 const projects = [
   {
@@ -106,6 +107,7 @@ const Projects: React.FC = () => {
       >
         More Exciting Projects Coming Soon!
       </motion.div>
+      <ContextualCTA current="Projects" />
     </section>
   );
 };

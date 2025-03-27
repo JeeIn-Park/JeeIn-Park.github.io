@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import "./About.css";
 import StorySection from "../components/Story";
+import ContextualCTA from "../components/ContextualCTA";
 
 const skills = {
   "Programming Languages": ["Java", "Kotlin", "C++", "C", "Python", "JavaScript", "Dart", "Prolog", "Haskell"],
@@ -112,6 +113,7 @@ const About: React.FC = () => {
         ))}
       </motion.div>
       <StorySection />
+      <ContextualCTA current="About" />
     </section>
   );
 };

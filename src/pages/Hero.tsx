@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "./Hero.css"; 
+import ContextualCTA from "../components/ContextualCTA";
 
 const Hero: React.FC = () => {
   return (
@@ -106,6 +107,7 @@ const Hero: React.FC = () => {
             </p>
           </div>
         </motion.div>
+        <ContextualCTA current="Home" />
       </section>
     </>
   );

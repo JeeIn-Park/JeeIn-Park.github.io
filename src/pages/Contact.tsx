@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "./Contact.css";
 import confetti from "canvas-confetti";
+import ContextualCTA from "../components/ContextualCTA";
 
 const contactItems = [
   {
@@ -155,6 +156,7 @@ const Contact: React.FC = () => {
           </motion.div>
         ))}
       </motion.div>
+      <ContextualCTA current="Contact" />
     </section>
   );
 };
