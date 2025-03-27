@@ -48,3 +48,44 @@
     50% { opacity: 1; transform: translateY(0); }
     100% { opacity: 0; transform: translateY(10px); }
   }
+
+  .story-nav {
+    text-align: center;
+    margin: 3rem 0 2rem;
+  }
+  
+  .story-nav.bottom-nav {
+    margin-top: 5rem;
+  }
+  
+  .nav-label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: #666;
+  }
+  
+  .nav-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #4a90e2;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: #1c66b5;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
