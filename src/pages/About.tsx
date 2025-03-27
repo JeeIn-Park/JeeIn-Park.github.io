@@ -79,7 +79,12 @@ const About: React.FC = () => {
         experiences. Passionate about problem-solving, efficiency, and creative solutions!
       </motion.p>
 
-      <div className="skills-container">
+      <motion.div
+        className="skills-container"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1, duration: 0.8 }}
+      >
         {Object.entries(skills).map(([category, items], index) => (
           <motion.div
             key={category}
@@ -104,7 +109,20 @@ const About: React.FC = () => {
             </ul>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
+      <motion.div
+        className="scroll-down-cue"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+      >
+        <p>Scroll down to learn more about me</p>
+        <div className="chevrons">
+          <span className="chevron">⌄</span>
+          <span className="chevron">⌄</span>
+          <span className="chevron">⌄</span>
+        </div>
+      </motion.div>
     </section>
   );
 };
