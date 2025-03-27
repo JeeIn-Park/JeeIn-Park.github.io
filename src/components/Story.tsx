@@ -134,10 +134,10 @@ const StorySection = () => {
                 </p>
 
                 <p>
-                When people say, “That’s not a big deal,” I’m already ten steps deep into fixing it.
+                    When people say, “That’s not a big deal,” I’m already ten steps deep into fixing it.
 
-                Yes, I know. I sound incredibly annoying.
-                Writing this down just confirms it.
+                    Yes, I know. I sound incredibly annoying.
+                    Writing this down just confirms it.
                 </p>
 
                 
@@ -163,27 +163,49 @@ const StorySection = () => {
                 transition={{ delay: 0.1, duration: 0.8 }}
                 viewport={{ once: true }}
             >
-                Spotting problems is only the beginning.
-                What matters is solving them and doing it well.
+                <p>
+                    Spotting problems is only the beginning.
+                    What matters is solving them and doing it well.
 
-                I have a hard time settling for “good enough.”
-                Take my personal planner. I’ve redesigned it over 100 times. Not kidding.
+                    I have a hard time settling for “good enough.”
+                    Take my personal planner. I’ve redesigned it over 100 times. Not kidding.
 
-                I’m like a walking genetic algorithm, constantly iterating, constantly learning.
-                If I find a better way, I chase it. Then I look for an even better way after that.
+                    I’m like a walking genetic algorithm, constantly iterating, constantly learning.
+                    If I find a better way, I chase it. Then I look for an even better way after that.
+                </p>
 
-                This relentless curiosity also means I need to understand how things work, deeply.
-                Why do we use this formula here? How do these systems interact? What exactly causes this effect?
+                <p>
+                    This relentless curiosity also means I need to understand how things work, deeply.
+                    Why do we use this formula here? How do these systems interact? What exactly causes this effect?
 
-                I ask “why?” so often, it drives people mad. But thanks to that curiosity, I’ve been able to understand complex systems and design better ones.
+                    I ask “why?” so often, it drives people mad. But thanks to that curiosity, I’ve been able to understand complex systems and design better ones.
 
-                It also made me curious about the world. I’ve lived in different countries and immersed myself in different cultures.
-                Did you know the same item can be used in entirely different ways depending on the culture?
+                    It also made me curious about the world. I’ve lived in different countries and immersed myself in different cultures.
+                    Did you know the same item can be used in entirely different ways depending on the culture?
 
-                That’s one of the reasons I love upcycling, by the way (you might’ve seen it in my CV).
-                It’s all about redefining value, seeing potential where others see junk.
+                    That’s one of the reasons I love upcycling, by the way (you might’ve seen it in my CV).
+                    It’s all about redefining value, seeing potential where others see junk.
+                </p>
+
+
+
             </motion.p>
         </section>
+
+        <section className="triangle-section">
+  <motion.div
+    className="triangle-wrapper"
+    initial={{ opacity: 0, scale: 0.9 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}
+  >
+    <div className="triangle-corner top">Creativity</div>
+    <div className="triangle-corner left">Sensitivity</div>
+    <div className="triangle-corner right">Tenacity & Curiosity</div>
+    <div className="triangle-center">Proactive Problem-Solving<br />through Unique Ideas</div>
+  </motion.div>
+</section>
 
         {/* Proactive Problem Solving */}
                 <section className="story-section" id="proactive-problem-solving">
@@ -204,23 +226,36 @@ const StorySection = () => {
                 transition={{ delay: 0.1, duration: 0.8 }}
                 viewport={{ once: true }}
             >
-                When all these traits come together; creativity, sensitivity, tenacity, and curiosity. What you get is my core strength:
-                Proactive problem-solving through unique ideas.
+                <p>
+                    When all these traits come together; creativity, sensitivity, tenacity, and curiosity. What you get is my core strength:
+                    Proactive problem-solving through unique ideas.
+                </p>
+                <p>
+                    Thanks to the gifted programme, my multicultural experiences, and working across different types of projects, I’ve learned how to use these strengths to create meaningful change.
 
-                Thanks to the gifted programme, my multicultural experiences, and working across different types of projects, I’ve learned how to use these strengths to create meaningful change.
+                    Take one example: I noticed gym-goers weren’t using apps to track workouts. They used pen and paper, Excel sheets, or just memory.
 
-                Take one example: I noticed gym-goers weren’t using apps to track workouts. They used pen and paper, Excel sheets, or just memory.
+                    That went straight onto my idea list.
 
-                That went straight onto my idea list.
+                    I rushed to my professor with a dozen ideas. He was surprised not just by the volume, but by how unusual they were. He offered to supervise one of them.
 
-                I rushed to my professor with a dozen ideas. He was surprised not just by the volume, but by how unusual they were. He offered to supervise one of them.
+                    So, I built the app. Then I launched it.
 
-                So, I built the app. Then I launched it.
+                    Getting users? Not a problem. I listened to what they wanted, implemented it exactly how they needed it, and even added subtle psychological nudges to make sure they kept using it.
 
-                Getting users? Not a problem. I listened to what they wanted, implemented it exactly how they needed it, and even added subtle psychological nudges to make sure they kept using it.
+                    It wasn’t just about gamification or social features. I went deeper, more insidious.
+                    And it worked. User satisfaction rose significantly.
+                </p>
+                <p>
+                    Having the technical skills to build features is just the baseline. But innovation? That’s something else.
 
-                It wasn’t just about gamification or social features. I went deeper, more insidious.
-                And it worked. User satisfaction rose significantly.
+                    I bring something different, something not everyone can offer.
+
+                    I’ve always been the one people turn to and say:
+
+                    “Okay, this is your job now. You’re the most creative one. Find a way to make it work.”
+                    And I always do.
+                </p>
             </motion.p>
         </section>
 
@@ -290,15 +325,7 @@ const StorySection = () => {
                 transition={{ delay: 0.3, duration: 0.8 }}
                 viewport={{ once: true }}
                 >
-                Having the technical skills to build features is just the baseline. But innovation? That’s something else.
 
-                I bring something different, something not everyone can offer.
-
-                I’ve always been the one people turn to and say:
-
-                “Okay, this is your job now. You’re the most creative one. Find a way to make it work.”
-
-                And I always do.
             </motion.p>
         </section>
 
