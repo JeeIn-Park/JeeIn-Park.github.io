@@ -1,18 +1,18 @@
 
 .story-section {
     padding: 4rem 1.5rem;
-    max-width: 800px;
+    max-width: 90%;
     margin: 0 auto;
   }
   
   .story-title {
-    font-size: 2.4rem;
+    font-size: 2rem;
     font-weight: bold;
     text-align: center;
     margin-bottom: 2rem;
     color: #222;
   }
-  
+
   .story-subtitle {
     font-size: 1.8rem;
     font-weight: 600;
@@ -21,16 +21,21 @@
   }
   
   .story-text {
-    font-size: 1.1rem;
+    text-align: center;
+    font-size: 1rem;
     line-height: 1.8;
     color: #333;
     white-space: pre-line;
+    max-width: 1000px;
+    margin: 0 auto;
   }
+  
   
   .scroll-down-cue {
     text-align: center;
-    margin-top: 4rem;
-    font-size: 1.1rem;
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+    font-size: 1rem;
     color: #54566d;
     animation: bounce 2s infinite;
   }
@@ -87,5 +92,37 @@
   
   html {
     scroll-behavior: smooth;
+  }
+  
+
+  .goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  
+  .goal-block {
+    background: #f9f9f991;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+  }
+  
+  .goal-block:hover {
+    transform: translateY(-4px);
+  }
+  
+  .goal-block h4 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 0.8rem;
+  }
+  
+  .goal-block p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
   }
   
