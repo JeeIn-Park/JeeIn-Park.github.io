@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "./About.css";
+import StorySection from "../components/Story";
 
 const skills = {
   "Programming Languages": ["Java", "Kotlin", "C++", "C", "Python", "JavaScript", "Dart", "Prolog", "Haskell"],
@@ -110,19 +111,7 @@ const About: React.FC = () => {
           </motion.div>
         ))}
       </motion.div>
-      <motion.div
-        className="scroll-down-cue"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-      >
-        <p>Scroll down to learn more about me</p>
-        <div className="chevrons">
-          <span className="chevron">⌄</span>
-          <span className="chevron">⌄</span>
-          <span className="chevron">⌄</span>
-        </div>
-      </motion.div>
+      <StorySection />
     </section>
   );
 };

@@ -1,0 +1,50 @@
+
+.story-section {
+    padding: 4rem 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .story-title {
+    font-size: 2.4rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #222;
+  }
+  
+  .story-subtitle {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 1.2rem;
+  }
+  
+  .story-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    white-space: pre-line;
+  }
+  
+  .scroll-down-cue {
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 1.1rem;
+    color: #54566d;
+    animation: bounce 2s infinite;
+  }
+  
+  .chevrons .chevron {
+    color:#7fc091;
+    display: block;
+    font-size: 1.5rem;
+    line-height: 0.8;
+    animation: fadeDown 1.2s infinite;
+  }
+  
+  @keyframes fadeDown {
+    0% { opacity: 0; transform: translateY(-10px); }
+    50% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(10px); }
+  }
