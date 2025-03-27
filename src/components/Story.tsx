@@ -25,7 +25,7 @@ const StorySection = () => {
             <ul className="nav-links">
                 <li><a href="#creativity"># Creativity</a></li>
                 <li><a href="#sensitivity"># Sensitivity</a></li>
-                <li><a href="#tenacity-curiosity"># Tenacity & Curiosity</a></li>
+                <li><a href="#tenacity-curiosity"># Passion</a></li>
                 <li><a href="#proactive-problem-solving"># Problem Solving</a></li>
             </ul>
         </div>
@@ -150,8 +150,8 @@ const StorySection = () => {
             </motion.p>
         </section>
 
-        {/* Tenacity & Curiosity */}
-        <section className="story-section" id="tenacity-curiosity">
+        {/* Passion */}
+        <section className="story-section" id="passion">
             <motion.h2
                 className="story-title"
                 initial={{ opacity: 0, y: 30 }}
@@ -159,7 +159,7 @@ const StorySection = () => {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
             >
-                Tenacity & Curiosity
+                Passion
             </motion.h2>
 
             <motion.p
@@ -170,27 +170,27 @@ const StorySection = () => {
                 viewport={{ once: true }}
             >
                 <p>
-                    Spotting problems is only the beginning.
-                    What matters is solving them and doing it well.
-
-                    I have a hard time settling for “good enough.”
-                    Take my personal planner. I’ve redesigned it over 100 times. Not kidding.
-
-                    I’m like a walking genetic algorithm, constantly iterating, constantly learning.
-                    If I find a better way, I chase it. Then I look for an even better way after that.
+                    Spotting problems is just the beginning — what really matters is solving them, and doing it well.
+                    I’m not someone who settles for “good enough.” Take my personal planner, for example.
+                    I’ve redesigned it over 100 times. Not joking.
                 </p>
 
                 <p>
-                    This relentless curiosity also means I need to understand how things work, deeply.
-                    Why do we use this formula here? How do these systems interact? What exactly causes this effect?
+                    I’m basically a walking genetic algorithm: always iterating, always learning.
+                    When I find a better way, I chase it. And then I keep chasing.
+    
+                    That drive comes from deep, relentless curiosity. I need to know how things work — really work.
+                    Why this formula? How do these systems interact? What exactly causes that effect?
+                </p>
 
-                    I ask “why?” so often, it drives people mad. But thanks to that curiosity, I’ve been able to understand complex systems and design better ones.
+                <p>
+                    I ask “why?” so often it drives people up the wall. But it’s helped me grasp complex systems and build better ones.
+   
+                    That same curiosity extends beyond tech. I’ve lived in different countries, immersed myself in new cultures,
+                    and realised something fascinating: the same object can be seen — and used — in completely different ways depending on where you are.
 
-                    It also made me curious about the world. I’ve lived in different countries and immersed myself in different cultures.
-                    Did you know the same item can be used in entirely different ways depending on the culture?
-
-                    That’s one of the reasons I love upcycling, by the way (you might’ve seen it in my CV).
-                    It’s all about redefining value, seeing potential where others see junk.
+                    Maybe that’s why I love upcycling so much (you might’ve spotted it in my CV).
+                    It’s all about redefining value, seeing beauty where others see junk.
                 </p>
             </motion.p>
         </section>
@@ -216,7 +216,7 @@ const StorySection = () => {
                     className="triangle-corner right"
                     style={{ opacity: rightOpacity }}
                 >
-                    <a href="#tenacity-curiosity">Tenacity & Curiosity</a>
+                    <a href="#tenacity-curiosity">Passion</a>
                 </motion.div>
 
                 {/* Arrows pointing inward */}
@@ -245,7 +245,7 @@ const StorySection = () => {
                     className="triangle-center"
                     style={{ opacity: centerOpacity }}
                 >   
-                    <a href="#proactive-problem-solving-text"> Proactive Problem-Solving<br />through Unique Ideas</a>
+                    <a href="#proactive-problem-solving-text"> Proactive<br />Problem-Solving</a>
                 </motion.div>
                 </motion.div>
             </div>
