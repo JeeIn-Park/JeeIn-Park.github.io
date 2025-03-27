@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { navItems } from "./Navbar";
+import { navItems } from "./Navbar"; 
+import { motion } from "framer-motion";
 import "./ContextualCTA.css";
 
 type Props = {
@@ -7,10 +8,17 @@ type Props = {
 };
 
 const ContextualCTA: React.FC<Props> = ({ current }) => {
-  const suggestions = navItems.filter((item) => item.name !== current);
+  const suggestions = navItems.filter(
+    (item) => item.name.toLowerCase() !== current.toLowerCase()
+  );
 
   return (
-    <div className="cta-prompt">
+    <motion.div
+    className="cta-prompt"
+    initial={{ opacity: 0, y: 10 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.5, duration: 0.6, ease: "easeOut" }}
+    >
       <p className="cta-text">Wanna explore more?</p>
       <div className="cta-links">
         {suggestions.map((item) => (
@@ -19,8 +27,8 @@ const ContextualCTA: React.FC<Props> = ({ current }) => {
           </Link>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
-export default ContextualCTA; 
+export default ContextualCTA;

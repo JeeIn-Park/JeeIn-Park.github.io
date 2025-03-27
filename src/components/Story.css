@@ -71,11 +71,13 @@
     text-decoration: none;
     color: #4a90e2;
     font-weight: 500;
-    transition: color 0.3s ease;
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.2s ease;
   }
   
   .nav-links a:hover {
     color: #19589b;
+    transform: translateY(-2px);
   }
   
   html {

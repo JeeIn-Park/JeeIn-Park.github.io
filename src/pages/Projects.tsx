@@ -102,6 +102,7 @@ const Projects: React.FC = () => {
       <motion.div
         className="coming-soon"
         initial={{ opacity: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
       >
