@@ -1,31 +1,91 @@
 .cta-prompt {
     margin-top: 4rem;
     text-align: center;
+    margin-bottom: 4rem;
   }
   
   .cta-text {
     font-size: 1.25rem;
     font-weight: 600;
-    color: #4a5568;
+    color: #5e5e5e;
     margin-bottom: 1rem;
   }
   
   .cta-links {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
   }
   
-  .cta-link {
-    font-size: 1rem;
-    font-weight: 500;
-    color: #4299e1;
+  .cta-pill {
+    background-color: #ffffff62;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    padding: 0.5rem;
+    padding-right: 2rem;
+    padding-left: 1rem;
     text-decoration: none;
-    transition: color 0.3s ease, transform 0.2s ease;
+    color: #4a90e2;
+    font-weight: 500;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
   }
   
-  .cta-link:hover {
-    color: #3182ce;
-    transform: translateY(-2px);
+  .cta-pill::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3.1rem;
+    background-color: #ffd643;
+    border-radius: 9999px;
+    z-index: 0;
+    transition: width 0.4s ease;
+  }
+  
+  .cta-pill:hover::before {
+    width: 100%;
+  }
+  
+  .cta-pill .arrow,
+  .cta-pill .label {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .cta-pill .arrow {
+    width: 1rem;
+    height: 2rem;
+    margin-right: 1rem;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+    flex-shrink: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .cta-pill .label {
+    margin-left: 0.75rem;
+    color: #5a5a5a;
+    transition: color 0.3s ease;
+  }
+  
+  .cta-pill:hover .arrow {
+    color: #5a5a5a;
+
+  }
+  
+  .cta-pill:hover .label {
+    color: white;
+    text-shadow: #000000;
   }
   

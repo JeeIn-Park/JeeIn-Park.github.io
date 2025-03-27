@@ -22,8 +22,9 @@ const ContextualCTA: React.FC<Props> = ({ current }) => {
       <p className="cta-text">Wanna explore more?</p>
       <div className="cta-links">
         {suggestions.map((item) => (
-          <Link key={item.name} to={item.path} className="cta-link">
-            &gt; {item.name}
+          <Link key={item.name} to={item.path} className="cta-pill">
+            <span className="arrow">&gt;</span>
+            <span className="label">{item.name}</span>
           </Link>
         ))}
       </div>
