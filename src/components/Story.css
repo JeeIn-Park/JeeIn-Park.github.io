@@ -37,12 +37,14 @@
     margin-bottom: 4rem;
     font-size: 1rem;
     color: #54566d;
+    font-weight: 500;
     animation: bounce 2s infinite;
   }
   
   .chevrons .chevron {
     color:#7fc091;
     display: block;
+    font-weight: 900;
     font-size: 1.5rem;
     line-height: 0.8;
     animation: fadeDown 1.2s infinite;
@@ -59,24 +61,13 @@
     margin: 3rem 0 2rem;
   }
   
-  .story-nav.bottom-nav {
-    margin-top: 5rem;
-  }
-  
-  .nav-label {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.8rem;
-    color: #666;
-  }
-  
   .nav-links {
     list-style: none;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1.2rem;
+    gap: 1rem;
   }
   
   .nav-links a {
@@ -87,43 +78,11 @@
   }
   
   .nav-links a:hover {
-    color: #1c66b5;
+    color: #19589b;
   }
   
   html {
     scroll-behavior: smooth;
-  }
-  
-
-  .goals-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin: 2rem 0;
-  }
-  
-  .goal-block {
-    background: #f9f9f991;
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
-  }
-  
-  .goal-block:hover {
-    transform: translateY(-4px);
-  }
-  
-  .goal-block h4 {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 0.8rem;
-  }
-  
-  .goal-block p {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.6;
   }
   
   
@@ -176,6 +135,14 @@
     bottom: 0;
     right: 0;
   }
+
+  .triangle-corner a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+  }
+  
   
   .triangle-center {
     position: absolute;
@@ -194,6 +161,14 @@
     line-height: 1.4;
     opacity: 0;
   }
+
+  .triangle-center a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+  }
+  
   
   .triangle-arrow {
     position: absolute;

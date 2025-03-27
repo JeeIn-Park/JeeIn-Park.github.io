@@ -65,3 +65,34 @@
     }
   }
   
+  .goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  
+  .goal-block {
+    background: #f9f9f991;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+  }
+  
+  .goal-block:hover {
+    transform: translateY(-4px);
+  }
+  
+  .goal-block h4 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 0.8rem;
+  }
+  
+  .goal-block p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  

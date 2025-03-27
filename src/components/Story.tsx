@@ -7,10 +7,10 @@ const StorySection = () => {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
     const topOpacity = useSpring( useTransform(scrollYProgress, [0.2, 0.3], [0, 1]), { stiffness: 100 });
-    const leftOpacity = useSpring( useTransform(scrollYProgress, [0.3, 0.4], [0, 1]), { stiffness: 100 });
-    const rightOpacity = useSpring( useTransform(scrollYProgress, [0.4, 0.5], [0, 1]), { stiffness: 100 });
-    const arrowOpacity = useSpring( useTransform(scrollYProgress, [0.45, 0.55], [0, 1]), { stiffness: 100 });
-    const centerOpacity = useSpring( useTransform(scrollYProgress, [0.6, 0.65], [0, 1]), { stiffness: 100 });
+    const leftOpacity = useSpring( useTransform(scrollYProgress, [0.28, 0.38], [0, 1]), { stiffness: 100 });
+    const rightOpacity = useSpring( useTransform(scrollYProgress, [0.36, 0.46], [0, 1]), { stiffness: 100 });
+    const arrowOpacity = useSpring( useTransform(scrollYProgress, [0.43, 0.50], [0, 1]), { stiffness: 100 });
+    const centerOpacity = useSpring( useTransform(scrollYProgress, [0.52, 0.6], [0, 1]), { stiffness: 100 });
 
   return (
     <section className="story-wrapper">
@@ -21,23 +21,20 @@ const StorySection = () => {
             transition={{ delay: 1.5, duration: 1 }}
         >
             <p>Scroll down to learn more about me</p>
+            <div className="story-nav">
+            <ul className="nav-links">
+                <li><a href="#creativity"># Creativity</a></li>
+                <li><a href="#sensitivity"># Sensitivity</a></li>
+                <li><a href="#tenacity-curiosity"># Tenacity & Curiosity</a></li>
+                <li><a href="#proactive-problem-solving"># Problem Solving</a></li>
+            </ul>
+        </div>
             <div className="chevrons">
             <span className="chevron">⌄</span>
             <span className="chevron">⌄</span>
             <span className="chevron">⌄</span>
             </div>
         </motion.div>
-
-        <div className="story-nav">
-            <p className="nav-label">Jump to a section:</p>
-            <ul className="nav-links">
-                <li><a href="#creativity">Creativity</a></li>
-                <li><a href="#sensitivity">Sensitivity</a></li>
-                <li><a href="#tenacity-curiosity">Tenacity & Curiosity</a></li>
-                <li><a href="#proactive-problem-solving">Problem Solving</a></li>
-                <li><a href="#future-goals">Where I'm Heading</a></li>
-            </ul>
-        </div>
 
         {/* Creativity */}
         <section className="story-section" id="creativity">
@@ -205,21 +202,21 @@ const StorySection = () => {
                     className="triangle-corner top"
                     style={{ opacity: topOpacity }}
                 >
-                    Creativity
+                    <a href="#creativity">Creativity</a>
                 </motion.div>
 
                 <motion.div
                     className="triangle-corner left"
                     style={{ opacity: leftOpacity }}
                 >
-                    Sensitivity
+                    <a href="#sensitivity">Sensitivity</a>
                 </motion.div>
 
                 <motion.div
                     className="triangle-corner right"
                     style={{ opacity: rightOpacity }}
                 >
-                    Tenacity & Curiosity
+                    <a href="#tenacity-curiosity">Tenacity & Curiosity</a>
                 </motion.div>
 
                 {/* Arrows pointing inward */}
@@ -247,8 +244,8 @@ const StorySection = () => {
                 <motion.div
                     className="triangle-center"
                     style={{ opacity: centerOpacity }}
-                >
-                    Proactive Problem-Solving<br />through Unique Ideas
+                >   
+                    <a href="#proactive-problem-solving-text"> Proactive Problem-Solving<br />through Unique Ideas</a>
                 </motion.div>
                 </motion.div>
             </div>
@@ -304,76 +301,6 @@ const StorySection = () => {
                     “Okay, this is your job now. You’re the most creative one. Find a way to make it work.”
                     And I always do.
                 </p>
-            </motion.p>
-        </section>
-
-        {/* Future Goals */}
-        <section className="story-section" id="future-goals">
-            <motion.h2
-                className="story-title"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-            >
-                Where I’m Heading
-            </motion.h2>
-
-            <motion.p
-                className="story-text"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1, duration: 0.8 }}
-                viewport={{ once: true }}
-                >
-                My dream is simple: Transform the way people work by building smarter, simpler solutions that make a real impact.
-
-                I believe people thrive when they work on what they’re passionate about.
-                And I know I give my best (and then some) when I’m building something I care about.
-
-                Here’s how I want to grow and contribute:
-                </motion.p>
-
-                <motion.div
-                className="goals-grid"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-                viewport={{ once: true }}
-                >
-                <div className="goal-block">
-                    <h4>Short-Term (0–2 years)</h4>
-                    <p>
-                    Build a strong technical foundation. Gain industry experience. Work on real-world problems,
-                    join open-source or hackathon projects, and improve efficiency through hands-on work in both frontend and backend systems.
-                    </p>
-                </div>
-
-                <div className="goal-block">
-                    <h4>Medium-Term (3–5 years)</h4>
-                    <p>
-                    Become an expert in human-centric design. Lead productivity-focused projects.
-                    Tackle complex problems with scalable, elegant solutions.
-                    </p>
-                </div>
-
-                <div className="goal-block">
-                    <h4>Long-Term (6+ years)</h4>
-                    <p>
-                    Shape the future of intelligent systems. Share insights, mentor others, and inspire new ways of thinking
-                    through public speaking or writing.
-                    </p>
-                </div>
-                </motion.div>
-
-                <motion.p
-                className="story-text"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.8 }}
-                viewport={{ once: true }}
-                >
-
             </motion.p>
         </section>
     </section>
