@@ -14,13 +14,17 @@
   justify-content: center;
   flex-wrap: nowrap;
   gap: 1.5rem;
-  padding: 0.7rem 1rem;
+  padding: 0.7rem 1.2rem;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(10px);
   /* border: 5px solid rgba(255, 255, 255, 0.25); */
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   max-width: 90vw;
+}
+
+.navbar a {
+  white-space: nowrap;
 }
 
 .nav-item {
@@ -72,10 +76,6 @@
     border-radius: 999rem;
     max-width: 95vw;
   }
-/* 
-  .pill {
-    display: none;
-  } */
 
   .nav-item {
     font-size: 0.9rem;
