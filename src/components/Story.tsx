@@ -96,7 +96,9 @@ const StorySection: React.FC = () => {
               <motion.div className="triangle-arrow right-arrow" style={{ opacity: arrowOpacity }}>⬅</motion.div>
   
               <motion.div className="triangle-center" style={{ opacity: centerOpacity }}>
-                <a href="#proactive-problem-solving-text">Proactive<br />Problem-Solving</a>
+              <a href="#proactive-problem-solving-text">
+                {t("story.proactive.title").split(" ").join("\n")}
+              </a>
               </motion.div>
             </motion.div>
           </div>
