@@ -6,6 +6,31 @@
       "contact": "Contact"
     },
 
+    "hero": {
+        "name": "Jeein Park",
+        "subtitle": "Creative Software Engineer & Designer",
+        "goals": {
+          "title": "Where I’m Heading",
+          "description": "My dream is simple: Transform the way people work by building smarter, simpler solutions that make a real impact.\n\nI believe people thrive when they work on what they’re passionate about. And I know I give my best (and then some) when I’m building something I care about.\n\nHere’s how I want to grow and contribute:",
+          "short": {
+            "title": "Short-Term",
+            "duration": "(0–2 years)",
+            "text": "Build a strong technical foundation. Gain industry experience. Work on real-world problems, join open-source or hackathon projects, and improve efficiency through hands-on work in both frontend and backend systems."
+          },
+          "medium": {
+            "title": "Medium-Term",
+            "duration": "(3–5 years)",
+            "text": "Become an expert in human-centric design. Lead productivity-focused projects. Tackle complex problems with scalable, elegant solutions."
+          },
+          "long": {
+            "title": "Long-Term",
+            "duration": "(6+ years)",
+            "text": "Shape the future of intelligent systems. Share insights, mentor others, and inspire new ways of thinking through public speaking or writing."
+          }
+        }
+    },
+
+
 
     "about": {
         "title": "About Me",

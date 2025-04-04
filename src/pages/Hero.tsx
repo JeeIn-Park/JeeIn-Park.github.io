@@ -1,9 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import "./Hero.css"; 
+import { useTranslation } from "react-i18next";
+import "./Hero.css";
 import ContextualCTA from "../components/ContextualCTA";
 
 const Hero: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <section className="hero-section">
@@ -25,7 +28,7 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Jeein Park
+            {t("hero.name")}
           </motion.h1>
 
           <motion.p
@@ -34,7 +37,7 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            Creative Software Engineer & Designer
+            {t("hero.subtitle")}
           </motion.p>
         </motion.div>
       </section>
@@ -48,7 +51,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          Where I’m Heading
+          {t("hero.goals.title")}
         </motion.h2>
 
         <motion.p
@@ -58,12 +61,7 @@ const Hero: React.FC = () => {
           transition={{ delay: 0.1, duration: 0.8 }}
           viewport={{ once: true }}
         >
-          My dream is simple: Transform the way people work by building smarter, simpler solutions that make a real impact.
-
-          I believe people thrive when they work on what they’re passionate about.
-          And I know I give my best (and then some) when I’m building something I care about.
-
-          Here’s how I want to grow and contribute:
+          {t("hero.goals.description")}
         </motion.p>
 
         <motion.div
@@ -74,32 +72,21 @@ const Hero: React.FC = () => {
           viewport={{ once: true }}
         >
           <div className="goal-block">
-            <h4>Short-Term</h4>
-            <h5>(0–2 years)</h5>
-            <p>
-              Build a strong technical foundation. Gain industry experience. Work on real-world problems,
-              join open-source or hackathon projects, and improve efficiency through hands-on work in both frontend and backend systems.
-            </p>
+            <h4>{t("hero.goals.short.title")}</h4>
+            <h5>{t("hero.goals.short.duration")}</h5>
+            <p>{t("hero.goals.short.text")}</p>
           </div>
 
           <div className="goal-block">
-            <h4>Medium-Term</h4>
-            <h5>(3–5 years)</h5>
-
-            <p>
-              Become an expert in human-centric design. Lead productivity-focused projects.
-              Tackle complex problems with scalable, elegant solutions.
-            </p>
+            <h4>{t("hero.goals.medium.title")}</h4>
+            <h5>{t("hero.goals.medium.duration")}</h5>
+            <p>{t("hero.goals.medium.text")}</p>
           </div>
 
           <div className="goal-block">
-            <h4>Long-Term <br /></h4>
-            <h5>(6+ years)</h5>
-
-            <p>
-              Shape the future of intelligent systems. Share insights, mentor others, and inspire new ways of thinking
-              through public speaking or writing.
-            </p>
+            <h4>{t("hero.goals.long.title")}</h4>
+            <h5>{t("hero.goals.long.duration")}</h5>
+            <p>{t("hero.goals.long.text")}</p>
           </div>
         </motion.div>
         <ContextualCTA current="Home" />
