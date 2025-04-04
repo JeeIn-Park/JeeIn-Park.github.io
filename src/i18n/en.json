@@ -20,12 +20,18 @@
         }
     },
     
-
-
     "contact": {
-      "title": "Get in Touch",
-      "email": "Email me"
-    },
+        "title": "Let’s Connect!",
+        "text": "Feel free to reach out for collaborations, work opportunities, or just to chat! I’d love to hear from you.",
+        "copied": "Copied to the clipboard!",
+        "platforms": {
+          "GitHub": "GitHub",
+          "LinkedIn": "LinkedIn",
+          "Instagram": "Instagram",
+          "Email": "Email",
+          "Phone": "Phone"
+        }
+      },
 
 
     "cta": {

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import "./Contact.css";
 import confetti from "canvas-confetti";
 import ContextualCTA from "../components/ContextualCTA";
@@ -51,6 +52,7 @@ const cardVariants = {
 };
 
 const Contact: React.FC = () => {
+  const { t } = useTranslation();
   const [copiedItem, setCopiedItem] = useState<string | null>(null);
 
   const handleCopy = async (
@@ -89,7 +91,7 @@ const Contact: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        Let’s Connect!
+        {t("contact.title")}
       </motion.h2>
 
       <motion.p
@@ -98,8 +100,7 @@ const Contact: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 1 }}
       >
-        Feel free to reach out for collaborations, work opportunities, or just
-        to chat! I’d love to hear from you.
+        {t("contact.text")}
       </motion.p>
 
       <motion.div
@@ -117,7 +118,6 @@ const Contact: React.FC = () => {
             initial="hidden"
             animate="visible"
             whileHover={{ scale: 1.05 }}
-            // transition={{ type: "spring", stiffness: 200, damping: 10 }}
             whileTap={{ scale: 0.97 }}
           >
             {item.copyText ? (
@@ -131,11 +131,10 @@ const Contact: React.FC = () => {
                   alt={`${item.name} icon`}
                   className="contact-icon"
                 />
-                <span>{item.name}</span>
-
+                <span>{t(`contact.platforms.${item.name}`)}</span>
                 {copiedItem === item.name && (
                   <span className="tooltip chat-bubble">
-                    Copied to the clipboard!
+                    {t("contact.copied")}
                   </span>
                 )}
               </div>
@@ -150,12 +149,13 @@ const Contact: React.FC = () => {
                   alt={`${item.name} icon`}
                   className="contact-icon"
                 />
-                <span>{item.name}</span>
+                <span>{t(`contact.platforms.${item.name}`)}</span>
               </a>
             )}
           </motion.div>
         ))}
       </motion.div>
+
       <ContextualCTA current="Contact" />
     </section>
   );
