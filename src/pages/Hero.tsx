@@ -36,23 +36,13 @@ const Hero: React.FC = () => {
           >
             Creative Software Engineer & Designer
           </motion.p>
-
-          <motion.a
-            href="/projects"
-            className="hero-button"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-          >
-            See My Work
-          </motion.a>
         </motion.div>
       </section>
 
       {/* Future Goals Section */}
-      <section className="story-section" id="future-goals">
+      <section className="hero-goals" id="future-goals">
         <motion.h2
-          className="story-title"
+          className="goal-title"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -62,7 +52,7 @@ const Hero: React.FC = () => {
         </motion.h2>
 
         <motion.p
-          className="story-text"
+          className="goal-text"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.8 }}
@@ -84,7 +74,8 @@ const Hero: React.FC = () => {
           viewport={{ once: true }}
         >
           <div className="goal-block">
-            <h4>Short-Term (0–2 years)</h4>
+            <h4>Short-Term</h4>
+            <h5>(0–2 years)</h5>
             <p>
               Build a strong technical foundation. Gain industry experience. Work on real-world problems,
               join open-source or hackathon projects, and improve efficiency through hands-on work in both frontend and backend systems.
@@ -92,7 +83,9 @@ const Hero: React.FC = () => {
           </div>
 
           <div className="goal-block">
-            <h4>Medium-Term (3–5 years)</h4>
+            <h4>Medium-Term</h4>
+            <h5>(3–5 years)</h5>
+
             <p>
               Become an expert in human-centric design. Lead productivity-focused projects.
               Tackle complex problems with scalable, elegant solutions.
@@ -100,7 +93,9 @@ const Hero: React.FC = () => {
           </div>
 
           <div className="goal-block">
-            <h4>Long-Term (6+ years)</h4>
+            <h4>Long-Term <br /></h4>
+            <h5>(6+ years)</h5>
+
             <p>
               Shape the future of intelligent systems. Share insights, mentor others, and inspire new ways of thinking
               through public speaking or writing.
