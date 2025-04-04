@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "./About.css";
+import { useTranslation } from "react-i18next";
 import StorySection from "../components/Story";
 import ContextualCTA from "../components/ContextualCTA";
 
@@ -59,6 +60,7 @@ const getSkillColor = (skill: string): string => {
 
 
 const About: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <section id="about" className="about-section">
       <motion.h2
@@ -67,7 +69,7 @@ const About: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        About Me
+        {t('about.title')}
       </motion.h2>
 
       <motion.p
@@ -76,9 +78,7 @@ const About: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 1 }}
       >
-        Hey! I'm Jeein, a creative software engineer who loves building intuitive
-        applications. I enjoy combining design and code to create engaging user
-        experiences. Passionate about problem-solving, efficiency, and creative solutions!
+        {t('about.intro')}
       </motion.p>
 
       <motion.div
@@ -95,7 +95,7 @@ const About: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 + index * 0.1, duration: 0.6 }}
           >
-            <h3 className="skill-category">{category}</h3>
+            <h3 className="skill-category">{t(`about.skills.${category}`)}</h3>
             <ul className="skill-list">
               {items.map((skill) => (
                 <li

@@ -5,10 +5,22 @@
       "projects": "Projects",
       "contact": "Contact"
     },
+
+
     "about": {
-      "title": "About Me",
-      "description": "I am a software engineer with a passion for design..."
+        "title": "About Me",
+        "intro": "Hey! I'm Jeein, a creative software engineer who loves building intuitive applications. I enjoy combining design and code to create engaging user experiences. Passionate about problem-solving, efficiency, and creative solutions!",
+        "skills": {
+        "Programming Languages": "Programming Languages",
+        "Web Frameworks & UI Libraries": "Web Frameworks & UI Libraries",
+        "Mobile & Cross-Platform Development": "Mobile & Cross-Platform Development",
+        "Cloud & DevOps": "Cloud & DevOps",
+        "Development Tools & IDEs": "Development Tools & IDEs",
+        "Design & Modelling": "Design & Modelling"
+        }
     },
+
+
     "contact": {
       "title": "Get in Touch",
       "email": "Email me"
