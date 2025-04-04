@@ -1,60 +1,145 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './LanguageToggle.css';
 
 const LanguageToggle: React.FC = () => {
   const { i18n } = useTranslation();
+  const fabRef = useRef<HTMLButtonElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const [dragging, setDragging] = useState(false);
+  const [lastInteractionTime, setLastInteractionTime] = useState(Date.now());
+  const [opacity, setOpacity] = useState(1);
+  const positionRef = useRef({ x: window.innerWidth - 80, y: window.innerHeight - 120 });
+  const [snapSide, setSnapSide] = useState<'left' | 'right'>('right');
+
+
+  // NEW: Refs to track drag start and whether drag occurred
+  const dragStartPos = useRef({ x: 0, y: 0 });
+  const wasDragged = useRef(false);
 
   const languages = [
     { code: 'en', label: 'English' },
     { code: 'ko', label: '한국어' },
   ];
 
-  const toggleMenu = () => setMenuOpen(prev => !prev);
+  const toggleMenu = () => {
+    setMenuOpen(prev => !prev);
+    setLastInteractionTime(Date.now());
+    setOpacity(1);
+  };
 
   const changeLanguage = (lang: string) => {
     i18n.changeLanguage(lang);
     setMenuOpen(false);
+    setLastInteractionTime(Date.now());
   };
 
+  // Inactivity fade
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
-        setMenuOpen(false);
+    const interval = setInterval(() => {
+      if (Date.now() - lastInteractionTime > 5000 && !dragging && !menuOpen) {
+        setOpacity(0.5);
       }
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [lastInteractionTime, dragging, menuOpen]);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setDragging(true);
+    wasDragged.current = false;
+    dragStartPos.current = { x: e.clientX, y: e.clientY };
+    setLastInteractionTime(Date.now());
+  };
+
+  const handleMouseMove = (e: MouseEvent) => {
+    if (!dragging || !fabRef.current) return;
+
+    const dx = e.clientX - dragStartPos.current.x;
+    const dy = e.clientY - dragStartPos.current.y;
+
+    // NEW: if moved more than 3px in any direction, count as drag
+    if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
+      wasDragged.current = true;
+    }
+
+    const newX = e.clientX - 28;
+    const newY = e.clientY - 28;
+
+    positionRef.current = { x: newX, y: newY };
+    const fab = fabRef.current;
+    fab.style.left = `${newX}px`;
+    fab.style.top = `${newY}px`;
+    setOpacity(1);
+    setLastInteractionTime(Date.now());
+  };
+
+  const handleMouseUp = () => {
+    if (!dragging || !fabRef.current) return;
+    setDragging(false);
+
+    const middle = window.innerWidth / 2;
+    const isLeft = positionRef.current.x < middle;
+    const targetX = isLeft ? 16 : window.innerWidth - 72;
+
+    positionRef.current.x = targetX;
+    fabRef.current.style.left = `${targetX}px`;
+    setSnapSide(isLeft ? 'left' : 'right');
+    positionRef.current.x = targetX;
+    fabRef.current.style.left = `${targetX}px`;
+  };
+
+  // Attach global mousemove and mouseup listeners
+  useEffect(() => {
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+  });
 
   return (
-    <div className="fab-container" ref={ref}>
+    <div>
       {menuOpen && (
-        <div className="language-box">
-          {languages.map(lang => (
-            <div
-              key={lang.code}
-              className="language-item"
-              onClick={() => changeLanguage(lang.code)}
-            >
-              {lang.label}
-            </div>
-          ))}
+        <div
+            className={`language-box ${dragging ? 'hidden-box' : 'visible-box'}`}
+            style={{
+                left:
+                snapSide === 'left'
+                    ? positionRef.current.x - 5
+                    : positionRef.current.x - 50,
+                top: positionRef.current.y - 95,
+                position: 'fixed',
+                pointerEvents: dragging ? 'none' : 'auto',
+            }}
+        >
+    {menuOpen &&
+        languages.map(lang => (
+        <div
+            key={lang.code}
+            className="language-item"
+            onClick={() => changeLanguage(lang.code)}
+        >
+            {lang.label}
         </div>
-      )}
+        ))}
+    </div>
+        )}
       <button
-        className="fab-button"
-        onClick={toggleMenu}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        style={{
-          transform: isHovered ? 'scale(1.07)' : 'scale(1)',
-          transition: 'transform 0.2s ease, background-color 0.3s ease',
+        ref={fabRef}
+        className={`fab-button ${dragging ? 'dragging' : ''}`}
+        onMouseDown={handleMouseDown}
+        onClick={() => {
+          if (!wasDragged.current) toggleMenu();
         }}
-        aria-label="Toggle Language Menu"
+        style={{
+          left: positionRef.current.x,
+          top: positionRef.current.y,
+          opacity,
+          position: 'fixed',
+        }}
+        aria-label="Language Toggle"
       >
         🌐
       </button>

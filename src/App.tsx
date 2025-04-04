@@ -22,7 +22,6 @@ const App: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen bg-gray-100 text-gray-900 relative">
       <div id="top-anchor" className="absolute top-0"></div>
-      <LanguageToggle />
       <Navbar />
       <ScrollTop />
       <Routes>
@@ -32,6 +31,8 @@ const App: React.FC = () => {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
+      <LanguageToggle />
+
     </div>
   );
 };
