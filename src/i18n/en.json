@@ -1,0 +1,17 @@
+{
+    "navbar": {
+      "home": "Home",
+      "about": "About",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "about": {
+      "title": "About Me",
+      "description": "I am a software engineer with a passion for design..."
+    },
+    "contact": {
+      "title": "Get in Touch",
+      "email": "Email me"
+    }
+  }
+  

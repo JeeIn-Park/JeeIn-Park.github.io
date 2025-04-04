@@ -1,0 +1,17 @@
+{
+    "navbar": {
+      "home": "홈",
+      "about": "소개",
+      "projects": "프로젝트",
+      "contact": "연락처"
+    },
+    "about": {
+      "title": "저에 대해",
+      "description": "저는 디자인에 열정을 가진 소프트웨어 엔지니어입니다..."
+    },
+    "contact": {
+      "title": "연락하기",
+      "email": "이메일 보내기"
+    }
+  }
+  
