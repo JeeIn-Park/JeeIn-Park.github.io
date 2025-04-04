@@ -8,8 +8,7 @@
     font-size: 2rem;
     font-weight: bold;
     text-align: center;
-    margin-top: 12rem;
-    margin-bottom: 2rem;
+    padding-top: 6rem;
     margin: 0 auto;
     color: #222;
   }
@@ -22,7 +21,7 @@
     max-width: 900px;
     width: 90%;
     margin: 0 auto;
-    margin-bottom: 5rem;
+    margin-top: 2rem;
   }
 
   
