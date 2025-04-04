@@ -2,20 +2,87 @@
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    width: 3.5rem;
-    height: 3.5rem;
-    border: none;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
-    background-color: #007bff;
     color: white;
     font-size: 1.5rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     z-index: 1000;
   }
   
   .language-toggle:hover {
     background-color: #0056b3;
+    transform: scale(1.1);
+  }
+
+  
+  .fab-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 1000;
+  }
+  
+  /* FAB Style */
+  .fab-button {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #fff893;
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+  }
+  
+  .fab-button:hover {
+    background-color: #ffe942;
+  }
+  
+  /* Language dropdown box */
+  .language-box {
+    margin-bottom: 0.8rem;
+    background-color: rgba(255, 255, 255, 0.226); /* Semi-transparent white */
+    backdrop-filter: blur(5px);               /* Blur background behind the box */
+    -webkit-backdrop-filter: blur(10px);       /* Safari support */
+    border-radius: 12px;
+    padding: 0.6rem 0;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    animation: fadeSlideUp 0.3s ease;
+  }
+  
+  
+  /* Each language item */
+  .language-item {
+    padding: 0.4rem 1rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+  }
+  
+  .language-item:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* Animation for panel appearing */
+  @keyframes fadeSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   
