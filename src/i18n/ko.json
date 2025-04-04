@@ -83,8 +83,46 @@
         },
         "cue": "스크롤을 내려 제 이야기를 더 알아보세요",
         "nav": ["# 창의성", "# 섬세함", "# 열정", "# 문제 해결"]
-        }
+        },
 
+        "projects": {
+            "title": "프로젝트 모음",
+            "comingSoon": "더 흥미로운 프로젝트가 곧 추가될 예정이에요!",
+            "list": [
+            {
+                "title": "RepViz - 안드로이드 개발자",
+                "date": "2024년 1월 - 2024년 6월",
+                "description": "Kotlin, Jetpack Compose, MVVM, Firebase, API 개발"
+            },
+            {
+                "title": "NHS - 크로스 플랫폼 앱 개발자",
+                "date": "2022년 10월 - 2023년 5월",
+                "description": "Flutter, Dart, Firebase, Linter, Dependabot, CI/CD"
+            },
+            {
+                "title": "AI 미로 해결기",
+                "date": "2023년 11월 - 2023년 12월",
+                "description": "Prolog, 경로 탐색 알고리즘"
+            },
+            {
+                "title": "3D 그래픽 렌더링 및 애니메이션 엔진",
+                "date": "2023년 9월 - 2023년 12월",
+                "description": "C++, SDL2, 3D 기하 처리, 선형대수"
+            },
+            {
+                "title": "병렬 최적화 - 콘웨이의 생명 게임",
+                "date": "2022년 10월 - 2022년 12월",
+                "description": "Golang, AWS, Vagrant, 병렬 처리, 분산 시스템, TDD"
+            },
+            {
+                "title": "스코틀랜드 야드 보드게임",
+                "date": "2022년 3월 - 2022년 5월",
+                "description": "Java, OOP, 팩토리 패턴, 옵저버 패턴, 싱글톤 패턴, TDD"
+            }
+            ]
+        }        
+
+        
 
   }
   

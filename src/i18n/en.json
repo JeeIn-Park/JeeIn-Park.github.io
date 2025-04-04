@@ -90,7 +90,44 @@
         },
         "nav": ["# Creativity", "# Sensitivity", "# Passion", "# Problem Solving"],
         "cue": "Scroll down to learn more about me"
-        }
+        },
+
+        "projects": {
+            "title": "My Projects",
+            "comingSoon": "More Exciting Projects Coming Soon!",
+            "list": [
+              {
+                "title": "RepViz - Android Developer",
+                "date": "January 2024 - June 2024",
+                "description": "Kotlin, Jetpack Compose, MVVM, Firebase, API development"
+              },
+              {
+                "title": "NHS - Cross Platform Application Developer",
+                "date": "October 2022 - May 2023",
+                "description": "Flutter, Dart, Firebase, Linter, Dependabot, CI/CD"
+              },
+              {
+                "title": "AI Maze Solver",
+                "date": "November 2023 - December 2023",
+                "description": "Prolog, Pathfinding Algorithm"
+              },
+              {
+                "title": "3D Graphic Rendering and Animation Engine",
+                "date": "September 2023 - December 2023",
+                "description": "C++, SDL2, 3D Geometry Processing, Linear Algebra"
+              },
+              {
+                "title": "Parallel Optimisation - Conway's Game of Life",
+                "date": "October 2022 - December 2022",
+                "description": "Golang, AWS, Vagrant, Concurrency, Distributed System, TDD"
+              },
+              {
+                "title": "Scotland Yard Boardgame",
+                "date": "March 2022 - May 2022",
+                "description": "Java, OOP. Factory Pattern, Observer Pattern, Singleton Pattern, TDD"
+              }
+            ]
+          }        
 
       
   }
