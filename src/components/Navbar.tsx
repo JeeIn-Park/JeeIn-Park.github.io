@@ -15,14 +15,26 @@ const Navbar: React.FC = () => {
   const location = useLocation();
   const containerRef = useRef<HTMLDivElement>(null);
   const [pillStyle, setPillStyle] = useState({ left: 0, width: 0 });
-  const { t } = useTranslation();
-  useEffect(() => {
+  const { t, i18n } = useTranslation();
+
+  const updatePill = () => {
     const activeLink = containerRef.current?.querySelector(".nav-item.active");
     if (activeLink) {
       const { offsetLeft, offsetWidth } = activeLink as HTMLElement;
       setPillStyle({ left: offsetLeft, width: offsetWidth });
     }
-  }, [location.pathname]);
+  };
+
+  // Update on route or language change
+  useEffect(() => {
+    updatePill();
+  }, [location.pathname, i18n.language]);
+
+  // Update on screen resize
+  useEffect(() => {
+    window.addEventListener("resize", updatePill);
+    return () => window.removeEventListener("resize", updatePill);
+  }, []);
 
   return (
     <nav className="navbar-wrapper">
