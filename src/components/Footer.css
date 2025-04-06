@@ -38,3 +38,42 @@
     flex-wrap: wrap;
   }
   
+.footer-lang-container {
+  position: relative;
+  display: inline-block; /* So the dropdown can be absolutely positioned */
+  margin-top: 0.5rem;    /* Adjust spacing as you like */
+}
+
+.footer-lang-button {
+  border: 1px solid #ffffff00;
+  background-color: #ffffffb5;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.footer-lang-button:hover {
+  background-color: #ffffff;
+}
+
+.footer-lang-dropdown {
+  position: absolute;
+  bottom: 2rem; 
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+.footer-lang-item {
+  padding: 0.2rem 1rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.footer-lang-item:hover {
+  border-radius: inherit;
+  background-color: #feffb5;
+}
