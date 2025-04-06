@@ -155,9 +155,8 @@
                 "description": "Java, OOP, 팩토리 패턴, 옵저버 패턴, 싱글톤 패턴, TDD"
             }
             ]
-        }        
+        },
 
-        
-
+        "langPrefButton": "언어 설정"
   }
   

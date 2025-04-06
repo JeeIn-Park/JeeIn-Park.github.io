@@ -3,23 +3,17 @@ import { useTranslation } from "react-i18next";
 import "./Footer.css";
 
 const Footer = () => {
-  const { i18n } = useTranslation();
-
-  // Track if the language dropdown is open
+  const { t, i18n } = useTranslation();
   const [langMenuOpen, setLangMenuOpen] = useState(false);
-
-  // The languages you want to offer
   const languages = [
     { code: "en", label: "English" },
     { code: "ko", label: "한국어" },
   ];
 
-  // Toggle the dropdown
   const toggleLangMenu = () => {
     setLangMenuOpen((prev) => !prev);
   };
 
-  // Change language, then close the dropdown
   const changeLanguage = (langCode: string) => {
     i18n.changeLanguage(langCode);
     setLangMenuOpen(false);
@@ -73,8 +67,9 @@ const Footer = () => {
 
         <br />
         <div className="footer-lang-container">
+          {/* HERE: Use `t("langPrefButton")` instead of a hard-coded string */}
           <button className="footer-lang-button" onClick={toggleLangMenu}>
-            Language
+            {t("langPrefButton")}
           </button>
 
           {langMenuOpen && (
