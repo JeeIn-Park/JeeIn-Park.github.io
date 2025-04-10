@@ -21,6 +21,7 @@ const App: React.FC = () => {
     <div className="flex flex-col min-h-screen bg-gray-100 text-gray-900 relative">
       <Navbar />
       <ScrollTop />
+      <div id="top-anchor" className="absolute top-0"></div> 
       <Routes>
         <Route path="/" element={<Hero />} />
         <Route path="/about" element={<About />} />
