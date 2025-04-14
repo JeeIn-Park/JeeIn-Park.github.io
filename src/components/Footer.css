@@ -38,11 +38,14 @@
     flex-wrap: wrap;
   }
   
-.footer-lang-container {
-  position: relative;
-  display: inline-block; /* So the dropdown can be absolutely positioned */
-  margin-top: 0.5rem;    /* Adjust spacing as you like */
-}
+  .footer-lang-container {
+    position: relative;
+    display: inline-flex;  /* make it shrink-wrap the content */
+    flex-direction: column;
+    align-items: center;   /* center children horizontally */
+    margin-top: 0.5rem;
+  }
+  
 
 .footer-lang-button {
   border: 1px solid #ffffff00;
@@ -59,12 +62,13 @@
 
 .footer-lang-dropdown {
   position: absolute;
-  bottom: 2rem; 
+  bottom: 2rem;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   z-index: 999;
+  min-width: max-content; /* Keeps it wide enough to fit its content */
 }
 
 .footer-lang-item {

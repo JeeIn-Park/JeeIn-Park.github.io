@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { motion, AnimatePresence } from "framer-motion";
+
 import "./Footer.css";
 
 const Footer = () => {
@@ -72,19 +74,27 @@ const Footer = () => {
             {t("langPrefButton")}
           </button>
 
-          {langMenuOpen && (
-            <div className="footer-lang-dropdown">
-              {languages.map((lang) => (
-                <div
-                  key={lang.code}
-                  className="footer-lang-item"
-                  onClick={() => changeLanguage(lang.code)}
-                >
-                  {lang.label}
-                </div>
-              ))}
-            </div>
-          )}
+          <AnimatePresence>
+            {langMenuOpen && (
+              <motion.div
+                className="footer-lang-dropdown"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ duration: 0.2 }}
+              >
+                {languages.map((lang) => (
+                  <div
+                    key={lang.code}
+                    className="footer-lang-item"
+                    onClick={() => changeLanguage(lang.code)}
+                  >
+                    {lang.label}
+                  </div>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </footer>
