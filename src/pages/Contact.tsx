@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "./Contact.css";
@@ -54,6 +54,7 @@ const cardVariants = {
 const Contact: React.FC = () => {
   const { t } = useTranslation();
   const [copiedItem, setCopiedItem] = useState<string | null>(null);
+  const timeouts = useRef<Map<string, NodeJS.Timeout>>(new Map());
 
   const handleCopy = async (
     text: string,
@@ -63,6 +64,10 @@ const Contact: React.FC = () => {
     try {
       await navigator.clipboard.writeText(text);
       setCopiedItem(name);
+
+      // Clear any previous timeout for this item
+      const prevTimeout = timeouts.current.get(name);
+      if (prevTimeout) clearTimeout(prevTimeout);
 
       confetti({
         particleCount: 100,
@@ -75,9 +80,13 @@ const Contact: React.FC = () => {
         zIndex: 9999,
       });
 
-      setTimeout(() => {
-        setCopiedItem(null);
+      // Set new timeout for this item
+      const timeoutId = setTimeout(() => {
+        setCopiedItem((current) => (current === name ? null : current));
+        timeouts.current.delete(name);
       }, 1500);
+
+      timeouts.current.set(name, timeoutId);
     } catch (err) {
       console.error("Failed to copy:", err);
     }

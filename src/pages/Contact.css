@@ -32,16 +32,12 @@
   padding: 0rem 0.5rem;
   width: 130px;
   text-align: center;
-  /* backdrop-filter: blur(12px);  */
-  /* -webkit-backdrop-filter: blur(12px);  */
-  /* box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); */
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .contact-card:hover {
   transform: scale(1.05);
   transition-duration: 0.1s;
-  /* box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3); */
 }
 
 .contact-card a {
@@ -150,9 +146,9 @@
   transform: translateX(-50%);
   background-color: #1f2937; /* default */
   color: white;
-  padding: 0.4rem 0.7rem;
+  padding: 0.2rem 0.6rem;
   border-radius: 12px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 400;
   white-space: nowrap;
   pointer-events: none;
