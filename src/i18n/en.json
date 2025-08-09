@@ -123,44 +123,101 @@
         "cue": "Scroll down to learn more about me"
         },
 
-        "projects": {
-            "title": "My Projects",
-            "comingSoon": "More Exciting Projects Coming Soon!",
-            "list": [
-              {
-                "title": "RepViz - Android Developer",
-                "date": "January 2024 - June 2024",
-                "description": "Kotlin, Jetpack Compose, MVVM, Firebase, API development"
-              },
-              {
-                "title": "NHS - Cross Platform Application Developer",
-                "date": "October 2022 - May 2023",
-                "description": "Flutter, Dart, Firebase, Linter, Dependabot, CI/CD"
-              },
-              {
-                "title": "AI Maze Solver",
-                "date": "November 2023 - December 2023",
-                "description": "Prolog, Pathfinding Algorithm"
-              },
-              {
-                "title": "3D Graphic Rendering and Animation Engine",
-                "date": "September 2023 - December 2023",
-                "description": "C++, SDL2, 3D Geometry Processing, Linear Algebra"
-              },
-              {
-                "title": "Parallel Optimisation - Conway's Game of Life",
-                "date": "October 2022 - December 2022",
-                "description": "Golang, AWS, Vagrant, Concurrency, Distributed System, TDD"
-              },
-              {
-                "title": "Scotland Yard Boardgame",
-                "date": "March 2022 - May 2022",
-                "description": "Java, OOP. Factory Pattern, Observer Pattern, Singleton Pattern, TDD"
-              }
-            ]
-          },
-          
-          "langPrefButton": "Language Preference"
+    "projects": {
+      "title": "My Projects",
+      "comingSoon": "More Exciting Projects Coming Soon!",
+      "list": [
+        {
+          "slug": "training-tracker",
+          "title": "RepViz - Android Developer",
+          "date": "January 2024 - June 2024",
+          "description": "Kotlin, Jetpack Compose, MVVM, Firebase, API development"
+        },
+        {
+          "slug": "medic-recall",
+          "title": "NHS - Cross Platform Application Developer",
+          "date": "October 2022 - May 2023",
+          "description": "Flutter, Dart, Firebase, Linter, Dependabot, CI/CD"
+        },
+        {
+          "slug": "maze-solver",
+          "title": "AI Maze Solver",
+          "date": "November 2023 - December 2023",
+          "description": "Prolog, Pathfinding Algorithm"
+        },
+        {
+          "slug": "graphics-engine",
+          "title": "3D Graphic Rendering and Animation Engine",
+          "date": "September 2023 - December 2023",
+          "description": "C++, SDL2, 3D Geometry Processing, Linear Algebra"
+        },
+        {
+          "slug": "game-of-life",
+          "title": "Parallel Optimisation - Conway's Game of Life",
+          "date": "October 2022 - December 2022",
+          "description": "Golang, AWS, Vagrant, Concurrency, Distributed System, TDD"
+        },
+        {
+          "slug": "scotland-yard",
+          "title": "Scotland Yard Boardgame",
+          "date": "March 2022 - May 2022",
+          "description": "Java, OOP, Factory Pattern, Observer Pattern, Singleton Pattern, TDD"
+        }
+      ],
+      "details": {
+        "training-tracker": {
+          "title": "RepViz - Android Developer",
+          "intro": "Developed a workout monitoring Android application with Kotlin, Jetpack Compose, and MVVM, integrating Firebase and API development.",
+          "body": [
+            "Increased user engagement by 15% through UI/UX improvements.",
+            "Reduced crash rates by 21% via robust testing and error handling.",
+            "Improved app store ratings by 54% after implementing feedback."
+          ]
+        },
+        "medic-recall": {
+          "title": "NHS - Cross Platform Application Developer",
+          "intro": "Built a medical revision app for NHS staff using Flutter and Dart with Firebase backend.",
+          "body": [
+            "Implemented a spaced repetition learning algorithm.",
+            "Integrated CI/CD pipelines using Dependabot and GitHub Actions."
+          ]
+        },
+        "maze-solver": {
+          "title": "AI Maze Solver",
+          "intro": "Prolog-based AI maze solver optimising pathfinding.",
+          "body": [
+            "Implemented multiple pathfinding algorithms for different maze configurations.",
+            "Reduced computation time by 25% through algorithmic optimisation."
+          ]
+        },
+        "graphics-engine": {
+          "title": "3D Graphic Rendering and Animation Engine",
+          "intro": "C++ engine for rendering and animating 3D models.",
+          "body": [
+            "Implemented 3D geometry processing and transformation pipeline.",
+            "Used SDL2 for real-time rendering."
+          ]
+        },
+        "game-of-life": {
+          "title": "Parallel Optimisation - Conway's Game of Life",
+          "intro": "Optimised Conway’s Game of Life simulation with Golang concurrency and AWS deployment.",
+          "body": [
+            "Improved performance by 32% through parallel processing.",
+            "Implemented distributed computing using the Broker-Worker pattern."
+          ]
+        },
+        "scotland-yard": {
+          "title": "Scotland Yard Boardgame",
+          "intro": "Java implementation of the Scotland Yard board game.",
+          "body": [
+            "Applied Factory, Observer, and Singleton design patterns.",
+            "Implemented TDD for reliable game logic."
+          ]
+        }
+      }
+    },
+
+  "langPrefButton": "Language Preference"
 
       
   }

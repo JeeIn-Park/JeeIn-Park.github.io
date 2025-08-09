@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import ProjectDetail from "./pages/ProjectDetail";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -26,6 +27,7 @@ const App: React.FC = () => {
         <Route path="/" element={<Hero />} />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="projects/:slug" element={<ProjectDetail />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />

@@ -2,54 +2,40 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import "./Projects.css";
 import ContextualCTA from "../components/ContextualCTA";
-
-const images = [
-  "/posters/RepVizPoster.png",
-  "/posters/MedicRecallPoster.png",
-  "/posters/MazeSolverPoster.png",
-  "/posters/GraphicEnginePoster.png",
-  "/posters/GameOfLifePoster.png",
-  "/posters/ScotlandYardPoster.png"
-];
-
-const links = [
-  "https://github.com/JeeIn-Park/Training-Tracker-Workout-Monitoring",
-  "https://medicrecall.com/",
-  "https://github.com/JeeIn-Park/Maze-Solving-AI",
-  "https://github.com/JeeIn-Park/OBJ-3D-Graphics-Animation-Engine",
-  "https://github.com/JeeIn-Park/The-Game-of-Life-Optimisation",
-  "https://github.com/JeeIn-Park/Scotland-Yard-Board-Game"
-];
+import { PROJECTS_META } from "../data/projects"; // slug, cover, github 등
 
 const Projects: React.FC = () => {
   const { t } = useTranslation();
-  const projects = t("projects.list", { returnObjects: true }) as {
+  const i18nList = t("projects.list", { returnObjects: true }) as {
+    slug: string;
     title: string;
     date: string;
     description: string;
   }[];
 
+  // slug로 merge
+  const projects = PROJECTS_META.map(meta => {
+    const i18nData = i18nList.find(p => p.slug === meta.slug);
+    return { ...meta, ...i18nData };
+  });
+
   return (
     <section className="projects-section">
-      {/* Optional: add title back */}
-      {/* <motion.h2 className="projects-title" ...>{t("projects.title")}</motion.h2> */}
-
       <div className="projects-grid">
-        {projects.map((project, index) => {
+        {projects.map((project) => {
           const [ref, inView] = useInView({
             triggerOnce: true,
             threshold: 0.15,
           });
 
           return (
-            <a
-              key={index}
-              href={links[index]}
+            <Link
+              key={project.slug}
+              to={`/projects/${project.slug}`}
               className="project-card-link"
-              target="_blank"
-              rel="noopener noreferrer"
             >
               <motion.div
                 ref={ref}
@@ -60,7 +46,7 @@ const Projects: React.FC = () => {
                 transition={{ type: "spring", stiffness: 200, damping: 10 }}
               >
                 <motion.img
-                  src={images[index]}
+                  src={project.cover}
                   alt={project.title}
                   className="project-image"
                 />
@@ -70,7 +56,7 @@ const Projects: React.FC = () => {
                   <p className="project-description">{project.description}</p>
                 </div>
               </motion.div>
-            </a>
+            </Link>
           );
         })}
       </div>
