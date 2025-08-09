@@ -89,4 +89,111 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
-  
+
+    /* 카드 전체에 hover 미리보기 */
+    .project-card.is-hoverable {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    /* 카드 전체 딤: hover 시 어두워짐 */
+    .project-card.is-hoverable::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0); /* 기본 투명 */
+      transition: background 180ms ease;
+      pointer-events: none;
+    }
+    .project-card.is-hoverable:hover::before {
+      background: rgba(0,0,0,0.45);
+    }
+
+
+    /* hover 시 살짝 확대(모션 최소화 시 비활성) */
+    .project-card.is-hoverable:hover .project-image {
+      transform: scale(1.02);
+    }
+
+    /* 카드 전체 오버레이 */
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: end; /* 아래쪽에 붙여서 읽기 좋게 */
+      padding: 12px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 180ms ease, transform 180ms ease;
+      pointer-events: none; /* 링크 클릭은 카드에게 그대로 전달 */
+    }
+    .project-card.is-hoverable:hover .card-overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 오버레이 내용 박스 */
+    .card-overlay-content {
+      width: 100%;
+      color: #fff;
+      background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.35) 100%);
+      backdrop-filter: blur(2px);
+      border-radius: 10px;
+      padding: 10px 12px;
+    }
+
+    .overlay-title {
+      margin: 0 0 4px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .overlay-date {
+      margin: 0 0 6px;
+      font-size: 12px;
+      opacity: 0.9;
+    }
+    .overlay-desc {
+      margin: 0 0 10px;
+      font-size: 13px;
+      line-height: 1.4;
+      opacity: 0.95;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;  /* 3줄 미리보기 */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .overlay-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .btn.sm {
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid #fff;
+      color: #111;
+      background: #fff;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn.sm.ghost {
+      background: transparent;
+      color: #fff;
+      border-color: #fff;
+    }
+
+    /* 카드 텍스트가 겹쳐 보이면 hover 시 투명 낮추기(선택) */
+    .project-card.is-hoverable:hover .project-text {
+      opacity: 0.12;
+      transition: opacity 160ms ease;
+    }
+
+    /* 접근성: 모션 최소화 */
+    @media (prefers-reduced-motion: reduce) {
+      .project-card.is-hoverable:hover .project-image { transform: none; }
+      .card-overlay { transition: opacity 1ms linear; transform: none !important; }
+    }

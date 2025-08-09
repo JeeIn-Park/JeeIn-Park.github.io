@@ -1,3 +1,4 @@
+// src/pages/Projects.tsx
 import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -20,7 +21,6 @@ const Projects: React.FC = () => {
 
   const i18nList = t("projects.list", { returnObjects: true }) as I18nProject[];
 
-  // i18n 순서 기준으로 메타데이터 merge + 누락 안전 처리
   const projects = i18nList
     .map((item) => {
       const meta = PROJECTS_META.find((m) => m.slug === item.slug);
@@ -30,7 +30,8 @@ const Projects: React.FC = () => {
         ...item,
         title: item.title ?? (meta as any).title ?? meta.slug,
         date: item.date ?? "",
-        description: item.description ?? ""
+        description: item.description ?? "",
+        github: (meta as any).github as string | undefined
       };
     })
     .filter(Boolean) as Array<{
@@ -39,6 +40,7 @@ const Projects: React.FC = () => {
       title: string;
       date: string;
       description: string;
+      github?: string;
     }>;
 
   return (
@@ -58,13 +60,14 @@ const Projects: React.FC = () => {
             >
               <motion.div
                 ref={ref}
-                className="project-card"
+                className="project-card is-hoverable" // ← hover 딤 효과 적용
                 initial={shouldReduce ? false : { opacity: 0, y: 30 }}
                 animate={inView ? (shouldReduce ? {} : { opacity: 1, y: 0 }) : {}}
                 whileHover={shouldReduce ? {} : { y: -5, scale: 1.02 }}
                 whileTap={shouldReduce ? {} : { scale: 0.99 }}
                 transition={{ type: "spring", stiffness: 200, damping: 10 }}
               >
+                {/* 기존 리스트 정렬 그대로 */}
                 {project.cover ? (
                   <motion.img
                     src={project.cover}
@@ -82,6 +85,24 @@ const Projects: React.FC = () => {
                   {project.description && (
                     <p className="project-description">{project.description}</p>
                   )}
+                </div>
+
+                {/* Hover 시 추가 디테일 오버레이 */}
+                <div className="card-overlay">
+                  <div className="card-overlay-content">
+                    <p className="overlay-desc">{project.description}</p>
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn sm"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        View on GitHub
+                      </a>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             </Link>

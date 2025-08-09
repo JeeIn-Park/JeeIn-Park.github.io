@@ -3,11 +3,6 @@ import { Link } from "react-router-dom";
 export default function TrainingTracker() {
   return (
     <main className="container mx-auto max-w-4xl p-6">
-      <nav className="text-sm mb-3">
-        <Link to="/" className="underline">Home</Link> /{" "}
-        <Link to="/projects" className="underline">Projects</Link> /{" "}
-        <span>Training Tracker</span>
-      </nav>
 
       <h1 className="text-3xl font-semibold mb-2">Training Tracker</h1>
       <p className="opacity-80 mb-4">Kotlin · Jetpack Compose · MVVM</p>
