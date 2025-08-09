@@ -1,26 +1,45 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import "./Projects.css";
 import ContextualCTA from "../components/ContextualCTA";
-import { PROJECTS_META } from "../data/projects"; // slug, cover, github 등
+import { PROJECTS_META } from "../data/projects"; // slug, cover, tags, github 등
+
+type I18nProject = {
+  slug: string;
+  title?: string;
+  date?: string;
+  description?: string;
+};
 
 const Projects: React.FC = () => {
   const { t } = useTranslation();
-  const i18nList = t("projects.list", { returnObjects: true }) as {
-    slug: string;
-    title: string;
-    date: string;
-    description: string;
-  }[];
+  const shouldReduce = useReducedMotion();
 
-  // slug로 merge
-  const projects = PROJECTS_META.map(meta => {
-    const i18nData = i18nList.find(p => p.slug === meta.slug);
-    return { ...meta, ...i18nData };
-  });
+  const i18nList = t("projects.list", { returnObjects: true }) as I18nProject[];
+
+  // i18n 순서 기준으로 메타데이터 merge + 누락 안전 처리
+  const projects = i18nList
+    .map((item) => {
+      const meta = PROJECTS_META.find((m) => m.slug === item.slug);
+      if (!meta) return null;
+      return {
+        ...meta,
+        ...item,
+        title: item.title ?? (meta as any).title ?? meta.slug,
+        date: item.date ?? "",
+        description: item.description ?? ""
+      };
+    })
+    .filter(Boolean) as Array<{
+      slug: string;
+      cover?: string;
+      title: string;
+      date: string;
+      description: string;
+    }>;
 
   return (
     <section className="projects-section">
@@ -28,7 +47,7 @@ const Projects: React.FC = () => {
         {projects.map((project) => {
           const [ref, inView] = useInView({
             triggerOnce: true,
-            threshold: 0.15,
+            threshold: 0.15
           });
 
           return (
@@ -40,20 +59,29 @@ const Projects: React.FC = () => {
               <motion.div
                 ref={ref}
                 className="project-card"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                whileHover={{ y: -5, scale: 1.02 }}
+                initial={shouldReduce ? false : { opacity: 0, y: 30 }}
+                animate={inView ? (shouldReduce ? {} : { opacity: 1, y: 0 }) : {}}
+                whileHover={shouldReduce ? {} : { y: -5, scale: 1.02 }}
+                whileTap={shouldReduce ? {} : { scale: 0.99 }}
                 transition={{ type: "spring", stiffness: 200, damping: 10 }}
               >
-                <motion.img
-                  src={project.cover}
-                  alt={project.title}
-                  className="project-image"
-                />
+                {project.cover ? (
+                  <motion.img
+                    src={project.cover}
+                    alt={project.title}
+                    className="project-image"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="project-image placeholder" aria-hidden="true" />
+                )}
+
                 <div className="project-text">
                   <h3 className="project-card-title">{project.title}</h3>
-                  <p className="project-date">{project.date}</p>
-                  <p className="project-description">{project.description}</p>
+                  {project.date && <p className="project-date">{project.date}</p>}
+                  {project.description && (
+                    <p className="project-description">{project.description}</p>
+                  )}
                 </div>
               </motion.div>
             </Link>
@@ -63,9 +91,9 @@ const Projects: React.FC = () => {
 
       <motion.div
         className="coming-soon"
-        initial={{ opacity: 0 }}
+        initial={shouldReduce ? false : { opacity: 0 }}
         viewport={{ once: true, amount: 0.2 }}
-        whileInView={{ opacity: 1 }}
+        whileInView={shouldReduce ? {} : { opacity: 1 }}
         transition={{ delay: 0.5 }}
       >
         {t("projects.comingSoon")}
