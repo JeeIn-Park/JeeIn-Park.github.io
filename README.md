@@ -16,3 +16,9 @@ PROJECTS_META에 slug, cover, component 식별자 넣기
 i18n projects.list에 같은 slug 항목 추가
 → 목록/상세/라우팅이 전부 자동 연결!
 
+
+to test : npm run dev
+
+
+
+

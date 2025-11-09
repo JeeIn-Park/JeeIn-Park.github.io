@@ -4,7 +4,7 @@ export type ProjectMeta = {
   cover: string;
   github?: string;
   external?: string;
-  tags?: string[];
+  tags?: Skill[];
   component: string;
 };
 
