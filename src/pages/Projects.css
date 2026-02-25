@@ -20,12 +20,17 @@
     text-align: left;
   }
 
+  .projects-filters.is-collapsed {
+    cursor: pointer;
+  }
+
   .projects-filters-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
     flex-wrap: wrap;
+    cursor: pointer;
   }
 
   .projects-filters-actions {
@@ -71,6 +76,11 @@
   }
 
   .skill-filter-toggle-circle:hover .skill-filter-toggle-chevron {
+    color: #5a5a5a;
+  }
+
+  .projects-filters:hover .skill-filter-toggle-chevron,
+  .projects-filters:focus-within .skill-filter-toggle-chevron {
     color: #5a5a5a;
   }
 

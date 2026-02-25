@@ -39,15 +39,38 @@ const SkillFilter: React.FC<SkillFilterProps> = ({
     window.localStorage.setItem(EXPANDED_STATE_KEY, String(isExpanded));
   }, [isExpanded]);
 
+  const toggleExpanded = () => {
+    setIsExpanded((current) => !current);
+  };
+
   return (
-    <div className="projects-filters" aria-label={title}>
-      <div className="projects-filters-header">
+    <div
+      className={`projects-filters ${isExpanded ? "" : "is-collapsed"}`.trim()}
+      aria-label={title}
+      aria-expanded={isExpanded}
+    >
+      <div
+        className="projects-filters-header"
+        onClick={toggleExpanded}
+        onKeyDown={(event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            toggleExpanded();
+          }
+        }}
+        role="button"
+        tabIndex={0}
+        aria-expanded={isExpanded}
+      >
         <p className="projects-filters-title">{title}</p>
         <div className="projects-filters-actions">
           <button
             type="button"
             className={`skill-filter-toggle-circle ${isExpanded ? "is-expanded" : ""}`}
-            onClick={() => setIsExpanded((current) => !current)}
+            onClick={(event) => {
+              event.stopPropagation();
+              toggleExpanded();
+            }}
             aria-expanded={isExpanded}
             aria-label={isExpanded ? collapseLabel : expandLabel}
             title={isExpanded ? collapseLabel : expandLabel}
