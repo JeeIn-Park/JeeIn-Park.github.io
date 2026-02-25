@@ -76,3 +76,13 @@
   transform: scale(1.05);
   transition: all 0.2s ease-in-out;
 }
+
+@media (max-width: 550px) {
+  .about-section {
+    margin-top: 1rem;
+  }
+
+  .about-title {
+    margin-top: 1rem;
+  }
+}
