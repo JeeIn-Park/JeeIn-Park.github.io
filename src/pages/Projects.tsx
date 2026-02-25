@@ -270,7 +270,7 @@ const Projects: React.FC = () => {
     <section className="projects-section">
       <SkillFilter
         title={t("projects.filters.title")}
-        allLabel={t("projects.filters.all")}
+        clearLabel={t("projects.filters.clear")}
         expandLabel={t("projects.filters.expand")}
         collapseLabel={t("projects.filters.collapse")}
         summaryLabel={t("projects.filters.summary", { count: filteredProjects.length })}
