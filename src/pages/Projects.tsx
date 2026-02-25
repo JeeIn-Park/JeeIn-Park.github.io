@@ -36,7 +36,7 @@ type ProjectViewModel = {
 const normalizeTag = (tag: string): string => tag.trim().toLowerCase();
 const PROJECT_FILTERS_STORAGE_KEY = "projects.selectedSkills";
 
-const toVividColor = (hex: string): string => {
+const toDarkerVividColor = (hex: string): string => {
   const parsed = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   if (!parsed) return hex;
 
@@ -61,8 +61,8 @@ const toVividColor = (hex: string): string => {
     if (h < 0) h += 360;
   }
 
-  const vividS = Math.min(1, s + 0.45);
-  const vividL = Math.max(0, Math.min(1, l - 0.3));
+  const vividS = Math.min(1, s + 0.55);
+  const vividL = Math.max(0, Math.min(1, l - 0.42));
 
   const c = (1 - Math.abs(2 * vividL - 1)) * vividS;
   const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
@@ -263,8 +263,13 @@ const Projects: React.FC = () => {
           borderColor: "rgba(31, 41, 55, 0.12)"
         };
 
+  const getBaseSkillColor = (tag: string): string => {
+    const matchedSkill = getSkill(tag);
+    return getSkillColor(matchedSkill ? matchedSkill.name : tag);
+  };
+
   const getFilterCountStyle = (tag: string): React.CSSProperties => ({
-    color: toVividColor(getSkillColor(tag)),
+    color: toDarkerVividColor(getBaseSkillColor(tag)),
     fontWeight: 700
   });
 

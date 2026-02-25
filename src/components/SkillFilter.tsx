@@ -43,15 +43,22 @@ const SkillFilter: React.FC<SkillFilterProps> = ({
     setIsExpanded((current) => !current);
   };
 
+  const isInteractiveTarget = (target: EventTarget | null): boolean =>
+    target instanceof Element &&
+    Boolean(target.closest("button, a, input, select, textarea"));
+
   return (
     <div
       className={`projects-filters ${isExpanded ? "" : "is-collapsed"}`.trim()}
       aria-label={title}
       aria-expanded={isExpanded}
+      onClick={(event) => {
+        if (isInteractiveTarget(event.target)) return;
+        toggleExpanded();
+      }}
     >
       <div
         className="projects-filters-header"
-        onClick={toggleExpanded}
         onKeyDown={(event) => {
           if (event.key === "Enter" || event.key === " ") {
             event.preventDefault();
@@ -110,9 +117,10 @@ const SkillFilter: React.FC<SkillFilterProps> = ({
             <p className="projects-filter-summary">{summaryLabel}</p>
             <button
               type="button"
-              className="skill-filter skill-filter-clear"
+              className={`skill-filter skill-filter-clear ${selectedSkills.length === 0 ? "is-hidden" : ""}`.trim()}
               onClick={onClear}
               disabled={selectedSkills.length === 0}
+              aria-hidden={selectedSkills.length === 0}
             >
               {clearLabel}
             </button>

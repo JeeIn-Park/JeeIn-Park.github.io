@@ -18,9 +18,6 @@
     background: rgba(255, 255, 255, 0.497);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
     text-align: left;
-  }
-
-  .projects-filters.is-collapsed {
     cursor: pointer;
   }
 
@@ -31,6 +28,7 @@
     gap: 1rem;
     flex-wrap: wrap;
     cursor: pointer;
+    user-select: none;
   }
 
   .projects-filters-actions {
@@ -71,6 +69,7 @@
     font-size: 1rem;
     line-height: 1;
     font-weight: 700;
+    color: #ffffff;
     transform: rotate(90deg);
     transition: transform 260ms ease, color 180ms ease;
   }
@@ -79,8 +78,7 @@
     color: #5a5a5a;
   }
 
-  .projects-filters:hover .skill-filter-toggle-chevron,
-  .projects-filters:focus-within .skill-filter-toggle-chevron {
+  .projects-filters:hover .skill-filter-toggle-chevron {
     color: #5a5a5a;
   }
 
@@ -319,3 +317,8 @@
       .project-card { transition: none; }
       .projects-filters-body { transition: none; }
     }
+
+  .skill-filter-clear.is-hidden {
+    visibility: hidden;
+    pointer-events: none;
+  }
