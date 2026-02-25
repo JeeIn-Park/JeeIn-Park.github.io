@@ -199,11 +199,21 @@ const Projects: React.FC = () => {
     [i18nList]
   );
 
+  const skillGroups = useMemo(
+    () =>
+      getSortedCategories()
+        .map((category) => ({
+          id: category,
+          label: getSkillCategoryLabel(category),
+          skills: getSkillsByCategory(category).map((skill) => skill.name)
+        }))
+        .filter((group) => group.skills.length > 0),
+    []
+  );
+
   const allTags = useMemo(() => {
-    return getSortedCategories().flatMap((category) =>
-      getSkillsByCategory(category).map((skill) => skill.name)
-    );
-  }, []);
+    return skillGroups.flatMap((group) => group.skills);
+  }, [skillGroups]);
 
   const skillCounts = useMemo(() => {
     const counts: Record<string, number> = Object.fromEntries(
@@ -250,12 +260,20 @@ const Projects: React.FC = () => {
     window.localStorage.setItem(PROJECT_FILTERS_STORAGE_KEY, JSON.stringify(selectedTags));
   }, [selectedTags]);
 
+  const getBaseSkillColor = (tag: string): string => {
+    const matchedSkill = getSkill(tag);
+    return getSkillColor(matchedSkill ? matchedSkill.name : tag);
+  };
+
+  const getFilterAccentColor = (tag: string): string =>
+    toDarkerVividColor(getBaseSkillColor(tag));
+
   const getFilterSkillStyle = (tag: string, selected: boolean): React.CSSProperties =>
     selected
       ? {
-          backgroundColor: "#111111",
-          color: getSkillColor(tag),
-          borderColor: getSkillColor(tag)
+          backgroundColor: getFilterAccentColor(tag),
+          color: "#ffffff",
+          borderColor: getFilterAccentColor(tag)
         }
       : {
           backgroundColor: getSkillColor(tag),
@@ -263,25 +281,19 @@ const Projects: React.FC = () => {
           borderColor: "rgba(31, 41, 55, 0.12)"
         };
 
-  const getBaseSkillColor = (tag: string): string => {
-    const matchedSkill = getSkill(tag);
-    return getSkillColor(matchedSkill ? matchedSkill.name : tag);
-  };
-
-  const getFilterCountStyle = (tag: string): React.CSSProperties => ({
-    color: toDarkerVividColor(getBaseSkillColor(tag)),
+  const getFilterCountStyle = (tag: string, selected: boolean): React.CSSProperties => ({
+    color: selected ? "#d1d5db" : getFilterAccentColor(tag),
     fontWeight: 700
   });
 
   return (
     <section className="projects-section">
       <SkillFilter
-        title={t("projects.filters.title")}
-        clearLabel={t("projects.filters.clear")}
+        title="filter"
         expandLabel={t("projects.filters.expand")}
         collapseLabel={t("projects.filters.collapse")}
-        summaryLabel={t("projects.filters.summary", { count: filteredProjects.length })}
-        skills={allTags}
+        summaryLabel={`${filteredProjects.length}/${projects.length}`}
+        groups={skillGroups}
         skillCounts={skillCounts}
         selectedSkills={selectedTags}
         onToggleSkill={toggleTag}
