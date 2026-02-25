@@ -1,10 +1,10 @@
 import {
   SKILL_CATEGORY_META,
-  SKILL_COLOR_TOKENS,
   SKILLS,
   Skill,
   SkillCategory
 } from "./skills.data";
+import { SKILL_COLOR_TOKENS } from "../config/skill-colors.config";
 
 const normalizeSkillName = (name: string): string => name.trim().toLowerCase();
 
