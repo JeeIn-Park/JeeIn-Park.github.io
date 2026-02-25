@@ -30,6 +30,7 @@ type ProjectViewModel = {
   date: string;
   description: string;
   github?: string;
+  external?: string;
   tags: string[];
 };
 
@@ -101,27 +102,29 @@ const ProjectCard: React.FC<{
     >
       <motion.div
         ref={ref}
-        className="project-card is-hoverable" // ← hover 딤 효과 적용
+        className="project-card"
         initial={shouldReduce ? false : { opacity: 0, y: 30 }}
         animate={inView ? (shouldReduce ? {} : { opacity: 1, y: 0 }) : {}}
-        whileHover={shouldReduce ? {} : { y: -5, scale: 1.02 }}
+        whileHover={shouldReduce ? {} : { y: -6, scale: 1.01 }}
         whileTap={shouldReduce ? {} : { scale: 0.99 }}
-        transition={{ type: "spring", stiffness: 200, damping: 10 }}
+        transition={{ type: "spring", stiffness: 220, damping: 16 }}
       >
-        {project.cover ? (
-          <motion.img
-            src={project.cover}
-            alt={project.title}
-            className="project-image"
-            loading="lazy"
-          />
-        ) : (
-          <div className="project-image placeholder" aria-hidden="true" />
-        )}
+        <div className="project-media">
+          {project.cover ? (
+            <motion.img
+              src={project.cover}
+              alt={project.title}
+              className="project-image"
+              loading="lazy"
+            />
+          ) : (
+            <div className="project-image placeholder" aria-hidden="true" />
+          )}
+          <span className="project-chip">{project.date || "Featured Project"}</span>
+        </div>
 
         <div className="project-text">
           <h3 className="project-card-title">{project.title}</h3>
-          {project.date && <p className="project-date">{project.date}</p>}
           {project.description && (
             <p className="project-description">{project.description}</p>
           )}
@@ -143,21 +146,27 @@ const ProjectCard: React.FC<{
               })}
             </ul>
           )}
-        </div>
-
-        {/* Hover 시 추가 디테일 오버레이 */}
-        <div className="card-overlay">
-          <div className="card-overlay-content">
-            <p className="overlay-desc">{project.description}</p>
+          <div className="project-actions">
             {project.github && (
               <a
                 href={project.github}
                 target="_blank"
                 rel="noreferrer"
-                className="btn sm"
+                className="project-btn"
                 onClick={(e) => e.stopPropagation()}
               >
                 View on GitHub
+              </a>
+            )}
+            {project.external && (
+              <a
+                href={project.external}
+                target="_blank"
+                rel="noreferrer"
+                className="project-btn project-btn-ghost"
+                onClick={(e) => e.stopPropagation()}
+              >
+                Visit Project
               </a>
             )}
           </div>
@@ -200,6 +209,7 @@ const Projects: React.FC = () => {
             date: item.date ?? "",
             description: item.description ?? "",
             github: (meta as any).github as string | undefined,
+            external: (meta as any).external as string | undefined,
             tags: meta.tags ?? []
           };
         })
@@ -210,6 +220,7 @@ const Projects: React.FC = () => {
           date: string;
           description: string;
           github?: string;
+          external?: string;
           tags: string[];
         }>,
     [i18nList]
