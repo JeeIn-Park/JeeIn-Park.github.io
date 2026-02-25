@@ -1,10 +1,12 @@
+export type ProjectTag = string;
+
 export type ProjectMeta = {
   slug: string;
   title?: string;
   cover: string;
   github?: string;
   external?: string;
-  tags?: Skill[];
+  tags?: ProjectTag[];
   component: string;
 };
 
