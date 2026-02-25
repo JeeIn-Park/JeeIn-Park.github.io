@@ -22,11 +22,35 @@
     flex-wrap: wrap;
   }
 
+  .projects-filters-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
   .projects-filters-title {
     margin: 0;
     font-size: 0.95rem;
     font-weight: 700;
     color: #1f2937;
+  }
+
+  .skill-filter-toggle {
+    border: 1px solid rgba(31, 41, 55, 0.16);
+    background: #ffffff;
+    color: #1f2937;
+    border-radius: 999px;
+    padding: 0.38rem 0.72rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.1;
+    cursor: pointer;
+    transition: transform 120ms ease, box-shadow 120ms ease;
+  }
+
+  .skill-filter-toggle:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
   }
 
   .skills-filter-list {

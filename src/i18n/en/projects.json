@@ -3,6 +3,8 @@
   "filters": {
     "title": "Filter by skills",
     "all": "All skills",
+    "expand": "Show filters",
+    "collapse": "Hide filters",
     "summary": "Showing {{count}} project(s)",
     "empty": "No projects match the selected skills yet."
   },

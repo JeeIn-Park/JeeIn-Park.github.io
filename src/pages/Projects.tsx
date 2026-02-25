@@ -35,6 +35,54 @@ type ProjectViewModel = {
 
 const normalizeTag = (tag: string): string => tag.trim().toLowerCase();
 
+const toVividColor = (hex: string): string => {
+  const parsed = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  if (!parsed) return hex;
+
+  let r = parseInt(parsed[1], 16) / 255;
+  let g = parseInt(parsed[2], 16) / 255;
+  let b = parseInt(parsed[3], 16) / 255;
+
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  const delta = max - min;
+
+  let h = 0;
+  let s = 0;
+  const l = (max + min) / 2;
+
+  if (delta !== 0) {
+    s = delta / (1 - Math.abs(2 * l - 1));
+    if (max === r) h = ((g - b) / delta) % 6;
+    else if (max === g) h = (b - r) / delta + 2;
+    else h = (r - g) / delta + 4;
+    h *= 60;
+    if (h < 0) h += 360;
+  }
+
+  const vividS = Math.min(1, s + 0.45);
+  const vividL = Math.max(0, Math.min(1, l - 0.3));
+
+  const c = (1 - Math.abs(2 * vividL - 1)) * vividS;
+  const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
+  const m = vividL - c / 2;
+
+  let rr = 0;
+  let gg = 0;
+  let bb = 0;
+
+  if (h >= 0 && h < 60) [rr, gg, bb] = [c, x, 0];
+  else if (h < 120) [rr, gg, bb] = [x, c, 0];
+  else if (h < 180) [rr, gg, bb] = [0, c, x];
+  else if (h < 240) [rr, gg, bb] = [0, x, c];
+  else if (h < 300) [rr, gg, bb] = [x, 0, c];
+  else [rr, gg, bb] = [c, 0, x];
+
+  return `rgb(${Math.round((rr + m) * 255)} ${Math.round((gg + m) * 255)} ${Math.round(
+    (bb + m) * 255
+  )})`;
+};
+
 const ProjectCard: React.FC<{
   project: ProjectViewModel;
   shouldReduce: boolean;
@@ -159,6 +207,27 @@ const Projects: React.FC = () => {
     );
   }, []);
 
+  const skillCounts = useMemo(() => {
+    const counts: Record<string, number> = Object.fromEntries(
+      allTags.map((skill) => [skill, 0])
+    );
+    const tagIndex = new Map(allTags.map((skill) => [normalizeTag(skill), skill]));
+
+    projects.forEach((project) => {
+      const matchedInProject = new Set<string>();
+      project.tags.forEach((tag) => {
+        const matchedSkill = tagIndex.get(normalizeTag(tag));
+        if (matchedSkill) matchedInProject.add(matchedSkill);
+      });
+
+      matchedInProject.forEach((skill) => {
+        counts[skill] += 1;
+      });
+    });
+
+    return counts;
+  }, [allTags, projects]);
+
   const filteredProjects = useMemo(() => {
     if (selectedTags.length === 0) return projects;
 
@@ -192,17 +261,26 @@ const Projects: React.FC = () => {
           borderColor: "rgba(31, 41, 55, 0.12)"
         };
 
+  const getFilterCountStyle = (tag: string): React.CSSProperties => ({
+    color: toVividColor(getSkillColor(tag)),
+    fontWeight: 700
+  });
+
   return (
     <section className="projects-section">
       <SkillFilter
         title={t("projects.filters.title")}
         allLabel={t("projects.filters.all")}
+        expandLabel={t("projects.filters.expand")}
+        collapseLabel={t("projects.filters.collapse")}
         summaryLabel={t("projects.filters.summary", { count: filteredProjects.length })}
         skills={allTags}
+        skillCounts={skillCounts}
         selectedSkills={selectedTags}
         onToggleSkill={toggleTag}
         onClear={clearFilters}
         getSkillStyle={getFilterSkillStyle}
+        getCountStyle={getFilterCountStyle}
       />
 
       <div className="projects-grid">
