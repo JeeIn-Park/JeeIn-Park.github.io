@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./SkillFilter.css";
 
 type SkillFilterProps = {
   title: string;
