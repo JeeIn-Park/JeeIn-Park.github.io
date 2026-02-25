@@ -34,6 +34,7 @@ type ProjectViewModel = {
 };
 
 const normalizeTag = (tag: string): string => tag.trim().toLowerCase();
+const PROJECT_FILTERS_STORAGE_KEY = "projects.selectedSkills";
 
 const toVividColor = (hex: string): string => {
   const parsed = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -169,7 +170,20 @@ const ProjectCard: React.FC<{
 const Projects: React.FC = () => {
   const { t } = useTranslation();
   const shouldReduce = useReducedMotion();
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [selectedTags, setSelectedTags] = useState<string[]>(() => {
+    if (typeof window === "undefined") return [];
+    const saved = window.localStorage.getItem(PROJECT_FILTERS_STORAGE_KEY);
+    if (!saved) return [];
+
+    try {
+      const parsed = JSON.parse(saved);
+      return Array.isArray(parsed)
+        ? parsed.filter((item): item is string => typeof item === "string")
+        : [];
+    } catch {
+      return [];
+    }
+  });
 
   const i18nList = t("projects.list", { returnObjects: true }) as I18nProject[];
 
@@ -247,6 +261,10 @@ const Projects: React.FC = () => {
   };
 
   const clearFilters = () => setSelectedTags([]);
+
+  React.useEffect(() => {
+    window.localStorage.setItem(PROJECT_FILTERS_STORAGE_KEY, JSON.stringify(selectedTags));
+  }, [selectedTags]);
 
   const getFilterSkillStyle = (tag: string, selected: boolean): React.CSSProperties =>
     selected
