@@ -4,7 +4,7 @@ import {
   Skill,
   SkillCategory
 } from "./skills.data";
-import { SKILL_COLOR_TOKENS } from "../config/skill-colors.config";
+import { COLORS } from "./colors";
 
 const normalizeSkillName = (name: string): string => name.trim().toLowerCase();
 
@@ -17,7 +17,7 @@ export const getSkill = (skillName: string): Skill | undefined =>
 
 export const getSkillColor = (skillName: string): string => {
   const match = getSkill(skillName);
-  return match ? SKILL_COLOR_TOKENS[match.color] : "#f0f0f0";
+  return match ? COLORS[match.color] : "#f0f0f0";
 };
 
 export const getSkillCategoryLabel = (category: SkillCategory): string =>

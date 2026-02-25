@@ -1,4 +1,4 @@
-import type { SkillColorToken } from "../config/skill-colors.config";
+import type { ColorToken } from "./colors";
 
 export const SKILL_CATEGORY_META = {
   programming: { label: "Programming Languages", order: 1 },
@@ -15,7 +15,7 @@ export type SkillCategory = keyof typeof SKILL_CATEGORY_META;
 export type Skill = {
   name: string;
   category: SkillCategory;
-  color: SkillColorToken;
+  color: ColorToken;
   order: number;
 };
 

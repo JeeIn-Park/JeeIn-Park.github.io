@@ -125,9 +125,6 @@ const ProjectCard: React.FC<{
 
         <div className="project-text">
           <h3 className="project-card-title">{project.title}</h3>
-          {project.description && (
-            <p className="project-description">{project.description}</p>
-          )}
           {project.tags.length > 0 && (
             <ul className="project-tags" aria-label="Skills used">
               {project.tags.map((tag) => {

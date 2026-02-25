@@ -1,4 +1,4 @@
-export const SKILL_COLOR_TOKENS = {
+export const COLORS = {
   pink: "#f5c6e6",
   rose: "#ffbecf",
   peach: "#ffc6bc",
@@ -11,7 +11,7 @@ export const SKILL_COLOR_TOKENS = {
   blue: "#b7d1ff",
   periwinkle: "#d2e3fc",
   lavender: "#dec7ff",
-  lilac: "#ddbdfc",
+  lilac: "#ddbdfc"
 } as const;
 
-export type SkillColorToken = keyof typeof SKILL_COLOR_TOKENS;
+export type ColorToken = keyof typeof COLORS;

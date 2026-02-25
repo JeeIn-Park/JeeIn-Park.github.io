@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollTop from "./components/ScrollTop";
 import { PROJECTS_META } from "./data/projects";
-import { slugToComponent } from "./pages/projects/registry";
+import { slugToComponent } from "./data/projects.registry";
 
 const Hero = lazy(() => import("./pages/Hero"));
 const About = lazy(() => import("./pages/About"));
