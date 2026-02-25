@@ -107,7 +107,7 @@ const getSkillColor = (skill: string): string => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1, duration: 0.8 }}
       >
-        {Object.entries(skills).map(([category, items], index) => (
+        {/* {Object.entries(skills).map(([category, items], index) => (
           <motion.div
             key={category}
             className="skill-group"
@@ -130,7 +130,7 @@ const getSkillColor = (skill: string): string => {
               ))}
             </ul>
           </motion.div>
-        ))}
+        ))} */}
       </motion.div>
 
       <div className="projects-grid">
