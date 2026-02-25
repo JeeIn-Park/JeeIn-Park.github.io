@@ -192,11 +192,17 @@
     transform: rotate(-45deg); /* Slightly aim toward center */
   }
   
-  .right-arrow {
-    bottom: 20%;
-    right: 20%;
-    transform: rotate(45deg);
+.right-arrow {
+  bottom: 20%;
+  right: 20%;
+  transform: rotate(45deg);
+}
+
+@media (max-width: 550px) {
+  .story-title {
+    padding-top: 1rem;
   }
+}
   
 
   

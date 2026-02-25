@@ -193,3 +193,13 @@
     transform: translateX(-50%) scale(1);
   }
 }
+
+@media (max-width: 550px) {
+  .contact-section {
+    padding-top: 1rem;
+  }
+
+  .contact-title {
+    margin-top: 1rem;
+  }
+}

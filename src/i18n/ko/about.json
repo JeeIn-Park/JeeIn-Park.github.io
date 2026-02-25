@@ -1,0 +1,12 @@
+{
+  "title": "프로그래머 박지인",
+  "intro": "저는 직관적인 애플리케이션을 만드는 것을 좋아하는 창의적 소프트웨어 엔지니어 박지인입니다. 디자인과 코드를 결합하여 사용자 경험을 향상시키는 것을 가장 즐기며, 문제 해결과 효율성, 창의적인 해결책에 열정을 가지고 있습니다.",
+  "skills": {
+    "Programming Languages": "프로그래밍 언어",
+    "Web Frameworks & UI Libraries": "웹 프레임워크 및 인터페이스 라이브러리",
+    "Mobile & Cross-Platform Development": "모바일 및 크로스플랫폼 개발",
+    "Cloud & DevOps": "클라우드 및 DevOps",
+    "Development Tools & IDEs": "개발 도구",
+    "Design & Modelling": "디자인 및 모델링"
+  }
+}

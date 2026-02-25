@@ -62,7 +62,8 @@
 
 @media (max-width: 550px) {
   .navbar-wrapper {
-    margin-bottom: -6rem;
+    margin-top: max(0.2rem, 4vw);
+    margin-bottom: 0.35rem;
   }
   
   .navbar {
