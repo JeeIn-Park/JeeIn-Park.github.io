@@ -39,5 +39,6 @@ export const SKILL_CATEGORIES: Record<SkillCategory, string[]> = {
   mobile: getSkillsByCategory("mobile").map((skill) => skill.name),
   cloud: getSkillsByCategory("cloud").map((skill) => skill.name),
   tools: getSkillsByCategory("tools").map((skill) => skill.name),
-  design: getSkillsByCategory("design").map((skill) => skill.name)
+  design: getSkillsByCategory("design").map((skill) => skill.name),
+  concepts: getSkillsByCategory("concepts").map((skill) => skill.name)
 };

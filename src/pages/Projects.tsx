@@ -3,7 +3,6 @@ import React, { useMemo, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 import "./Projects.css";
 import ContextualCTA from "../components/ContextualCTA";
 import SkillFilter from "../components/SkillFilter";
@@ -93,22 +92,23 @@ const ProjectCard: React.FC<{
     triggerOnce: true,
     threshold: 0.15
   });
+  const destination = project.external ?? project.github ?? `/projects/${project.slug}`;
+  const shouldOpenNewTab = Boolean(project.external || project.github);
 
   return (
-    <Link
-      key={project.slug}
-      to={`/projects/${project.slug}`}
+    <motion.a
+      ref={ref}
+      href={destination}
+      target={shouldOpenNewTab ? "_blank" : undefined}
+      rel={shouldOpenNewTab ? "noreferrer noopener" : undefined}
       className="project-card-link"
+      initial={shouldReduce ? false : { opacity: 0, y: 30 }}
+      animate={inView ? (shouldReduce ? {} : { opacity: 1, y: 0 }) : {}}
+      whileHover={shouldReduce ? {} : { y: -6, scale: 1.01 }}
+      whileTap={shouldReduce ? {} : { scale: 0.99 }}
+      transition={{ type: "spring", stiffness: 220, damping: 16 }}
     >
-      <motion.div
-        ref={ref}
-        className="project-card"
-        initial={shouldReduce ? false : { opacity: 0, y: 30 }}
-        animate={inView ? (shouldReduce ? {} : { opacity: 1, y: 0 }) : {}}
-        whileHover={shouldReduce ? {} : { y: -6, scale: 1.01 }}
-        whileTap={shouldReduce ? {} : { scale: 0.99 }}
-        transition={{ type: "spring", stiffness: 220, damping: 16 }}
-      >
+      <div className="project-card">
         <div className="project-media">
           {project.cover ? (
             <motion.img
@@ -146,33 +146,9 @@ const ProjectCard: React.FC<{
               })}
             </ul>
           )}
-          <div className="project-actions">
-            {project.github && (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noreferrer"
-                className="project-btn"
-                onClick={(e) => e.stopPropagation()}
-              >
-                View on GitHub
-              </a>
-            )}
-            {project.external && (
-              <a
-                href={project.external}
-                target="_blank"
-                rel="noreferrer"
-                className="project-btn project-btn-ghost"
-                onClick={(e) => e.stopPropagation()}
-              >
-                Visit Project
-              </a>
-            )}
-          </div>
         </div>
-      </motion.div>
-    </Link>
+      </div>
+    </motion.a>
   );
 };
 

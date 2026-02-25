@@ -6,7 +6,8 @@ export const SKILL_CATEGORY_META = {
   mobile: { label: "Mobile & Cross-Platform Development", order: 3 },
   cloud: { label: "Cloud & DevOps", order: 4 },
   tools: { label: "Development Tools & IDEs", order: 5 },
-  design: { label: "Design & Modelling", order: 6 }
+  design: { label: "Design & Modelling", order: 6 },
+  concepts: { label: "Concepts & Architecture", order: 7 }
 } as const;
 
 export type SkillCategory = keyof typeof SKILL_CATEGORY_META;
@@ -47,5 +48,14 @@ export const SKILLS: Skill[] = [
   { name: "Figma", category: "design", color: "green", order: 1 },
   { name: "Canva", category: "design", color: "lavender", order: 2 },
   { name: "Fusion 360", category: "design", color: "yellow", order: 3 },
-  { name: "Maya", category: "design", color: "sky", order: 4 }
+  { name: "Maya", category: "design", color: "sky", order: 4 },
+  { name: "MVVM", category: "concepts", color: "periwinkle", order: 1 },
+  { name: "SRS", category: "concepts", color: "amber", order: 2 },
+  { name: "AI", category: "concepts", color: "rose", order: 3 },
+  { name: "Pathfinding", category: "concepts", color: "sky", order: 4 },
+  { name: "Rendering", category: "concepts", color: "blue", order: 5 },
+  { name: "3D Graphics", category: "concepts", color: "lavender", order: 6 },
+  { name: "Concurrency", category: "concepts", color: "green", order: 7 },
+  { name: "Algorithms", category: "concepts", color: "orange", order: 8 },
+  { name: "Game Development", category: "concepts", color: "lilac", order: 9 }
 ];

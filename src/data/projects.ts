@@ -1,4 +1,6 @@
-export type ProjectTag = string;
+import type { Skill } from "./skills.data";
+
+export type ProjectTag = Skill["name"];
 
 export type ProjectMeta = {
   slug: string;
@@ -16,7 +18,7 @@ export const PROJECTS_META: ProjectMeta[] = [
     title: "RepViz - Android Developer",
     cover: "/posters/RepVizPoster.png",
     github: "https://github.com/JeeIn-Park/Training-Tracker-Workout-Monitoring",
-    tags: ["Android", "Kotlin", "Compose", "MVVM"],
+    tags: ["Android", "Kotlin", "Jetpack Compose", "MVVM"],
     component: "TrainingTracker"
   },
   {
@@ -31,28 +33,28 @@ export const PROJECTS_META: ProjectMeta[] = [
     slug: "maze-solver",
     cover: "/posters/MazeSolverPoster.png",
     github: "https://github.com/JeeIn-Park/Maze-Solving-AI",
-    tags: ["Prolog","AI","Pathfinding"],
+    tags: ["Prolog", "AI", "Pathfinding"],
     component: "MazeSolver"
   },
   {
     slug: "graphics-engine",
     cover: "/posters/GraphicEnginePoster.png",
     github: "https://github.com/JeeIn-Park/OBJ-3D-Graphics-Animation-Engine",
-    tags: ["C/C++","3D","Rendering"],
+    tags: ["C", "C++", "3D Graphics", "Rendering"],
     component: "GraphicsEngine"
   },
   {
     slug: "game-of-life",
     cover: "/posters/GameOfLifePoster.png",
     github: "https://github.com/JeeIn-Park/The-Game-of-Life-Optimisation",
-    tags: ["Go","Concurrency","AWS"],
+    tags: ["Go", "Concurrency", "AWS"],
     component: "GameOfLife"
   },
   {
     slug: "scotland-yard",
     cover: "/posters/ScotlandYardPoster.png",
     github: "https://github.com/JeeIn-Park/Scotland-Yard-Board-Game",
-    tags: ["Java","Game","Algorithms"],
+    tags: ["Java", "Game Development", "Algorithms"],
     component: "ScotlandYard"
   }
 ];
