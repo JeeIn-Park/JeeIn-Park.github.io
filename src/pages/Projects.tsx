@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import "./Projects.css";
 import ContextualCTA from "../components/ContextualCTA";
 import { PROJECTS_META } from "../data/projects"; // slug, cover, tags, github 등
+import { getSkill, getSkillCategoryLabel, getSkillColor } from "../data/skills";
 
 type I18nProject = {
   slug: string;
@@ -31,7 +32,8 @@ const Projects: React.FC = () => {
         title: item.title ?? (meta as any).title ?? meta.slug,
         date: item.date ?? "",
         description: item.description ?? "",
-        github: (meta as any).github as string | undefined
+        github: (meta as any).github as string | undefined,
+        tags: meta.tags ?? []
       };
     })
     .filter(Boolean) as Array<{
@@ -41,41 +43,10 @@ const Projects: React.FC = () => {
       date: string;
       description: string;
       github?: string;
+      tags: string[];
     }>;
   return (
     <section className="projects-section">
-
-      <motion.div
-        className="skills-container"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1, duration: 0.8 }}
-      >
-        {/* {Object.entries(skills).map(([category, items], index) => (
-          <motion.div
-            key={category}
-            className="skill-group"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 + index * 0.1, duration: 0.6 }}
-          >
-            <h3 className="skill-category">{t(`about.skills.${category}`)}</h3>
-            <ul className="skill-list">
-              {items.map((skill) => (
-                <li
-                  key={skill}
-                  className="skill-item"
-                  style={{
-                    backgroundColor: getSkillColor(skill),
-                  }}
-                >
-                  {skill}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        ))} */}
-      </motion.div>
 
       <div className="projects-grid">
         {projects.map((project) => {
@@ -99,7 +70,6 @@ const Projects: React.FC = () => {
                 whileTap={shouldReduce ? {} : { scale: 0.99 }}
                 transition={{ type: "spring", stiffness: 200, damping: 10 }}
               >
-                {/* 기존 리스트 정렬 그대로 */}
                 {project.cover ? (
                   <motion.img
                     src={project.cover}
@@ -116,6 +86,23 @@ const Projects: React.FC = () => {
                   {project.date && <p className="project-date">{project.date}</p>}
                   {project.description && (
                     <p className="project-description">{project.description}</p>
+                  )}
+                  {project.tags.length > 0 && (
+                    <ul className="project-tags" aria-label="Skills used">
+                      {project.tags.map((tag) => {
+                        const skill = getSkill(tag);
+                        return (
+                          <li
+                            key={`${project.slug}-${tag}`}
+                            className="project-tag"
+                            style={{ backgroundColor: getSkillColor(tag) }}
+                            title={skill ? getSkillCategoryLabel(skill.category) : "Project keyword"}
+                          >
+                            {tag}
+                          </li>
+                        );
+                      })}
+                    </ul>
                   )}
                 </div>
 
