@@ -1,22 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
 body {
   font-family: 'Fredoka', sans-serif;
-  background: radial-gradient(
-    circle at center,
-    #fffbc8,
-    #ffd7f4,
-    #b8d1fc,
-    #fad0c4,
-    #e7ffcb,
-    #b8e5fc
-  );
-  background-size: 1000% 1000%;
-  animation: swirl 40s linear infinite;
   margin: 0;
   padding: 0;
   line-height: 1.5;
+  background: transparent;
+}
+
+html {
+  scroll-padding-top: 6rem;
+}
+
+/* Single global background layer, independent of page/component layout changes. */
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    #fdf8b8,
+    #c9f4c5,
+    #ffdbf5,
+    #ccdfff,
+    #fffab4,
+    #f7d6ff,
+    #ffdbdb,
+    #cccdff,
+    #c6f8d8,
+    #ffdef0,
+    #b8e5fc,
+    #fad0c4,
+    #fffbc0
+  );
+  background-size: 2500% 2500%;
+  animation: infinity-drift 60s linear infinite;
 }
 
 html[lang="ko"] body {
@@ -25,12 +51,30 @@ html[lang="ko"] body {
   line-height: 1.45; /* Adjust as needed */
 }
 
-@keyframes swirl {
+@keyframes infinity-drift {
   0% {
     background-position: 50% 50%;
   }
+  12.5% {
+    background-position: 72% 30%;
+  }
+  25% {
+    background-position: 50% 12%;
+  }
+  37.5% {
+    background-position: 28% 30%;
+  }
   50% {
-    background-position: 100% 0%;
+    background-position: 50% 50%;
+  }
+  62.5% {
+    background-position: 28% 70%;
+  }
+  75% {
+    background-position: 50% 88%;
+  }
+  87.5% {
+    background-position: 72% 70%;
   }
   100% {
     background-position: 50% 50%;
@@ -40,8 +84,4 @@ html[lang="ko"] body {
 h1 {
   font-size: 2rem;
   margin-bottom: 2rem;
-}
-
-html {
-  scroll-padding-top: 6rem;
 }
