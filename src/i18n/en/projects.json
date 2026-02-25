@@ -1,5 +1,11 @@
 {
   "title": "My Projects",
+  "filters": {
+    "title": "Filter by skills",
+    "all": "All skills",
+    "summary": "Showing {{count}} project(s)",
+    "empty": "No projects match the selected skills yet."
+  },
   "comingSoon": "More Exciting Projects Coming Soon!",
   "list": [
     {

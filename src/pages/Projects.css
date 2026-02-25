@@ -3,6 +3,67 @@
     padding: 6rem 2rem;
     text-align: center;
   }
+
+  .projects-filters {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem 1.2rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    text-align: left;
+  }
+
+  .projects-filters-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .projects-filters-title {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1f2937;
+  }
+
+  .skills-filter-list {
+    list-style: none;
+    margin: 0.8rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-filter {
+    border: 1px solid rgba(31, 41, 55, 0.12);
+    color: #1f2937;
+    border-radius: 999px;
+    padding: 0.38rem 0.72rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1.1;
+    cursor: pointer;
+    transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+  }
+
+  .skill-filter:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  }
+
+  .skill-filter.is-active {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .projects-filter-summary {
+    margin: 0.9rem 0 0;
+    font-size: 0.8rem;
+    color: #4b5563;
+  }
   
   /* .projects-title {
     margin-top: 3rem;
@@ -212,6 +273,12 @@
     .project-card.is-hoverable:hover .project-text {
       opacity: 0.12;
       transition: opacity 160ms ease;
+    }
+
+    .projects-empty {
+      margin: 2rem auto 0;
+      color: #4b5563;
+      font-weight: 500;
     }
 
     /* 접근성: 모션 최소화 */
