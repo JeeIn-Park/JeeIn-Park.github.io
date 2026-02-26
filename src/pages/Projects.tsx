@@ -11,6 +11,7 @@ import {
   getSkill,
   getSkillCategoryLabel,
   getSkillColor,
+  getSkillColorTone,
   getSkillsByCategory,
   getSortedCategories
 } from "../data/skills";
@@ -35,54 +36,6 @@ type ProjectViewModel = {
 
 const normalizeTag = (tag: string): string => tag.trim().toLowerCase();
 const PROJECT_FILTERS_STORAGE_KEY = "projects.selectedSkills";
-
-const toDarkerVividColor = (hex: string): string => {
-  const parsed = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  if (!parsed) return hex;
-
-  let r = parseInt(parsed[1], 16) / 255;
-  let g = parseInt(parsed[2], 16) / 255;
-  let b = parseInt(parsed[3], 16) / 255;
-
-  const max = Math.max(r, g, b);
-  const min = Math.min(r, g, b);
-  const delta = max - min;
-
-  let h = 0;
-  let s = 0;
-  const l = (max + min) / 2;
-
-  if (delta !== 0) {
-    s = delta / (1 - Math.abs(2 * l - 1));
-    if (max === r) h = ((g - b) / delta) % 6;
-    else if (max === g) h = (b - r) / delta + 2;
-    else h = (r - g) / delta + 4;
-    h *= 60;
-    if (h < 0) h += 360;
-  }
-
-  const vividS = Math.min(1, s + 0.55);
-  const vividL = Math.max(0, Math.min(1, l - 0.42));
-
-  const c = (1 - Math.abs(2 * vividL - 1)) * vividS;
-  const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
-  const m = vividL - c / 2;
-
-  let rr = 0;
-  let gg = 0;
-  let bb = 0;
-
-  if (h >= 0 && h < 60) [rr, gg, bb] = [c, x, 0];
-  else if (h < 120) [rr, gg, bb] = [x, c, 0];
-  else if (h < 180) [rr, gg, bb] = [0, c, x];
-  else if (h < 240) [rr, gg, bb] = [0, x, c];
-  else if (h < 300) [rr, gg, bb] = [x, 0, c];
-  else [rr, gg, bb] = [c, 0, x];
-
-  return `rgb(${Math.round((rr + m) * 255)} ${Math.round((gg + m) * 255)} ${Math.round(
-    (bb + m) * 255
-  )})`;
-};
 
 const ProjectCard: React.FC<{
   project: ProjectViewModel;
@@ -260,13 +213,9 @@ const Projects: React.FC = () => {
     window.localStorage.setItem(PROJECT_FILTERS_STORAGE_KEY, JSON.stringify(selectedTags));
   }, [selectedTags]);
 
-  const getBaseSkillColor = (tag: string): string => {
-    const matchedSkill = getSkill(tag);
-    return getSkillColor(matchedSkill ? matchedSkill.name : tag);
-  };
-
-  const getFilterAccentColor = (tag: string): string =>
-    toDarkerVividColor(getBaseSkillColor(tag));
+  const getFilterAccentColor = (tag: string): string => getSkillColorTone(tag, "dark");
+  const getFilterNormalColor = (tag: string): string => getSkillColorTone(tag, "normal");
+  const getFilterLightColor = (tag: string): string => getSkillColorTone(tag, "light");
 
   const getFilterSkillStyle = (tag: string, selected: boolean): React.CSSProperties =>
     selected
@@ -281,11 +230,6 @@ const Projects: React.FC = () => {
           borderColor: "rgba(31, 41, 55, 0.12)"
         };
 
-  const getFilterCountStyle = (tag: string, selected: boolean): React.CSSProperties => ({
-    color: selected ? "#d1d5db" : getFilterAccentColor(tag),
-    fontWeight: 700
-  });
-
   return (
     <section className="projects-section">
       <SkillFilter
@@ -299,7 +243,9 @@ const Projects: React.FC = () => {
         onToggleSkill={toggleTag}
         onClear={clearFilters}
         getSkillStyle={getFilterSkillStyle}
-        getCountStyle={getFilterCountStyle}
+        getCountAccentColor={getFilterAccentColor}
+        getCountNormalColor={getFilterNormalColor}
+        getCountLightColor={getFilterLightColor}
       />
 
       <div className="projects-grid">

@@ -26,7 +26,7 @@ export const PROJECTS_META: ProjectMeta[] = [
     title: "NHS - Cross Platform Application Developer",
     cover: "/posters/MedicRecallPoster.png",
     external: "https://medicrecall.com/",
-    tags: ["Flutter", "Firebase", "SRS"],
+    tags: ["Flutter", "Firebase"],
     component: "MedicRecall"
   },
   {

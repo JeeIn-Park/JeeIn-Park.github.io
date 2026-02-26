@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./SkillFilter.css";
+import { UI_COLORS } from "../data/colors";
 
 type SkillFilterGroup = {
   id: string;
@@ -18,7 +19,9 @@ type SkillFilterProps = {
   onClear: () => void;
   getSkillStyle: (skill: string, selected: boolean) => React.CSSProperties;
   skillCounts: Record<string, number>;
-  getCountStyle: (skill: string, selected: boolean) => React.CSSProperties;
+  getCountAccentColor: (skill: string) => string;
+  getCountNormalColor: (skill: string) => string;
+  getCountLightColor: (skill: string) => string;
 };
 
 const SkillFilter: React.FC<SkillFilterProps> = ({
@@ -32,7 +35,9 @@ const SkillFilter: React.FC<SkillFilterProps> = ({
   onClear,
   getSkillStyle,
   skillCounts,
-  getCountStyle
+  getCountAccentColor,
+  getCountNormalColor,
+  getCountLightColor
 }) => {
   const EXPANDED_STATE_KEY = "projects.skillFilter.isExpanded";
   const [isExpanded, setIsExpanded] = useState<boolean>(() => {
@@ -57,6 +62,18 @@ const SkillFilter: React.FC<SkillFilterProps> = ({
       className={`projects-filters ${isExpanded ? "" : "is-collapsed"}`.trim()}
       aria-label={title}
       aria-expanded={isExpanded}
+      style={
+        {
+          "--ui-text-secondary": UI_COLORS.text.secondary,
+          "--ui-text-accent": UI_COLORS.text.accent,
+          "--ui-surface-highlight": UI_COLORS.surface.highlight,
+          "--ui-surface-highlight-hover": UI_COLORS.surface.highlightHover,
+          "--ui-border-highlight": UI_COLORS.border.highlight,
+          "--ui-shadow-highlight": UI_COLORS.shadow.highlight,
+          "--ui-icon-hover-muted": UI_COLORS.icon.hoverMuted,
+          "--ui-icon-hover-strong": UI_COLORS.icon.hoverStrong
+        } as React.CSSProperties
+      }
       onClick={(event) => {
         if (isInteractiveTarget(event.target)) return;
         toggleExpanded();
@@ -137,10 +154,16 @@ const SkillFilter: React.FC<SkillFilterProps> = ({
                         >
                           {skill}{" "}
                           <span
-                            className="skill-filter-count"
-                            style={getCountStyle(skill, selected)}
+                            className={`skill-filter-count ${selected ? "is-selected" : ""}`.trim()}
+                            style={
+                              {
+                                "--skill-count-accent": getCountAccentColor(skill),
+                                "--skill-count-normal": getCountNormalColor(skill),
+                                "--skill-count-light": getCountLightColor(skill)
+                              } as React.CSSProperties
+                            }
                           >
-                            ({skillCounts[skill] ?? 0})
+                            {skillCounts[skill] ?? 0}
                           </span>
                         </button>
                       </li>

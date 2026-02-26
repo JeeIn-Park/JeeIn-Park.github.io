@@ -4,7 +4,7 @@ import {
   Skill,
   SkillCategory
 } from "./skills.data";
-import { COLORS } from "./colors";
+import { COLORS, ColorTone } from "./colors";
 
 const normalizeSkillName = (name: string): string => name.trim().toLowerCase();
 
@@ -17,7 +17,16 @@ export const getSkill = (skillName: string): Skill | undefined =>
 
 export const getSkillColor = (skillName: string): string => {
   const match = getSkill(skillName);
-  return match ? COLORS[match.color] : "#f0f0f0";
+  return match ? COLORS[match.color].normal : "#f0f0f0";
+};
+
+export const getSkillColorTone = (
+  skillName: string,
+  tone: ColorTone = "normal"
+): string => {
+  const match = getSkill(skillName);
+  if (!match) return "#f0f0f0";
+  return COLORS[match.color][tone];
 };
 
 export const getSkillCategoryLabel = (category: SkillCategory): string =>
