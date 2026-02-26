@@ -15,12 +15,18 @@ export const COLORS = {
 
 export const UI_COLORS = {
   text: {
+    primary: "#1a202c",
+    muted: "#555555",
+    neutral: "#000000",
+    inverse: "#ffffff",
     accent: "#476da2",
     secondary: "#6384c6"
   },
   surface: {
     highlight: "#ffd643cd",
-    highlightHover: "#ffd643"
+    highlightHover: "#ffd643",
+    glass: "#ffffff50",
+    neutralStrong: "#1f2937"
   },
   border: {
     highlight: "rgba(255, 214, 67, 0.9)"

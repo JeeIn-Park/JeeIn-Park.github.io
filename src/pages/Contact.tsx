@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import "./Contact.css";
 import confetti from "canvas-confetti";
 import ContextualCTA from "../components/ContextualCTA";
+import { COLORS, UI_COLORS } from "../data/colors";
 
 const contactItems = [
   {
@@ -93,7 +94,25 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="contact-section">
+    <section
+      id="contact"
+      className="contact-section"
+      style={
+        {
+          "--ui-text-primary": UI_COLORS.text.primary,
+          "--ui-text-muted": UI_COLORS.text.muted,
+          "--ui-text-neutral": UI_COLORS.text.neutral,
+          "--ui-text-inverse": UI_COLORS.text.inverse,
+          "--ui-surface-glass": UI_COLORS.surface.glass,
+          "--ui-surface-neutral-strong": UI_COLORS.surface.neutralStrong,
+          "--contact-github": COLORS.peach.dark,
+          "--contact-linkedin": COLORS.blue.dark,
+          "--contact-instagram": COLORS.rose.dark,
+          "--contact-email": COLORS.amber.dark,
+          "--contact-phone": COLORS.green.dark
+        } as React.CSSProperties
+      }
+    >
       <motion.h2
         className="contact-title"
         initial={{ opacity: 0, y: -20 }}

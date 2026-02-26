@@ -12,13 +12,13 @@
   margin-top: 3rem;
   font-size: 2rem;
   font-weight: 700;
-  color: #1a202c;
+  color: var(--ui-text-primary, #1a202c);
   margin-bottom: 2rem;
 }
 
 .contact-text {
   font-size: 1rem;
-  color: #555;
+  color: var(--ui-text-muted, #555555);
   max-width: 600px;
   margin: 0 auto 2rem;
   text-align: center;
@@ -41,7 +41,7 @@
 }
 
 .contact-card a {
-  color: #000000; 
+  color: var(--ui-text-neutral, #000000);
   font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
@@ -52,14 +52,14 @@
 
 
 /* Hover text colours per platform */
-.contact-card.github a:hover {color: #c04040;}
-.contact-card.linkedin a:hover {color: #0077b5;}
-.contact-card.instagram a:hover {color: #e1306c;}
-.contact-card.email a:hover {color: #ff9100;}
-.contact-card.phone a:hover {color: #1bb152;}
+.contact-card.github a:hover { color: var(--contact-github, #ef4839); }
+.contact-card.linkedin a:hover { color: var(--contact-linkedin, #00a3de); }
+.contact-card.instagram a:hover { color: var(--contact-instagram, #ea4e78); }
+.contact-card.email a:hover { color: var(--contact-email, #ff8800); }
+.contact-card.phone a:hover { color: var(--contact-phone, #21b530); }
 
 .copy-card {
-  color: #000000; 
+  color: var(--ui-text-neutral, #000000);
   font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
@@ -68,8 +68,8 @@
   align-items: center;
 }
 
-.contact-card.email .copy-card:hover {color: #ff9100; }
-.contact-card.phone .copy-card:hover {color: #1bb152;}
+.contact-card.email .copy-card:hover { color: var(--contact-email, #ff8800); }
+.contact-card.phone .copy-card:hover { color: var(--contact-phone, #21b530); }
 
 .contact-icon {
   width: 135px;
@@ -79,7 +79,7 @@
 }
 
 .contact-cards {
-  background: #ffffff50;
+  background: var(--ui-surface-glass, #ffffff50);
   border-radius: 60px;
   padding: 40px;
   backdrop-filter: blur(12px);
@@ -107,8 +107,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -120%);
-  background-color: #000;
-  color: white;
+  background-color: var(--ui-text-neutral, #000000);
+  color: var(--ui-text-inverse, #ffffff);
   padding: 0.3rem 0.6rem;
   border-radius: 4px;
   font-size: 0.75rem;
@@ -121,11 +121,11 @@
 }
 
 .contact-card.email .tooltip {
-  background-color: #ff9100;
+  background-color: var(--contact-email, #ff8800);
 }
 
 .contact-card.phone .tooltip {
-  background-color: #1bb152;
+  background-color: var(--contact-phone, #21b530);
 }
 
 @keyframes tooltipFadeIn {
@@ -144,8 +144,8 @@
   top: -1.8rem;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #1f2937; /* default */
-  color: white;
+  background-color: var(--ui-surface-neutral-strong, #1f2937);
+  color: var(--ui-text-inverse, #ffffff);
   padding: 0.2rem 0.6rem;
   border-radius: 12px;
   font-size: 0.8rem;
@@ -166,21 +166,21 @@
   transform: translateX(-50%);
   border-width: 6px 6px 0 6px;
   border-style: solid;
-  border-color: #1f2937 transparent transparent transparent;
+  border-color: var(--ui-surface-neutral-strong, #1f2937) transparent transparent transparent;
 }
 
 .contact-card.email .chat-bubble {
-  background-color: #ff9100;
+  background-color: var(--contact-email, #ff8800);
 }
 .contact-card.email .chat-bubble::after {
-  border-color: #ff9100 transparent transparent transparent;
+  border-color: var(--contact-email, #ff8800) transparent transparent transparent;
 }
 
 .contact-card.phone .chat-bubble {
-  background-color: #1bb152;
+  background-color: var(--contact-phone, #21b530);
 }
 .contact-card.phone .chat-bubble::after {
-  border-color: #1bb152 transparent transparent transparent;
+  border-color: var(--contact-phone, #21b530) transparent transparent transparent;
 }
 
 @keyframes bubbleFadeIn {
