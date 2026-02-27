@@ -46,5 +46,6 @@ export const SKILL_CATEGORIES: Record<SkillCategory, string[]> = {
   programming: getSkillsByCategory("programming").map((skill) => skill.name),
   application: getSkillsByCategory("application").map((skill) => skill.name),
   platform: getSkillsByCategory("platform").map((skill) => skill.name),
-  design: getSkillsByCategory("design").map((skill) => skill.name)
+  design: getSkillsByCategory("design").map((skill) => skill.name),
+  product: getSkillsByCategory("product").map((skill) => skill.name)
 };

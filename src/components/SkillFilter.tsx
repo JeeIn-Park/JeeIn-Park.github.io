@@ -40,17 +40,53 @@ const SkillFilter: React.FC<SkillFilterProps> = ({
   getCountLightColor
 }) => {
   const EXPANDED_STATE_KEY = "projects.skillFilter.isExpanded";
+  const COLLAPSED_GROUPS_STATE_KEY = "projects.skillFilter.collapsedGroups";
   const [isExpanded, setIsExpanded] = useState<boolean>(() => {
     if (typeof window === "undefined") return false;
     return window.localStorage.getItem(EXPANDED_STATE_KEY) === "true";
+  });
+  const [collapsedGroupIds, setCollapsedGroupIds] = useState<string[]>(() => {
+    if (typeof window === "undefined") return [];
+    const saved = window.localStorage.getItem(COLLAPSED_GROUPS_STATE_KEY);
+    if (!saved) return [];
+    try {
+      const parsed = JSON.parse(saved);
+      return Array.isArray(parsed)
+        ? parsed.filter((item): item is string => typeof item === "string")
+        : [];
+    } catch {
+      return [];
+    }
   });
 
   useEffect(() => {
     window.localStorage.setItem(EXPANDED_STATE_KEY, String(isExpanded));
   }, [isExpanded]);
 
+  useEffect(() => {
+    window.localStorage.setItem(
+      COLLAPSED_GROUPS_STATE_KEY,
+      JSON.stringify(collapsedGroupIds)
+    );
+  }, [collapsedGroupIds]);
+
+  useEffect(() => {
+    const validGroupIds = new Set(groups.map((group) => group.id));
+    setCollapsedGroupIds((current) =>
+      current.filter((groupId) => validGroupIds.has(groupId))
+    );
+  }, [groups]);
+
   const toggleExpanded = () => {
     setIsExpanded((current) => !current);
+  };
+
+  const toggleGroup = (groupId: string) => {
+    setCollapsedGroupIds((current) =>
+      current.includes(groupId)
+        ? current.filter((id) => id !== groupId)
+        : [...current, groupId]
+    );
   };
 
   const isInteractiveTarget = (target: EventTarget | null): boolean =>
@@ -74,13 +110,13 @@ const SkillFilter: React.FC<SkillFilterProps> = ({
           "--ui-icon-hover-strong": UI_COLORS.icon.hoverStrong
         } as React.CSSProperties
       }
-      onClick={(event) => {
-        if (isInteractiveTarget(event.target)) return;
-        toggleExpanded();
-      }}
     >
       <div
         className="projects-filters-header"
+        onClick={(event) => {
+          if (isInteractiveTarget(event.target)) return;
+          toggleExpanded();
+        }}
         onKeyDown={(event) => {
           if (event.key === "Enter" || event.key === " ") {
             event.preventDefault();
@@ -138,40 +174,74 @@ const SkillFilter: React.FC<SkillFilterProps> = ({
       >
         <div className="projects-filters-body-inner">
           <div className="skills-filter-groups">
-            {groups.map((group) => (
-              <section className="skills-filter-group" key={group.id}>
-                <h3 className="skills-filter-group-title">{group.label}</h3>
-                <ul className="skills-filter-list">
-                  {group.skills.map((skill) => {
-                    const selected = selectedSkills.includes(skill);
-                    return (
-                      <li key={skill}>
-                        <button
-                          type="button"
-                          className={`skill-filter ${selected ? "is-active" : ""}`}
-                          onClick={() => onToggleSkill(skill)}
-                          style={getSkillStyle(skill, selected)}
-                        >
-                          {skill}{" "}
-                          <span
-                            className={`skill-filter-count ${selected ? "is-selected" : ""}`.trim()}
-                            style={
-                              {
-                                "--skill-count-accent": getCountAccentColor(skill),
-                                "--skill-count-normal": getCountNormalColor(skill),
-                                "--skill-count-light": getCountLightColor(skill)
-                              } as React.CSSProperties
-                            }
-                          >
-                            {skillCounts[skill] ?? 0}
-                          </span>
-                        </button>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </section>
-            ))}
+            {groups.map((group) => {
+              const isGroupExpanded = !collapsedGroupIds.includes(group.id);
+              return (
+                <section
+                  className="skills-filter-group"
+                  key={group.id}
+                  onClick={(event) => {
+                    if (isInteractiveTarget(event.target)) return;
+                    toggleGroup(group.id);
+                  }}
+                >
+                  <button
+                    type="button"
+                    className="skills-filter-group-header"
+                    onClick={() => toggleGroup(group.id)}
+                    aria-expanded={isGroupExpanded}
+                    aria-controls={`skills-filter-group-${group.id}`}
+                  >
+                    <span
+                      className={`skills-filter-group-chevron ${
+                        isGroupExpanded ? "is-expanded" : ""
+                      }`.trim()}
+                      aria-hidden="true"
+                    >
+                      {">"}
+                    </span>
+                    <h3 className="skills-filter-group-title">{group.label}</h3>
+                  </button>
+                  <div
+                    id={`skills-filter-group-${group.id}`}
+                    className={`skills-filter-group-body ${
+                      isGroupExpanded ? "is-expanded" : ""
+                    }`.trim()}
+                    aria-hidden={!isGroupExpanded}
+                  >
+                    <ul className="skills-filter-list">
+                      {group.skills.map((skill) => {
+                        const selected = selectedSkills.includes(skill);
+                        return (
+                          <li key={skill}>
+                            <button
+                              type="button"
+                              className={`skill-filter ${selected ? "is-active" : ""}`}
+                              onClick={() => onToggleSkill(skill)}
+                              style={getSkillStyle(skill, selected)}
+                            >
+                              {skill}{" "}
+                              <span
+                                className={`skill-filter-count ${selected ? "is-selected" : ""}`.trim()}
+                                style={
+                                  {
+                                    "--skill-count-accent": getCountAccentColor(skill),
+                                    "--skill-count-normal": getCountNormalColor(skill),
+                                    "--skill-count-light": getCountLightColor(skill)
+                                  } as React.CSSProperties
+                                }
+                              >
+                                {skillCounts[skill] ?? 0}
+                              </span>
+                            </button>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                </section>
+              );
+            })}
           </div>
         </div>
       </div>

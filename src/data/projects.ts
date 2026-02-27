@@ -18,7 +18,7 @@ export const PROJECTS_META: ProjectMeta[] = [
     title: "RepViz - Android Developer",
     cover: "/posters/RepVizPoster.png",
     github: "https://github.com/JeeIn-Park/Training-Tracker-Workout-Monitoring",
-    tags: ["Android", "Kotlin", "Jetpack Compose", "MVVM"],
+    tags: ["Mobile App", "Android", "Kotlin", "Jetpack Compose", "MVVM", "Git"],
     component: "TrainingTracker"
   },
   {
@@ -26,35 +26,35 @@ export const PROJECTS_META: ProjectMeta[] = [
     title: "NHS - Cross Platform Application Developer",
     cover: "/posters/MedicRecallPoster.png",
     external: "https://medicrecall.com/",
-    tags: ["Flutter", "Firebase"],
+    tags: ["Cross-Platform App", "Flutter", "Firebase", "Git"],
     component: "MedicRecall"
   },
   {
     slug: "maze-solver",
     cover: "/posters/MazeSolverPoster.png",
     github: "https://github.com/JeeIn-Park/Maze-Solving-AI",
-    tags: ["Prolog", "AI", "Pathfinding"],
+    tags: ["AI Tool", "Prolog", "AI", "Pathfinding", "Git"],
     component: "MazeSolver"
   },
   {
     slug: "graphics-engine",
     cover: "/posters/GraphicEnginePoster.png",
     github: "https://github.com/JeeIn-Park/OBJ-3D-Graphics-Animation-Engine",
-    tags: ["C", "C++", "3D Graphics", "Rendering"],
+    tags: ["Graphics Engine", "C", "C++", "3D Graphics", "Rendering", "Git"],
     component: "GraphicsEngine"
   },
   {
     slug: "game-of-life",
     cover: "/posters/GameOfLifePoster.png",
     github: "https://github.com/JeeIn-Park/The-Game-of-Life-Optimisation",
-    tags: ["Go", "Concurrency", "AWS"],
+    tags: ["Simulation", "Go", "Concurrency", "AWS", "Git"],
     component: "GameOfLife"
   },
   {
     slug: "scotland-yard",
     cover: "/posters/ScotlandYardPoster.png",
     github: "https://github.com/JeeIn-Park/Scotland-Yard-Board-Game",
-    tags: ["Java", "Game Development", "Algorithms"],
+    tags: ["Board Game", "Java", "Game Development", "Algorithms", "Git"],
     component: "ScotlandYard"
   }
 ];

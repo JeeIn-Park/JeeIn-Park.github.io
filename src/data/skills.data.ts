@@ -1,10 +1,11 @@
 import type { ColorToken } from "./colors";
 
 export const SKILL_CATEGORY_META = {
-  programming: { label: "Programming Languages", order: 1 },
-  application: { label: "Application Development", order: 2 },
-  platform: { label: "Cloud, DevOps & Development Tools", order: 3 },
-  design: { label: "Design & Concepts", order: 4 }
+  product: { label: "Product Type", order: 1 },
+  programming: { label: "Programming Languages", order: 2 },
+  application: { label: "Application Development", order: 3 },
+  platform: { label: "Cloud, DevOps & Development Tools", order: 4 },
+  design: { label: "Design & Concepts", order: 5 }
 } as const;
 
 export type SkillCategory = keyof typeof SKILL_CATEGORY_META;
@@ -56,5 +57,15 @@ export const SKILLS: Skill[] = [
   { name: "AI", category: "design", color: "rose", order: 9 },
   { name: "Pathfinding", category: "design", color: "sky", order: 10 },
   { name: "Concurrency", category: "design", color: "rose", order: 11 },
-  { name: "Algorithms", category: "design", color: "yellow", order: 12 }
+  { name: "Algorithms", category: "design", color: "yellow", order: 12 },
+
+  { name: "Mobile App", category: "product", color: "green", order: 1 },
+  { name: "Cross-Platform App", category: "product", color: "sky", order: 2 },
+  { name: "AI Tool", category: "product", color: "rose", order: 3 },
+  { name: "Graphics Engine", category: "product", color: "periwinkle", order: 4 },
+  { name: "Simulation", category: "product", color: "amber", order: 5 },
+  { name: "Board Game", category: "product", color: "lavender", order: 6 },
+  { name: "Workflow", category: "product", color: "blue", order: 7 },
+  { name: "iOS Shortcuts", category: "product", color: "green", order: 8 },
+  { name: "Productivity", category: "product", color: "amber", order: 9 }
 ];
