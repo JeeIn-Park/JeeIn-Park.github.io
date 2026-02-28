@@ -7,7 +7,9 @@
     "expand": "Show filters",
     "collapse": "Hide filters",
     "summary": "Showing {{count}} project(s)",
-    "empty": "No projects match the selected skills yet."
+    "empty": "No projects match the selected skills yet.",
+    "expandAll": "📂",
+    "collapseAll": "🗂️"
   },
   "comingSoon": "More Exciting Projects Coming Soon!",
   "list": [

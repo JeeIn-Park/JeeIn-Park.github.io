@@ -236,6 +236,8 @@ const Projects: React.FC = () => {
         title="filter"
         expandLabel={t("projects.filters.expand")}
         collapseLabel={t("projects.filters.collapse")}
+        expandAllLabel={t("projects.filters.expandAll")}
+        collapseAllLabel={t("projects.filters.collapseAll")}
         summaryLabel={`${filteredProjects.length}/${projects.length}`}
         groups={skillGroups}
         skillCounts={skillCounts}

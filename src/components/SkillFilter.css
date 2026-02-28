@@ -40,7 +40,120 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex-shrink: 0;
 }
+
+.skill-filter-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-right: 0.35rem;
+  overflow: visible;
+  flex-shrink: 0;
+}
+
+.skill-filter-clear-wrap {
+  display: inline-grid;
+  place-items: center;
+  overflow: hidden;
+  max-width: 2.3rem;
+  border-radius: 2rem;
+  clip-path: inset(0 0 0 0 round 2rem);
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    max-width 220ms ease,
+    opacity 200ms ease,
+    transform 200ms ease,
+    clip-path 220ms ease;
+}
+
+.skill-filter-clear-wrap.is-hidden {
+  max-width: 0;
+  clip-path: inset(0 100% 0 0 round 2rem);
+  opacity: 0;
+  transform: translateY(-2px);
+  pointer-events: none;
+}
+
+.skill-filter-bulk-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  overflow: visible;
+  max-width: 22rem;
+  opacity: 1;
+  transform: translateY(0);
+  transition: max-width 240ms ease, opacity 220ms ease, transform 220ms ease;
+}
+
+.skill-filter-bulk-actions.is-hidden {
+  max-width: 0;
+  opacity: 0;
+  transform: translateY(-2px);
+  pointer-events: none;
+}
+
+.skill-filter-bulk-wrap {
+  display: inline-grid;
+  place-items: center;
+  overflow: hidden;
+  max-width: 2.3rem;
+  border-radius: 2rem;
+  clip-path: inset(0 0 0 0 round 2rem);
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    max-width 220ms ease,
+    opacity 200ms ease,
+    transform 200ms ease,
+    clip-path 220ms ease;
+}
+
+.skill-filter-bulk-wrap.is-hidden {
+  max-width: 0;
+  clip-path: inset(0 100% 0 0 round 2rem);
+  opacity: 0;
+  transform: translateY(-2px);
+  pointer-events: none;
+}
+
+.skill-filter-bulk-action {
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.15rem;
+  min-width: 2.15rem;
+  max-width: 2.15rem;
+  height: 2.15rem;
+  border: 1px solid transparent;
+  background: #00000014;
+  color: #1f2937;
+  border-radius: 2rem;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.skill-filter-bulk-action:hover {
+  background: rgba(31, 41, 55, 0.14);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.skill-filter-bulk-action:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+
 
 .projects-filters-title {
   margin: 0;
@@ -81,7 +194,7 @@
 
 .skill-filter-toggle-circle:hover {
   background: var(--ui-surface-highlight-hover, #ffd643);
-  box-shadow: 0 3px 10px var(--ui-shadow-highlight, rgba(255, 214, 67, 0.693));
+  box-shadow: none;
 }
 
 .skill-filter-toggle-chevron {
@@ -311,15 +424,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  width: 2.15rem;
+  height: 2.15rem;
   padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
   border-radius: 2rem;
   background: #00000014;
   border: 1px solid transparent;
   font-size: 1rem;
   font-weight: 800;
-  line-height: 1;
+  line-height: 1.1;
   color: #1f2937;
   cursor: pointer;
   margin-left: 0;
@@ -338,7 +453,7 @@
 .skill-filter-clear:hover {
   background: rgb(218, 116, 116);
   border-color: transparent;
-  box-shadow: 0 0 0.55rem rgba(239, 68, 68, 0.4);
+  box-shadow: none;
   transform: translateY(0px) scale(1.03);
 }
 
@@ -347,14 +462,6 @@
   cursor: not-allowed;
   transform: translateY(0) scale(1);
   box-shadow: none;
-}
-
-.skill-filter-clear.is-hidden {
-  opacity: 0;
-  transform: translateY(-2px) scale(0.96);
-  pointer-events: none;
-  visibility: hidden;
-  transition: opacity 220ms ease, transform 220ms ease, visibility 0s linear 220ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -368,7 +475,12 @@
   }
 
   .skill-filter-clear,
-  .skill-filter-clear.is-hidden {
+  .skill-filter-clear-wrap,
+  .skill-filter-clear-wrap.is-hidden,
+  .skill-filter-bulk-actions,
+  .skill-filter-bulk-actions.is-hidden,
+  .skill-filter-bulk-action,
+  .skill-filter-bulk-action.is-hidden {
     transition: none;
     transform: none;
   }

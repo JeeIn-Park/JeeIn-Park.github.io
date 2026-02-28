@@ -12,6 +12,8 @@ type SkillFilterProps = {
   title: string;
   expandLabel: string;
   collapseLabel: string;
+  expandAllLabel: string;
+  collapseAllLabel: string;
   summaryLabel: string;
   groups: SkillFilterGroup[];
   selectedSkills: string[];
@@ -28,6 +30,8 @@ const SkillFilter: React.FC<SkillFilterProps> = ({
   title,
   expandLabel,
   collapseLabel,
+  expandAllLabel,
+  collapseAllLabel,
   summaryLabel,
   groups,
   selectedSkills,
@@ -88,6 +92,14 @@ const SkillFilter: React.FC<SkillFilterProps> = ({
         : [...current, groupId]
     );
   };
+  const expandAllGroups = () => setCollapsedGroupIds([]);
+  const collapseAllGroups = () =>
+    setCollapsedGroupIds(groups.map((group) => group.id));
+  const areAllGroupsExpanded = collapsedGroupIds.length === 0;
+  const areAllGroupsCollapsed =
+    groups.length > 0 && collapsedGroupIds.length === groups.length;
+  const showExpandAll = !areAllGroupsExpanded;
+  const showCollapseAll = !areAllGroupsCollapsed;
 
   const isInteractiveTarget = (target: EventTarget | null): boolean =>
     target instanceof Element &&
@@ -135,19 +147,66 @@ const SkillFilter: React.FC<SkillFilterProps> = ({
           >
             {title}
           </p>
-          <button
-            type="button"
-            className={`skill-filter-clear ${selectedSkills.length === 0 ? "is-hidden" : ""}`.trim()}
-            onClick={onClear}
-            disabled={selectedSkills.length === 0}
-            aria-hidden={selectedSkills.length === 0}
-            aria-label="clear filters"
-            title="clear filters"
-          >
-            🗑️
-          </button>
         </div>
         <div className="projects-filters-actions">
+          <div className="skill-filter-controls">
+            <div
+              className={`skill-filter-bulk-actions ${
+                isExpanded ? "" : "is-hidden"
+              }`.trim()}
+              aria-hidden={!isExpanded}
+            >
+              <div
+                className={`skill-filter-bulk-wrap ${
+                  showExpandAll ? "" : "is-hidden"
+                }`.trim()}
+                aria-hidden={!showExpandAll}
+              >
+                <button
+                  type="button"
+                  className="skill-filter-bulk-action"
+                  onClick={expandAllGroups}
+                  aria-label={expandAllLabel}
+                  title={expandAllLabel}
+                >
+                  {expandAllLabel}
+                </button>
+              </div>
+              <div
+                className={`skill-filter-bulk-wrap ${
+                  showCollapseAll ? "" : "is-hidden"
+                }`.trim()}
+                aria-hidden={!showCollapseAll}
+              >
+                <button
+                  type="button"
+                  className="skill-filter-bulk-action"
+                  onClick={collapseAllGroups}
+                  aria-label={collapseAllLabel}
+                  title={collapseAllLabel}
+                >
+                  {collapseAllLabel}
+                </button>
+              </div>
+            </div>
+            <div
+              className={`skill-filter-clear-wrap ${
+                selectedSkills.length === 0 ? "is-hidden" : ""
+              }`.trim()}
+              aria-hidden={selectedSkills.length === 0}
+            >
+              <button
+                type="button"
+                className="skill-filter-clear"
+                onClick={onClear}
+                disabled={selectedSkills.length === 0}
+                aria-label="clear filters"
+                title="clear filters"
+              >
+                🗑️
+              </button>
+            </div>
+          </div>
           <p className="projects-filter-summary projects-filter-summary-inline">
             {summaryLabel}
           </p>
