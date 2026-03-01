@@ -184,7 +184,7 @@ const SkillFilter: React.FC<SkillFilterProps> = ({
                     style={
                       {
                         "--skill-filter-icon-url":
-                          "url('/expand-vertical-svgrepo-com.svg')"
+                          "url('/icon/icon-ui-expand.svg')"
                       } as React.CSSProperties
                     }
                   />
@@ -205,7 +205,7 @@ const SkillFilter: React.FC<SkillFilterProps> = ({
                     style={
                       {
                         "--skill-filter-icon-url":
-                          "url('/collapse-vertical-svgrepo-com.svg')"
+                          "url('/icon/icon-ui-collapse.svg')"
                       } as React.CSSProperties
                     }
                   />
@@ -234,7 +234,7 @@ const SkillFilter: React.FC<SkillFilterProps> = ({
                   style={
                     {
                       "--skill-filter-icon-url":
-                        "url('/clear-all-svgrepo-com.svg')"
+                        "url('/icon/icon-ui-clear.svg')"
                     } as React.CSSProperties
                   }
                 />

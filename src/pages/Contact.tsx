@@ -10,31 +10,31 @@ const contactItems = [
   {
     name: "GitHub",
     url: "https://github.com/Jeein-Park",
-    icon: "/contacts/github.png",
+    icon: "/icon/icon-contact-github.png",
     className: "github",
   },
   {
     name: "LinkedIn",
     url: "https://linkedin.com/in/jeein-park-36498829a",
-    icon: "/contacts/linkedin.png",
+    icon: "/icon/icon-contact-linkedin.png",
     className: "linkedin",
   },
   {
     name: "Instagram",
     url: "https://www.instagram.com/pji.27",
-    icon: "/contacts/instagram.png",
+    icon: "/icon/icon-contact-instagram.png",
     className: "instagram",
   },
   {
     name: "Email",
     copyText: "1700pji@naver.com",
-    icon: "/contacts/email.png",
+    icon: "/icon/icon-contact-email.png",
     className: "email",
   },
   {
     name: "Phone",
     copyText: "+44 7724148687",
-    icon: "/contacts/whatsapp.png",
+    icon: "/icon/icon-contact-whatsapp.png",
     className: "phone",
   },
 ];

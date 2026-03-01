@@ -7,7 +7,7 @@ export default function QuoteWidgetShortcut() {
       <p className="opacity-80 mb-4">iOS Shortcuts · HTML · CSS · Workflow</p>
 
       <img
-        src="/posters/ShortcutQuoteWidgetThumbnail.png"
+        src="/image/image-project-thumbnail-quote-widget-shortcut.png"
         alt="Quote Widget Shortcut"
         className="rounded-xl mb-6 w-full"
       />

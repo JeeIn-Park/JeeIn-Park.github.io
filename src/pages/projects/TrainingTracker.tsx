@@ -7,7 +7,7 @@ export default function TrainingTracker() {
       <h1 className="text-3xl font-semibold mb-2">Training Tracker</h1>
       <p className="opacity-80 mb-4">Kotlin · Jetpack Compose · MVVM</p>
 
-      <img src="/posters/RepVizPoster.png" alt="Training Tracker" className="rounded-xl mb-6 w-full" />
+      <img src="/image/image-project-poster-training-tracker.png" alt="Training Tracker" className="rounded-xl mb-6 w-full" />
 
       <section className="space-y-2">
         <h2 className="text-xl font-medium">Overview</h2>

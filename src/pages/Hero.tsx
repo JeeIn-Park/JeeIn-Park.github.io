@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.6 }}
         >
           <motion.img
-            src="/profile.jpg"
+            src="/image/image-profile-portrait.jpg"
             alt="Jeein Park"
             className="hero-image"
           />
