@@ -37,6 +37,14 @@ export const UI_COLORS = {
   icon: {
     hoverMuted: "rgba(90, 90, 90, 0.5)",
     hoverStrong: "#5a5a5a"
+  },
+  action: {
+    expandNormal: COLORS.green.normal,
+    expandHover: COLORS.green.dark,
+    collapseNormal: COLORS.amber.normal,
+    collapseHover: COLORS.amber.dark,
+    clearNormal: COLORS.peach.normal,
+    clearHover: COLORS.peach.dark
   }
 } as const;
 

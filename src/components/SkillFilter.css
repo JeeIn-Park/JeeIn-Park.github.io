@@ -20,7 +20,7 @@
   cursor: pointer;
   user-select: none;
   border-radius: 999px;
-  padding: 0.6rem 0.3rem;
+  padding: 0.6rem 0.85rem;
   transition: background-color 180ms ease, box-shadow 180ms ease;
 }
 
@@ -55,25 +55,20 @@
 .skill-filter-clear-wrap {
   display: inline-grid;
   place-items: center;
-  overflow: hidden;
-  max-width: 8rem;
+  width: 2.15rem;
+  min-width: 2.15rem;
+  max-width: 2.15rem;
   border-radius: 2rem;
-  clip-path: inset(0 0 0 0 round 2rem);
   opacity: 1;
-  transform: translateY(0);
-  transition:
-    max-width 220ms ease,
-    opacity 200ms ease,
-    transform 200ms ease,
-    clip-path 220ms ease;
+  visibility: visible;
+  transition: opacity 200ms ease, visibility 0s linear 0s;
 }
 
-.skill-filter-clear-wrap.is-hidden {
-  max-width: 0;
-  clip-path: inset(0 100% 0 0 round 2rem);
+.skill-filter-clear-wrap.is-collapsed-inactive {
   opacity: 0;
-  transform: translateY(-2px);
+  visibility: hidden;
   pointer-events: none;
+  transition: opacity 200ms ease, visibility 0s linear 200ms;
 }
 
 .skill-filter-bulk-actions {
@@ -81,41 +76,24 @@
   align-items: center;
   gap: 0.35rem;
   overflow: visible;
-  max-width: 22rem;
   opacity: 1;
-  transform: translateY(0);
-  transition: max-width 240ms ease, opacity 220ms ease, transform 220ms ease;
+  visibility: visible;
+  transition: opacity 200ms ease, visibility 0s linear 0s;
 }
 
 .skill-filter-bulk-actions.is-hidden {
-  max-width: 0;
   opacity: 0;
-  transform: translateY(-2px);
+  visibility: hidden;
   pointer-events: none;
+  transition: opacity 200ms ease, visibility 0s linear 200ms;
 }
 
 .skill-filter-bulk-wrap {
   display: inline-grid;
   place-items: center;
-  overflow: hidden;
-  max-width: 8rem;
-  border-radius: 2rem;
-  clip-path: inset(0 0 0 0 round 2rem);
-  opacity: 1;
-  transform: translateY(0);
-  transition:
-    max-width 220ms ease,
-    opacity 200ms ease,
-    transform 200ms ease,
-    clip-path 220ms ease;
-}
-
-.skill-filter-bulk-wrap.is-hidden {
-  max-width: 0;
-  clip-path: inset(0 100% 0 0 round 2rem);
-  opacity: 0;
-  transform: translateY(-2px);
-  pointer-events: none;
+  width: 2.15rem;
+  min-width: 2.15rem;
+  max-width: 2.15rem;
 }
 
 .skill-filter-bulk-action {
@@ -123,36 +101,58 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 5.4rem;
-  max-width: 7.2rem;
+  width: 2.15rem;
+  min-width: 2.15rem;
+  max-width: 2.15rem;
   height: 2.15rem;
-  border: 1px solid transparent;
+  border: 2px solid rgba(31, 41, 55, 0.18);
   background: #00000014;
-  color: #1f2937;
+  color: var(--ui-icon-hover-strong, #5a5a5a);
   border-radius: 2rem;
-  padding: 0 0.72rem;
+  padding: 0;
   margin: 0;
   overflow: hidden;
   white-space: nowrap;
-  font-size: 0.84rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 800;
   line-height: 1;
   cursor: pointer;
   transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
-.skill-filter-bulk-action:hover {
+.skill-filter-bulk-action:enabled:hover {
   background: rgba(31, 41, 55, 0.14);
   border-color: transparent;
   box-shadow: none;
 }
 
+.skill-filter-bulk-action.is-expand {
+  background: var(--ui-action-expand-normal, #aaedaf);
+  border-color: color-mix(in srgb, var(--ui-action-expand-hover, #166534) 45%, #000000 0%);
+}
+
+.skill-filter-bulk-action.is-expand:enabled:hover {
+  background: var(--ui-action-expand-hover, #166534);
+  border-color: var(--ui-action-expand-hover, #166534);
+  color: #ffffff;
+}
+
+.skill-filter-bulk-action.is-collapse {
+  background: var(--ui-action-collapse-normal, #ffd29a);
+  border-color: color-mix(in srgb, var(--ui-action-collapse-hover, #a16207) 45%, #000000 0%);
+}
+
+.skill-filter-bulk-action.is-collapse:enabled:hover {
+  background: var(--ui-action-collapse-hover, #a16207);
+  border-color: var(--ui-action-collapse-hover, #a16207);
+  color: #ffffff;
+}
+
 .skill-filter-bulk-action:disabled {
   opacity: 0.45;
   cursor: not-allowed;
+  border-color: transparent;
 }
-
-
 
 .projects-filters-title {
   margin: 0;
@@ -176,8 +176,8 @@
 }
 
 .skill-filter-toggle-circle {
-  width: 2rem;
-  height: 2rem;
+  width: 2.15rem;
+  height: 2.15rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -215,7 +215,7 @@
 }
 
 .skill-filter-toggle-circle.is-expanded .skill-filter-toggle-chevron {
-  transform: rotate(-90deg);
+  transform: translateX(-0.03rem) rotate(-90deg);
 }
 
 .skills-filter-list {
@@ -241,7 +241,7 @@
   padding-bottom: 0.4rem;
   padding-left: 0.9rem;
   padding-right: 0.9rem;
-  border-radius: 0.45rem;
+  border-radius: 0.9rem;
   transition: background-color 180ms ease;
 }
 
@@ -257,6 +257,7 @@
   right: 0.9rem;
   height: 1px;
   background: rgba(31, 41, 55, 0.12);
+  border-radius: 999px;
 }
 
 .skills-filter-group:hover {
@@ -298,14 +299,14 @@
   line-height: 1.1;
   font-weight: 700;
   color: var(--ui-text-secondary, #6384c6);
-  transform: rotate(90deg);
+  transform: rotate(90deg) scaleX(1);
   transform-origin: center;
   transition: transform 220ms ease;
   overflow: visible;
 }
 
 .skills-filter-group-chevron.is-expanded {
-  transform: rotate(-90deg);
+  transform: rotate(90deg) scaleX(-1);
 }
 
 .skills-filter-group-body {
@@ -397,7 +398,6 @@
   min-width: 1.2rem;
   height: 1.2rem;
   padding: 0 0rem;
-  margin-left: 0.1rem;
   border-radius: 999px;
   background: var(--skill-count-light, #dbeafe);
   color: var(--skill-count-accent, #476da2);
@@ -419,9 +419,31 @@
 }
 
 .projects-filter-summary-inline {
-  white-space: nowrap;
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+  align-items: center;
+  column-gap: 0.2rem;
   font-weight: 700;
+  white-space: nowrap;
   transform: translateX(-2px);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+.projects-filter-summary-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--projects-summary-digits, 1) * 1ch);
+  text-align: center;
+}
+
+.projects-filter-summary-separator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.7ch;
+  text-align: center;
 }
 
 .projects-filter-footer {
@@ -439,19 +461,20 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 5.4rem;
-  max-width: 7.2rem;
+  width: 2.15rem;
+  min-width: 2.15rem;
+  max-width: 2.15rem;
   height: 2.15rem;
-  padding: 0 0.72rem;
+  padding: 0;
   overflow: hidden;
   white-space: nowrap;
   border-radius: 2rem;
   background: #00000014;
-  border: 1px solid transparent;
-  font-size: 0.84rem;
-  font-weight: 700;
+  border: 2px solid rgba(31, 41, 55, 0.18);
+  font-size: 1rem;
+  font-weight: 800;
   line-height: 1.1;
-  color: #1f2937;
+  color: var(--ui-icon-hover-strong, #5a5a5a);
   cursor: pointer;
   margin-left: 0;
   opacity: 1;
@@ -466,9 +489,15 @@
     visibility 0s linear 0s;
 }
 
-.skill-filter-clear:hover {
-  background: rgb(218, 116, 116);
-  border-color: transparent;
+.skill-filter-clear.is-clear {
+  background: var(--ui-action-clear-normal, #ffc6bc);
+  border-color: color-mix(in srgb, var(--ui-action-clear-hover, #b91c1c) 45%, #000000 0%);
+}
+
+.skill-filter-clear:enabled:hover {
+  background: var(--ui-action-clear-hover, #b91c1c);
+  border-color: var(--ui-action-clear-hover, #b91c1c);
+  color: #ffffff;
   box-shadow: none;
   transform: translateY(0px) scale(1.03);
 }
@@ -477,7 +506,24 @@
   opacity: 0.5;
   cursor: not-allowed;
   transform: translateY(0) scale(1);
+  border-color: transparent;
   box-shadow: none;
+}
+
+.skill-filter-action-icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  display: block;
+  background-color: currentColor;
+  -webkit-mask-image: var(--skill-filter-icon-url);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  mask-image: var(--skill-filter-icon-url);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -492,11 +538,8 @@
 
   .skill-filter-clear,
   .skill-filter-clear-wrap,
-  .skill-filter-clear-wrap.is-hidden,
   .skill-filter-bulk-actions,
-  .skill-filter-bulk-actions.is-hidden,
-  .skill-filter-bulk-action,
-  .skill-filter-bulk-action.is-hidden {
+  .skill-filter-bulk-action {
     transition: none;
     transform: none;
   }

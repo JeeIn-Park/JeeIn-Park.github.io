@@ -15,7 +15,8 @@ type SkillFilterProps = {
   collapseLabel: string;
   expandAllLabel: string;
   collapseAllLabel: string;
-  summaryLabel: string;
+  filteredCount: number;
+  totalCount: number;
   groups: SkillFilterGroup[];
   selectedSkills: string[];
   onToggleSkill: (skill: string) => void;
@@ -34,7 +35,8 @@ const SkillFilter: React.FC<SkillFilterProps> = ({
   collapseLabel,
   expandAllLabel,
   collapseAllLabel,
-  summaryLabel,
+  filteredCount,
+  totalCount,
   groups,
   selectedSkills,
   onToggleSkill,
@@ -100,12 +102,17 @@ const SkillFilter: React.FC<SkillFilterProps> = ({
   const areAllGroupsExpanded = collapsedGroupIds.length === 0;
   const areAllGroupsCollapsed =
     groups.length > 0 && collapsedGroupIds.length === groups.length;
-  const showExpandAll = !areAllGroupsExpanded;
-  const showCollapseAll = !areAllGroupsCollapsed;
+  const canExpandAll = !areAllGroupsExpanded;
+  const canCollapseAll = !areAllGroupsCollapsed;
 
   const isInteractiveTarget = (target: EventTarget | null): boolean =>
     target instanceof Element &&
     Boolean(target.closest("button, a, input, select, textarea"));
+  const summaryDigits = Math.max(
+    1,
+    String(totalCount).length,
+    String(filteredCount).length
+  );
 
   return (
     <div
@@ -121,7 +128,13 @@ const SkillFilter: React.FC<SkillFilterProps> = ({
           "--ui-border-highlight": UI_COLORS.border.highlight,
           "--ui-shadow-highlight": UI_COLORS.shadow.highlight,
           "--ui-icon-hover-muted": UI_COLORS.icon.hoverMuted,
-          "--ui-icon-hover-strong": UI_COLORS.icon.hoverStrong
+          "--ui-icon-hover-strong": UI_COLORS.icon.hoverStrong,
+          "--ui-action-expand-normal": UI_COLORS.action.expandNormal,
+          "--ui-action-expand-hover": UI_COLORS.action.expandHover,
+          "--ui-action-collapse-normal": UI_COLORS.action.collapseNormal,
+          "--ui-action-collapse-hover": UI_COLORS.action.collapseHover,
+          "--ui-action-clear-normal": UI_COLORS.action.clearNormal,
+          "--ui-action-clear-hover": UI_COLORS.action.clearHover
         } as React.CSSProperties
       }
     >
@@ -153,64 +166,97 @@ const SkillFilter: React.FC<SkillFilterProps> = ({
         <div className="projects-filters-actions">
           <div className="skill-filter-controls">
             <div
-              className={`skill-filter-bulk-actions ${
-                isExpanded ? "" : "is-hidden"
-              }`.trim()}
+              className={`skill-filter-bulk-actions ${isExpanded ? "" : "is-hidden"}`.trim()}
               aria-hidden={!isExpanded}
             >
-              <div
-                className={`skill-filter-bulk-wrap ${
-                  showExpandAll ? "" : "is-hidden"
-                }`.trim()}
-                aria-hidden={!showExpandAll}
-              >
+              <div className="skill-filter-bulk-wrap">
                 <button
                   type="button"
-                  className="skill-filter-bulk-action"
+                  className="skill-filter-bulk-action is-expand"
                   onClick={expandAllGroups}
+                  disabled={!isExpanded || !canExpandAll}
                   aria-label={expandAllLabel}
                   title={expandAllLabel}
                 >
-                  {expandAllLabel}
+                  <span
+                    aria-hidden="true"
+                    className="skill-filter-action-icon"
+                    style={
+                      {
+                        "--skill-filter-icon-url":
+                          "url('/expand-vertical-svgrepo-com.svg')"
+                      } as React.CSSProperties
+                    }
+                  />
                 </button>
               </div>
-              <div
-                className={`skill-filter-bulk-wrap ${
-                  showCollapseAll ? "" : "is-hidden"
-                }`.trim()}
-                aria-hidden={!showCollapseAll}
-              >
+              <div className="skill-filter-bulk-wrap">
                 <button
                   type="button"
-                  className="skill-filter-bulk-action"
+                  className="skill-filter-bulk-action is-collapse"
                   onClick={collapseAllGroups}
+                  disabled={!isExpanded || !canCollapseAll}
                   aria-label={collapseAllLabel}
                   title={collapseAllLabel}
                 >
-                  {collapseAllLabel}
+                  <span
+                    aria-hidden="true"
+                    className="skill-filter-action-icon"
+                    style={
+                      {
+                        "--skill-filter-icon-url":
+                          "url('/collapse-vertical-svgrepo-com.svg')"
+                      } as React.CSSProperties
+                    }
+                  />
                 </button>
               </div>
             </div>
             <div
               className={`skill-filter-clear-wrap ${
-                selectedSkills.length === 0 ? "is-hidden" : ""
+                !isExpanded && selectedSkills.length === 0
+                  ? "is-collapsed-inactive"
+                  : ""
               }`.trim()}
-              aria-hidden={selectedSkills.length === 0}
+              aria-hidden={!isExpanded && selectedSkills.length === 0}
             >
               <button
                 type="button"
-                className="skill-filter-clear"
+                className="skill-filter-clear is-clear"
                 onClick={onClear}
                 disabled={selectedSkills.length === 0}
                 aria-label={clearLabel}
                 title={clearLabel}
               >
-                {clearLabel}
+                <span
+                  aria-hidden="true"
+                  className="skill-filter-action-icon"
+                  style={
+                    {
+                      "--skill-filter-icon-url":
+                        "url('/clear-all-svgrepo-com.svg')"
+                    } as React.CSSProperties
+                  }
+                />
               </button>
             </div>
           </div>
           <p className="projects-filter-summary projects-filter-summary-inline">
-            {summaryLabel}
+            <span
+              className="projects-filter-summary-count"
+              style={{ "--projects-summary-digits": summaryDigits } as React.CSSProperties}
+            >
+              {filteredCount}
+            </span>
+            <span className="projects-filter-summary-separator" aria-hidden="true">
+              /
+            </span>
+            <span
+              className="projects-filter-summary-count"
+              style={{ "--projects-summary-digits": summaryDigits } as React.CSSProperties}
+            >
+              {totalCount}
+            </span>
           </p>
           <button
             type="button"
