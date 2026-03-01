@@ -10,6 +10,7 @@ type SkillFilterGroup = {
 
 type SkillFilterProps = {
   title: string;
+  clearLabel: string;
   expandLabel: string;
   collapseLabel: string;
   expandAllLabel: string;
@@ -28,6 +29,7 @@ type SkillFilterProps = {
 
 const SkillFilter: React.FC<SkillFilterProps> = ({
   title,
+  clearLabel,
   expandLabel,
   collapseLabel,
   expandAllLabel,
@@ -200,10 +202,10 @@ const SkillFilter: React.FC<SkillFilterProps> = ({
                 className="skill-filter-clear"
                 onClick={onClear}
                 disabled={selectedSkills.length === 0}
-                aria-label="clear filters"
-                title="clear filters"
+                aria-label={clearLabel}
+                title={clearLabel}
               >
-                🗑️
+                {clearLabel}
               </button>
             </div>
           </div>

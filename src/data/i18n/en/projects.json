@@ -3,13 +3,13 @@
   "filters": {
     "title": "Filter by skills",
     "all": "All skills",
-    "clear": "🗑️ Clear filters",
-    "expand": "Show filters",
-    "collapse": "Hide filters",
+    "clear": "Clear",
+    "expand": "Expand filters",
+    "collapse": "Collapse filters",
     "summary": "Showing {{count}} project(s)",
     "empty": "No projects match the selected skills yet.",
-    "expandAll": "📂",
-    "collapseAll": "🗂️"
+    "expandAll": "Expand",
+    "collapseAll": "Collapse"
   },
   "comingSoon": "More Exciting Projects Coming Soon!",
   "list": [

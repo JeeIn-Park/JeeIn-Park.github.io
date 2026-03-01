@@ -3,13 +3,13 @@
   "filters": {
     "title": "기술 스택으로 필터링",
     "all": "전체 기술",
-    "clear": "🗑️ 필터 초기화",
-    "expand": "필터 보기",
-    "collapse": "필터 숨기기",
+    "clear": "초기화",
+    "expand": "필터 펼치기",
+    "collapse": "필터 접기",
     "summary": "{{count}}개의 프로젝트 표시 중",
     "empty": "선택한 기술에 해당하는 프로젝트가 아직 없습니다.",
-    "expandAll": "📂",
-    "collapseAll": "🗂️"
+    "expandAll": "펼치기",
+    "collapseAll": "접기"
   },
   "comingSoon": "진행 중인 프로젝트가 더 많답니다! 앞으로 많이 기대해 주세요 :)",
   "list": [

@@ -1,7 +1,7 @@
 .projects-filters {
   max-width: 900px;
   margin: 0 auto;
-  padding: 0.3rem 1rem 0.35rem 1rem;
+  padding: 0.28rem 0.3rem 0.32rem 0.3rem;
   border-radius: 1rem;
   background: rgba(255, 255, 255, 0.497);
   border: 1px solid transparent;
@@ -20,7 +20,7 @@
   cursor: pointer;
   user-select: none;
   border-radius: 999px;
-  padding: 0.65rem 0.9rem;
+  padding: 0.6rem 0.3rem;
   transition: background-color 180ms ease, box-shadow 180ms ease;
 }
 
@@ -56,7 +56,7 @@
   display: inline-grid;
   place-items: center;
   overflow: hidden;
-  max-width: 2.3rem;
+  max-width: 8rem;
   border-radius: 2rem;
   clip-path: inset(0 0 0 0 round 2rem);
   opacity: 1;
@@ -98,7 +98,7 @@
   display: inline-grid;
   place-items: center;
   overflow: hidden;
-  max-width: 2.3rem;
+  max-width: 8rem;
   border-radius: 2rem;
   clip-path: inset(0 0 0 0 round 2rem);
   opacity: 1;
@@ -123,20 +123,19 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.15rem;
-  min-width: 2.15rem;
-  max-width: 2.15rem;
+  min-width: 5.4rem;
+  max-width: 7.2rem;
   height: 2.15rem;
   border: 1px solid transparent;
   background: #00000014;
   color: #1f2937;
   border-radius: 2rem;
-  padding: 0;
+  padding: 0 0.72rem;
   margin: 0;
   overflow: hidden;
   white-space: nowrap;
-  font-size: 1rem;
-  font-weight: 800;
+  font-size: 0.84rem;
+  font-weight: 700;
   line-height: 1;
   cursor: pointer;
   transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
@@ -240,8 +239,8 @@
   border-top: none;
   padding-top: 0.5rem;
   padding-bottom: 0.4rem;
-  padding-left: 0.35rem;
-  padding-right: 0.35rem;
+  padding-left: 0.9rem;
+  padding-right: 0.9rem;
   border-radius: 0.45rem;
   transition: background-color 180ms ease;
 }
@@ -254,8 +253,8 @@
   content: "";
   position: absolute;
   top: 0;
-  left: 0.35rem;
-  right: 0.35rem;
+  left: 0.9rem;
+  right: 0.9rem;
   height: 1px;
   background: rgba(31, 41, 55, 0.12);
 }
@@ -313,16 +312,28 @@
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
+  overflow: hidden;
+  min-height: 0;
   transition: grid-template-rows 220ms ease, opacity 180ms ease;
 }
 
 .skills-filter-group-body.is-expanded {
   grid-template-rows: 1fr;
   opacity: 1;
+  overflow: visible;
 }
 
-.skills-filter-group-body .skills-filter-list {
+.skills-filter-group-body > .skills-filter-list {
+  min-height: 0;
   overflow: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.skills-filter-group-body.is-expanded > .skills-filter-list {
+  overflow: visible;
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
 }
 
 .projects-filters-body {
@@ -339,6 +350,10 @@
 
 .projects-filters-body-inner {
   overflow: hidden;
+}
+
+.projects-filters-body.is-expanded .projects-filters-body-inner {
+  overflow: visible;
 }
 
 .skill-filter {
@@ -424,16 +439,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.15rem;
+  min-width: 5.4rem;
+  max-width: 7.2rem;
   height: 2.15rem;
-  padding: 0;
+  padding: 0 0.72rem;
   overflow: hidden;
   white-space: nowrap;
   border-radius: 2rem;
   background: #00000014;
   border: 1px solid transparent;
-  font-size: 1rem;
-  font-weight: 800;
+  font-size: 0.84rem;
+  font-weight: 700;
   line-height: 1.1;
   color: #1f2937;
   cursor: pointer;

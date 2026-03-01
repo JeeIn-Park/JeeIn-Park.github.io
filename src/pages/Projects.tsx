@@ -234,6 +234,7 @@ const Projects: React.FC = () => {
     <section className="projects-section">
       <SkillFilter
         title="filter"
+        clearLabel={t("projects.filters.clear")}
         expandLabel={t("projects.filters.expand")}
         collapseLabel={t("projects.filters.collapse")}
         expandAllLabel={t("projects.filters.expandAll")}
