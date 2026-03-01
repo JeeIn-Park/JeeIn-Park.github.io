@@ -38,7 +38,7 @@
   }
 
   .project-card {
-    --project-tile-ratio: 1 / 1;
+    --project-tile-ratio: 3 / 3.5;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -61,14 +61,19 @@
   }
 
   .project-image {
+    display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 11;
     object-fit: cover;
     border-radius: 0.75rem;
     border: 1px solid rgba(17, 24, 39, 0.08);
     background: rgba(255, 255, 255, 0.7);
     transition: transform 0.35s ease;
+  }
+
+  .project-card-link[data-project-slug="quote-widget-shortcut"] .project-image {
+    object-position: center 0%;
   }
 
   .project-media::after {

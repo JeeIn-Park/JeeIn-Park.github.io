@@ -4,3 +4,4 @@ export { default as MazeSolver } from "./MazeSolver";
 export { default as GraphicsEngine } from "./GraphicsEngine";
 export { default as GameOfLife } from "./GameOfLife";
 export { default as ScotlandYard } from "./ScotlandYard";
+export { default as QuoteWidgetShortcut } from "./QuoteWidgetShortcut";

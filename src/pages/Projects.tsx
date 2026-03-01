@@ -55,6 +55,7 @@ const ProjectCard: React.FC<{
       target={shouldOpenNewTab ? "_blank" : undefined}
       rel={shouldOpenNewTab ? "noreferrer noopener" : undefined}
       className="project-card-link"
+      data-project-slug={project.slug}
       initial={shouldReduce ? false : { opacity: 0, y: 30 }}
       animate={inView ? (shouldReduce ? {} : { opacity: 1, y: 0 }) : {}}
       whileHover={shouldReduce ? {} : { y: -6, scale: 1.01 }}

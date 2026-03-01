@@ -48,6 +48,12 @@
       "title": "Scotland Yard Boardgame",
       "date": "March 2022 - May 2022",
       "description": "Java, OOP, Factory Pattern, Observer Pattern, Singleton Pattern, TDD"
+    },
+    {
+      "slug": "quote-widget-shortcut",
+      "title": "Quote Widget Shortcut",
+      "date": "Personal Project",
+      "description": "iOS Shortcuts, HTML, CSS, Workflow Automation, Widget-ready quote gallery"
     }
   ],
   "details": {
@@ -98,6 +104,15 @@
       "body": [
         "Applied Factory, Observer, and Singleton design patterns.",
         "Implemented TDD for reliable game logic."
+      ]
+    },
+    "quote-widget-shortcut": {
+      "title": "Quote Widget Shortcut",
+      "intro": "An iOS Shortcut that turns user-entered quotes and sources into image cards using HTML, then saves them into a single gallery album.",
+      "body": [
+        "Built an input flow for quote text and source, then rendered each entry as an image asset.",
+        "Designed output style as black text on a white background for readability and consistency.",
+        "Organized generated images in one album so users can set that album as a home-screen widget source."
       ]
     }
   }

@@ -56,5 +56,13 @@ export const PROJECTS_META: ProjectMeta[] = [
     github: "https://github.com/JeeIn-Park/Scotland-Yard-Board-Game",
     tags: ["Board Game", "Java", "Game Development", "Algorithms", "Git"],
     component: "ScotlandYard"
+  },
+  {
+    slug: "quote-widget-shortcut",
+    title: "Quote Widget Shortcut",
+    cover: "/posters/ShortcutQuoteWidgetThumbnail.png",
+    external: "https://www.icloud.com/shortcuts/6ef8a9c5f4304ed1832a8cdf16573e06",
+    tags: ["Workflow", "iOS Shortcuts", "Productivity", "HTML", "CSS"],
+    component: "QuoteWidgetShortcut"
   }
 ];
