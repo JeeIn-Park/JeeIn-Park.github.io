@@ -189,6 +189,19 @@ const Projects: React.FC = () => {
     return counts;
   }, [allTags, projects]);
 
+  const sortedSkillGroups = useMemo(
+    () =>
+      skillGroups.map((group) => ({
+        ...group,
+        skills: [...group.skills].sort((a, b) => {
+          const countDiff = (skillCounts[b] ?? 0) - (skillCounts[a] ?? 0);
+          if (countDiff !== 0) return countDiff;
+          return a.localeCompare(b, undefined, { sensitivity: "base" });
+        })
+      })),
+    [skillGroups, skillCounts]
+  );
+
   const filteredProjects = useMemo(() => {
     if (selectedTags.length === 0) return projects;
 
@@ -240,7 +253,7 @@ const Projects: React.FC = () => {
         expandAllLabel={t("projects.filters.expandAll")}
         collapseAllLabel={t("projects.filters.collapseAll")}
         summaryLabel={`${filteredProjects.length}/${projects.length}`}
-        groups={skillGroups}
+        groups={sortedSkillGroups}
         skillCounts={skillCounts}
         selectedSkills={selectedTags}
         onToggleSkill={toggleTag}
