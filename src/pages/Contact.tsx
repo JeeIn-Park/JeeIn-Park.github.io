@@ -150,15 +150,24 @@ const Contact: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.18 }}
+            transition={{ duration: 0.26 }}
           >
+            <div className="contact-vn-fx-grid" aria-hidden="true" />
+            <div className="contact-vn-fx-stars" aria-hidden="true" />
+            <motion.div
+              className="contact-vn-fx-flash"
+              aria-hidden="true"
+              initial={{ opacity: 0.9, scale: 0.2 }}
+              animate={{ opacity: 0, scale: 2.2 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            />
             <motion.div
               className="contact-vn-modal"
               onClick={(e) => e.stopPropagation()}
-              initial={{ opacity: 0, y: 18, scale: 0.96 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 12, scale: 0.98 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
+              initial={{ opacity: 0, y: 36, scale: 0.28, rotateX: -14 }}
+              animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+              exit={{ opacity: 0, y: 18, scale: 0.92, rotateX: -8 }}
+              transition={{ duration: 0.52, ease: [0.16, 1, 0.3, 1] }}
             >
               <button
                 type="button"

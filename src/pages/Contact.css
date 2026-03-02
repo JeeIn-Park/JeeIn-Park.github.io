@@ -111,11 +111,51 @@
 .contact-vn-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(35, 21, 70, 0.65);
+  background:
+    radial-gradient(circle at 50% 40%, rgba(255, 145, 218, 0.2), rgba(39, 20, 75, 0.84) 58%),
+    rgba(25, 12, 56, 0.9);
   z-index: 1200;
   display: grid;
   place-items: center;
   padding: 1rem;
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+.contact-vn-fx-grid {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(255, 226, 122, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(189, 162, 255, 0.1) 1px, transparent 1px);
+  background-size: 46px 46px, 46px 46px;
+  transform: perspective(700px) rotateX(68deg) translateY(20%);
+  transform-origin: center bottom;
+  opacity: 0.65;
+  animation: vnGridMove 9s linear infinite;
+  pointer-events: none;
+}
+
+.contact-vn-fx-stars {
+  position: absolute;
+  inset: -30%;
+  background-image:
+    radial-gradient(circle at 18% 28%, rgba(255, 226, 122, 0.8) 0 1px, transparent 2px),
+    radial-gradient(circle at 32% 62%, rgba(255, 140, 199, 0.78) 0 1px, transparent 2px),
+    radial-gradient(circle at 74% 35%, rgba(189, 162, 255, 0.8) 0 1px, transparent 2px),
+    radial-gradient(circle at 82% 72%, rgba(255, 226, 122, 0.76) 0 1px, transparent 2px),
+    radial-gradient(circle at 56% 18%, rgba(255, 255, 255, 0.76) 0 1px, transparent 2px);
+  animation: vnStarDrift 7s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.contact-vn-fx-flash {
+  position: absolute;
+  width: min(46vw, 520px);
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 235, 157, 0.88) 0%, rgba(255, 145, 218, 0.28) 46%, rgba(189, 162, 255, 0.02) 72%);
+  pointer-events: none;
 }
 
 .contact-vn-modal {
@@ -128,6 +168,13 @@
   padding: 0.75rem 0.75rem 0.9rem;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 2;
+  box-shadow:
+    0 0 0 3px rgba(255, 140, 199, 0.58),
+    0 0 36px rgba(255, 140, 199, 0.36),
+    0 0 80px rgba(189, 162, 255, 0.28);
+  animation: vnModalPulse 2.6s ease-in-out infinite;
 }
 
 .contact-vn-close-button {
@@ -141,6 +188,10 @@
   font-size: 0.72rem;
   padding: 0.26rem 0.62rem;
   cursor: pointer;
+}
+
+.contact-vn-close-button:hover {
+  filter: brightness(1.04);
 }
 
 .contact-vn-loading {
@@ -194,6 +245,47 @@
 
   .contact-vn-modal .vn-scene {
     height: clamp(160px, 36%, 280px);
+  }
+}
+
+@keyframes vnGridMove {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 80px 200px, 80px 200px;
+  }
+}
+
+@keyframes vnStarDrift {
+  0% {
+    transform: translateY(-10px) scale(1);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(8px) scale(1.04);
+    opacity: 1;
+  }
+}
+
+@keyframes vnModalPulse {
+  0% {
+    box-shadow:
+      0 0 0 3px rgba(255, 140, 199, 0.58),
+      0 0 36px rgba(255, 140, 199, 0.34),
+      0 0 80px rgba(189, 162, 255, 0.26);
+  }
+  50% {
+    box-shadow:
+      0 0 0 3px rgba(255, 226, 122, 0.62),
+      0 0 42px rgba(255, 140, 199, 0.4),
+      0 0 94px rgba(189, 162, 255, 0.32);
+  }
+  100% {
+    box-shadow:
+      0 0 0 3px rgba(255, 140, 199, 0.58),
+      0 0 36px rgba(255, 140, 199, 0.34),
+      0 0 80px rgba(189, 162, 255, 0.26);
   }
 }
 
