@@ -5,3 +5,4 @@ export { default as GraphicsEngine } from "./GraphicsEngine";
 export { default as GameOfLife } from "./GameOfLife";
 export { default as ScotlandYard } from "./ScotlandYard";
 export { default as QuoteWidgetShortcut } from "./QuoteWidgetShortcut";
+export { default as Therago } from "./Therago";

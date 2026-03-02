@@ -54,6 +54,12 @@
       "title": "Quote Widget Shortcut",
       "date": "Personal Project",
       "description": "iOS Shortcuts, HTML, CSS, Workflow Automation, Widget-ready quote gallery"
+    },
+    {
+      "slug": "therago",
+      "title": "Therago | AI Assisted Mental Wellbeing WebApp",
+      "date": "Hackathon Project",
+      "description": "HTML, CSS, JavaScript, AI-assisted sentiment analysis, journaling and productivity support"
     }
   ],
   "details": {
@@ -113,6 +119,15 @@
         "Built an input flow for quote text and source, then rendered each entry as an image asset.",
         "Designed output style as black text on a white background for readability and consistency.",
         "Organized generated images in one album so users can set that album as a home-screen widget source."
+      ]
+    },
+    "therago": {
+      "title": "Therago | AI Assisted Mental Wellbeing WebApp",
+      "intro": "Therago is a supportive mental well-being web app that helps users put feelings into words and manage daily emotional load through conversation-style interaction.",
+      "body": [
+        "Accepts voice and text inputs to capture mood, concerns, and day-to-day responsibilities.",
+        "Uses AI-assisted sentiment analysis to structure thoughts, offer tailored guidance, and surface reminders from to-do context.",
+        "Includes journaling support and pathways to relevant therapy services when ongoing support may be needed."
       ]
     }
   }

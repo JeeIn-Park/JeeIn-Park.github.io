@@ -9,7 +9,8 @@ export const projectComponents: Record<string, ProjectComponent> = {
   GraphicsEngine: lazy(() => import("../pages/projects/GraphicsEngine")),
   GameOfLife: lazy(() => import("../pages/projects/GameOfLife")),
   ScotlandYard: lazy(() => import("../pages/projects/ScotlandYard")),
-  QuoteWidgetShortcut: lazy(() => import("../pages/projects/QuoteWidgetShortcut"))
+  QuoteWidgetShortcut: lazy(() => import("../pages/projects/QuoteWidgetShortcut")),
+  Therago: lazy(() => import("../pages/projects/Therago"))
 };
 
 export const slugToComponent: Record<string, ProjectComponent> = {
@@ -19,5 +20,6 @@ export const slugToComponent: Record<string, ProjectComponent> = {
   "graphics-engine": projectComponents.GraphicsEngine,
   "game-of-life": projectComponents.GameOfLife,
   "scotland-yard": projectComponents.ScotlandYard,
-  "quote-widget-shortcut": projectComponents.QuoteWidgetShortcut
+  "quote-widget-shortcut": projectComponents.QuoteWidgetShortcut,
+  "therago": projectComponents.Therago
 };

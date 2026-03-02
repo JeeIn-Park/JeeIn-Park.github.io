@@ -64,5 +64,13 @@ export const PROJECTS_META: ProjectMeta[] = [
     external: "https://www.icloud.com/shortcuts/6ef8a9c5f4304ed1832a8cdf16573e06",
     tags: ["Workflow", "iOS Shortcuts", "Productivity", "HTML", "CSS"],
     component: "QuoteWidgetShortcut"
+  },
+  {
+    slug: "therago",
+    title: "Therago | AI Assisted Mental Wellbeing WebApp",
+    cover: "/image/image-project-thumbnail-therago.png",
+    github: "https://github.com/hyo-yeon-lee/EncodeAIHack",
+    tags: ["AI Tool", "HTML", "CSS", "JavaScript", "Git"],
+    component: "Therago"
   }
 ];
