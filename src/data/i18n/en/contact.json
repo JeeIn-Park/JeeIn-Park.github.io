@@ -8,5 +8,45 @@
     "Instagram": "Instagram",
     "Email": "Email",
     "Phone": "Phone"
+  },
+  "vn": {
+    "ariaLabel": "Interactive contact card",
+    "title": "Talk with JeeIn",
+    "subtitle": "Pick a choice and watch the reply change.",
+    "characterSlot": "Place your character here",
+    "prompt": "Hi there. Choose what you need, and I will respond right away.",
+    "choices": {
+      "project": "I want to propose a project",
+      "question": "I have a technical question",
+      "chat": "I just want to say hi"
+    },
+    "responses": {
+      "project": "That sounds great. Thanks for the proposal. Please send it by email and I will reply quickly.",
+      "question": "Happy to help with technical questions. Ask me about stack, implementation details, or collaboration flow.",
+      "chat": "Love that :) You can always reach out just to chat. Feel free to message me anytime."
+    },
+    "followUps": {
+      "title": "Want to go one step deeper?",
+      "choices": {
+        "project_scope": "I can share the project scope",
+        "project_timeline": "I want to discuss timeline first",
+        "question_stack": "What is your main tech stack?",
+        "question_process": "How do you collaborate and ship?",
+        "chat_career": "Tell me about your dev journey",
+        "chat_random": "I just want a casual chat"
+      },
+      "responses": {
+        "project_scope": "Perfect. If you send the main goals and key features in 3 to 5 lines, I can propose a clear direction quickly.",
+        "project_timeline": "Great starting point. Share your target date and checkpoints, and I can suggest a realistic delivery plan.",
+        "question_stack": "I mostly build with React and TypeScript, and connect backend/data layers when the project needs it.",
+        "question_process": "My flow is requirements alignment, small iterative delivery, and fast feedback loops with frequent status updates.",
+        "chat_career": "I started with small builds and now focus on shipping clean experiences with strong maintainability.",
+        "chat_random": "Absolutely :) A casual hello is always welcome. Feel free to message me in any tone."
+      }
+    },
+    "talkElse": "Talk about something else",
+    "copyEmail": "Copy email",
+    "sendEmail": "Send email",
+    "copied": "Email copied!"
   }
 }

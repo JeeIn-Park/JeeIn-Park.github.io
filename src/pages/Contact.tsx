@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import "./Contact.css";
 import confetti from "canvas-confetti";
 import ContextualCTA from "../components/ContextualCTA";
+import ContactVisualNovel from "../components/ContactVisualNovel";
 import { COLORS, UI_COLORS } from "../data/colors";
 
 const contactItems = [
@@ -130,6 +131,8 @@ const Contact: React.FC = () => {
       >
         {t("contact.text")}
       </motion.p>
+
+      <ContactVisualNovel email="1700pji@naver.com" />
 
       <motion.div
         className="contact-cards"

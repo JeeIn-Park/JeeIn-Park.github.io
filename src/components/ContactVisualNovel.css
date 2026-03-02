@@ -1,0 +1,143 @@
+.vn-card {
+  width: min(980px, 92%);
+  margin: 1.25rem auto 0;
+}
+
+.vn-scene {
+  min-height: 620px;
+  border-radius: 20px;
+  border: 1px solid rgba(26, 33, 64, 0.35);
+  background-image:
+    linear-gradient(to top, rgba(8, 12, 24, 0.78) 0%, rgba(8, 12, 24, 0.22) 44%, rgba(8, 12, 24, 0.08) 100%),
+    url("/image/image-contact-chat-background.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 16px 36px rgba(17, 27, 53, 0.28);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.vn-character-slot {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 1rem 1rem 0;
+  pointer-events: none;
+}
+
+.vn-character-slot span {
+  margin-bottom: 0.7rem;
+  font-size: 0.86rem;
+  color: rgba(243, 247, 255, 0.92);
+  background: rgba(11, 18, 36, 0.56);
+  border: 1px dashed rgba(223, 232, 255, 0.62);
+  border-radius: 999px;
+  padding: 0.28rem 0.72rem;
+}
+
+.vn-ui {
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(7, 11, 22, 0.84), rgba(7, 11, 22, 0.42));
+  backdrop-filter: blur(3px);
+}
+
+.vn-dialogue-box {
+  border: 1px solid rgba(173, 201, 255, 0.44);
+  border-radius: 14px;
+  padding: 0.85rem 0.95rem;
+  background: rgba(12, 22, 48, 0.76);
+}
+
+.vn-expression {
+  margin: 0;
+  font-size: 0.78rem;
+  color: #b9cdfc;
+  letter-spacing: 0.02em;
+}
+
+.vn-line {
+  margin: 0.32rem 0 0;
+  color: #f4f8ff;
+  font-size: 0.97rem;
+  line-height: 1.45;
+}
+
+.vn-choice-grid {
+  margin-top: 0.72rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.52rem;
+}
+
+.vn-choice-box {
+  border: 1px solid rgba(176, 205, 255, 0.45);
+  background: rgba(230, 240, 255, 0.12);
+  color: #eff5ff;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  padding: 0.56rem 0.68rem;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.14s ease, background-color 0.14s ease, border-color 0.14s ease;
+}
+
+.vn-choice-box:hover {
+  transform: translateY(-1px);
+  background: rgba(230, 240, 255, 0.2);
+  border-color: rgba(202, 221, 255, 0.85);
+}
+
+.vn-choice-box.is-active {
+  background: rgba(145, 182, 255, 0.28);
+  border-color: rgba(211, 226, 255, 0.96);
+}
+
+.vn-followups {
+  margin-top: 0.72rem;
+}
+
+.vn-followup-title {
+  margin: 0 0 0.42rem;
+  color: #b8ccf7;
+  font-size: 0.82rem;
+}
+
+.vn-choice-box.is-reset {
+  border-style: dashed;
+}
+
+.vn-actions {
+  margin-top: 0.72rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.54rem;
+}
+
+.vn-action {
+  border: 1px solid rgba(174, 201, 250, 0.7);
+  border-radius: 9px;
+  background: #dceaff;
+  color: #123164;
+  text-decoration: none;
+  font-size: 0.87rem;
+  padding: 0.44rem 0.78rem;
+  cursor: pointer;
+}
+
+.vn-action.is-secondary {
+  background: #b8d1ff;
+}
+
+@media (max-width: 760px) {
+  .vn-scene {
+    min-height: 560px;
+  }
+
+  .vn-choice-grid {
+    grid-template-columns: 1fr;
+  }
+}
