@@ -96,6 +96,107 @@
   width: 80%;
 }
 
+.contact-vn-open-button {
+  margin-top: 1.2rem;
+  border: 3px solid #2f1d62;
+  background: linear-gradient(180deg, #ffe17d, #ffbfe8);
+  color: #271650;
+  font-size: 0.84rem;
+  font-weight: 700;
+  border-radius: 0;
+  padding: 0.58rem 0.96rem;
+  cursor: pointer;
+}
+
+.contact-vn-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(35, 21, 70, 0.65);
+  z-index: 1200;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.contact-vn-modal {
+  width: min(980px, 96vw);
+  height: min(88vh, 900px);
+  overflow: hidden;
+  border-radius: 0;
+  background: linear-gradient(180deg, rgba(68, 45, 132, 0.96), rgba(42, 29, 84, 0.97));
+  border: 3px solid #ffe089;
+  padding: 0.75rem 0.75rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-vn-close-button {
+  display: block;
+  margin-left: auto;
+  margin-bottom: 0.45rem;
+  border: 2px solid #2f1d62;
+  border-radius: 0;
+  color: #271650;
+  background: linear-gradient(180deg, #ffe17d, #ffbfdf);
+  font-size: 0.72rem;
+  padding: 0.26rem 0.62rem;
+  cursor: pointer;
+}
+
+.contact-vn-loading {
+  color: #fff6d4;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.contact-vn-modal .vn-card {
+  width: 100%;
+  margin: 0;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-vn-modal .vn-scene {
+  min-height: 0;
+  height: clamp(200px, 42%, 360px);
+  flex: 0 0 auto;
+}
+
+.contact-vn-modal .vn-ui {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-vn-modal .vn-dialogue-box {
+  flex: 0 0 auto;
+}
+
+.contact-vn-modal .vn-choice-panel {
+  flex: 1;
+  min-height: 120px;
+  height: auto;
+}
+
+.contact-vn-modal .vn-actions {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 760px) {
+  .contact-vn-modal {
+    height: min(92vh, 920px);
+    width: 98vw;
+    padding: 0.55rem 0.55rem 0.7rem;
+  }
+
+  .contact-vn-modal .vn-scene {
+    height: clamp(160px, 36%, 280px);
+  }
+}
+
 .copy-card img {
   position: relative;
   z-index: 0;

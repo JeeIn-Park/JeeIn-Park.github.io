@@ -14,6 +14,10 @@
     "title": "제인과 대화하기",
     "subtitle": "선택지를 누르면 답변이 바뀌어요.",
     "characterSlot": "여기에 캐릭터를 배치하세요",
+    "choicePanelAria": "선택지 목록",
+    "open": "인터랙티브 대화 열기",
+    "close": "닫기",
+    "loading": "대화를 불러오는 중...",
     "prompt": "안녕하세요! 원하는 주제를 골라주세요. 제가 바로 도와드릴게요.",
     "choices": {
       "project": "프로젝트 제안하고 싶어요",
@@ -45,6 +49,7 @@
       }
     },
     "talkElse": "다른 이야기 해볼래요",
+    "skipTyping": "빠르게 보기",
     "copyEmail": "이메일 복사하기",
     "sendEmail": "메일 보내기",
     "copied": "이메일 복사 완료!"

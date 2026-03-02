@@ -1,11 +1,12 @@
-import React, { useState, useRef } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useRef, lazy, Suspense } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "./Contact.css";
 import confetti from "canvas-confetti";
 import ContextualCTA from "../components/ContextualCTA";
-import ContactVisualNovel from "../components/ContactVisualNovel";
 import { COLORS, UI_COLORS } from "../data/colors";
+
+const ContactVisualNovel = lazy(() => import("../components/ContactVisualNovel"));
 
 const contactItems = [
   {
@@ -56,6 +57,7 @@ const cardVariants = {
 const Contact: React.FC = () => {
   const { t } = useTranslation();
   const [copiedItem, setCopiedItem] = useState<string | null>(null);
+  const [isVnOpen, setIsVnOpen] = useState(false);
   const timeouts = useRef<Map<string, NodeJS.Timeout>>(new Map());
 
   const handleCopy = async (
@@ -132,7 +134,46 @@ const Contact: React.FC = () => {
         {t("contact.text")}
       </motion.p>
 
-      <ContactVisualNovel email="1700pji@naver.com" />
+      <button
+        type="button"
+        className="contact-vn-open-button"
+        onClick={() => setIsVnOpen(true)}
+      >
+        {t("contact.vn.open")}
+      </button>
+
+      <AnimatePresence>
+        {isVnOpen && (
+          <motion.div
+            className="contact-vn-modal-overlay"
+            onClick={() => setIsVnOpen(false)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.18 }}
+          >
+            <motion.div
+              className="contact-vn-modal"
+              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0, y: 18, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 12, scale: 0.98 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+            >
+              <button
+                type="button"
+                className="contact-vn-close-button"
+                onClick={() => setIsVnOpen(false)}
+              >
+                {t("contact.vn.close")}
+              </button>
+              <Suspense fallback={<p className="contact-vn-loading">{t("contact.vn.loading")}</p>}>
+                <ContactVisualNovel email="1700pji@naver.com" />
+              </Suspense>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <motion.div
         className="contact-cards"

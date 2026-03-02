@@ -14,6 +14,10 @@
     "title": "Talk with JeeIn",
     "subtitle": "Pick a choice and watch the reply change.",
     "characterSlot": "Place your character here",
+    "choicePanelAria": "Choice list",
+    "open": "Open interactive chat",
+    "close": "Close",
+    "loading": "Loading dialogue...",
     "prompt": "Hi there. Choose what you need, and I will respond right away.",
     "choices": {
       "project": "I want to propose a project",
@@ -45,6 +49,7 @@
       }
     },
     "talkElse": "Talk about something else",
+    "skipTyping": "Skip",
     "copyEmail": "Copy email",
     "sendEmail": "Send email",
     "copied": "Email copied!"
