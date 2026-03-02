@@ -4,11 +4,11 @@ import "./About.css";
 import { useTranslation } from "react-i18next";
 import StorySection from "../components/Story";
 import ContextualCTA from "../components/ContextualCTA";
-
-
+import AboutQuest from "../components/AboutQuest";
 
 const About: React.FC = () => {
   const { t } = useTranslation();
+
   return (
     <section id="about" className="about-section">
       <motion.h2
@@ -17,7 +17,7 @@ const About: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        {t('about.title')}
+        {t("about.title")}
       </motion.h2>
 
       <motion.p
@@ -26,9 +26,10 @@ const About: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 1 }}
       >
-        {t('about.intro')}
+        {t("about.intro")}
       </motion.p>
 
+      <AboutQuest />
       <StorySection />
       <ContextualCTA current="About" />
     </section>

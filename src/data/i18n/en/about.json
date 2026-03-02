@@ -1,6 +1,156 @@
 {
   "title": "About Me",
   "intro": "Hey! I'm Jeein, a creative software engineer who loves building intuitive applications. I enjoy combining design and code to create engaging user experiences. Passionate about problem-solving, efficiency, and creative solutions!",
+  "quest": {
+    "title": "PIXEL QUEST: Origin of Creativity",
+    "subtitle": "Explore the map, talk to NPCs, and recover memory shards to rebuild the creativity engine.",
+    "start": "Start Play",
+    "restart": "Play Again",
+    "progressLabel": "Quest Progress",
+    "scoreLabel": "Current Stats",
+    "completedLabel": "Your Play Result",
+    "traits": {
+      "creativity": "Creativity",
+      "sensitivity": "Sensitivity",
+      "persistence": "Persistence"
+    },
+    "scenes": [
+      {
+        "id": "scene-idea",
+        "title": "Scene 1. The Empty Box in Class",
+        "description": "Everyone is about to throw away an empty box. What do you do first?",
+        "choices": [
+          {
+            "id": "idea-a",
+            "label": "Combine it with other scraps and imagine a new tool.",
+            "response": "You designed ideas by seeing hidden structure in ordinary materials.",
+            "impact": {
+              "creativity": 2
+            }
+          },
+          {
+            "id": "idea-b",
+            "label": "Observe where classmates struggle before touching anything.",
+            "response": "You captured user emotion before jumping into a solution.",
+            "impact": {
+              "sensitivity": 2
+            }
+          },
+          {
+            "id": "idea-c",
+            "label": "Set a one-hour timer and build a usable prototype now.",
+            "response": "You activated a rapid loop of trying and improving.",
+            "impact": {
+              "persistence": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "scene-friction",
+        "title": "Scene 2. Everyday Friction",
+        "description": "Most people ignore this tiny inconvenience, but you keep noticing it.",
+        "choices": [
+          {
+            "id": "friction-a",
+            "label": "Borrow an idea from a different field and remix it.",
+            "response": "You connected distant dots and produced a fresh solution.",
+            "impact": {
+              "creativity": 2,
+              "sensitivity": 1
+            }
+          },
+          {
+            "id": "friction-b",
+            "label": "Interview users and map their emotional flow in detail.",
+            "response": "Understanding context first made the direction much clearer.",
+            "impact": {
+              "sensitivity": 2
+            }
+          },
+          {
+            "id": "friction-c",
+            "label": "Redesign your routine again and again until friction disappears.",
+            "response": "You chose the same persistence that drives 100+ redesigns.",
+            "impact": {
+              "persistence": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "scene-build",
+        "title": "Scene 3. Real Launch",
+        "description": "Now it is time to ship. Your team waits for one key decision.",
+        "choices": [
+          {
+            "id": "build-a",
+            "label": "Rebuild core flows into the most intuitive experience.",
+            "response": "You fused design and code into a flow users grasp instantly.",
+            "impact": {
+              "creativity": 2
+            }
+          },
+          {
+            "id": "build-b",
+            "label": "Attach a tight feedback loop and track subtle user signals.",
+            "response": "You improved satisfaction by listening beyond explicit words.",
+            "impact": {
+              "sensitivity": 2
+            }
+          },
+          {
+            "id": "build-c",
+            "label": "Repeat release-observe-fix cycles until metrics improve.",
+            "response": "You drove the product forward with relentless execution.",
+            "impact": {
+              "persistence": 2
+            }
+          }
+        ]
+      }
+    ],
+    "endings": {
+      "creativity": "You experienced Jeein's creativity engine most strongly. Reframing familiar things into new systems was the center of your run.",
+      "sensitivity": "You experienced Jeein's sensitivity most strongly. Detecting subtle friction and translating it into solutions defined your run.",
+      "persistence": "You experienced Jeein's persistence loop most strongly. Fast iteration and continuous refinement pushed your run to the finish."
+    },
+    "objective": "Objective: Collect 3 memory shards, gather items, and unlock blocked gates.",
+    "controls": "Move: Arrow keys or WASD, Interact: E / Enter / Space (use buttons on mobile)",
+    "interact": "Interact",
+    "backToMap": "Back to Map",
+    "sceneReady": "Memory shard detected: interact to continue the story.",
+    "closeNpc": "Close Dialogue",
+    "inventoryLabel": "Inventory",
+    "emptyInventory": "No items collected yet.",
+    "statusLabel": "Status Log",
+    "noEvent": "Nothing to interact with here.",
+    "blockedWall": "A wall blocks your path.",
+    "gateLockedPrefix": "Locked Zone",
+    "gateUnlockedPrefix": "Unlocked",
+    "itemReceivedPrefix": "Item Acquired",
+    "items": {
+      "rustyKey": "Rusty Key",
+      "signalLens": "Signal Lens",
+      "coreChip": "Core Chip"
+    },
+    "gates": {
+      "northGate": "North Barrier Gate",
+      "eastGate": "East Barrier Gate"
+    },
+    "npcs": {
+      "tinkererName": "NPC Tinkerer",
+      "tinkererFirst": "Hey explorer! Take this Rusty Key. It should fit the north barrier lock.",
+      "tinkererRepeat": "I already gave you the key. Start with the north barrier gate.",
+      "archivistName": "NPC Archivist",
+      "archivistNeedLens": "The east barrier needs a Signal Lens to read the frequency. Find the second memory shard first.",
+      "archivistGiveChip": "Great, you found the lens. Plug this Core Chip into the east barrier console.",
+      "archivistRepeat": "You already have the Core Chip. Head to the east barrier gate."
+    },
+    "mapToggle": "Open Full Map (M)",
+    "mapClose": "Close Map",
+    "mapHint": "Tiles under black fog are unexplored. Press M to toggle quickly."
+  },
   "skills": {
     "Programming Languages": "Programming Languages",
     "Web Frameworks & UI Libraries": "Web Frameworks & UI Libraries",
