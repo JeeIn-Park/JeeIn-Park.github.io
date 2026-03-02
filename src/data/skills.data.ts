@@ -37,7 +37,7 @@ export const SKILLS: Skill[] = [
   { name: "Jetpack Compose", category: "application", color: "blue", order: 6 },
   { name: "Android", category: "application", color: "green", order: 7 },
   { name: "Android Studio", category: "application", color: "green", order: 8 },
-  { name: "Game Development", category: "application", color: "lilac", order: 9 },
+  { name: "SDL2", category: "application", color: "blue", order: 10 },
 
   { name: "Git", category: "platform", color: "peach", order: 1 },
   { name: "Firebase", category: "platform", color: "yellow", order: 2 },
@@ -54,7 +54,6 @@ export const SKILLS: Skill[] = [
   { name: "Rendering", category: "design", color: "periwinkle", order: 5 },
   { name: "3D Graphics", category: "design", color: "amber", order: 6 },
   { name: "MVVM", category: "design", color: "green", order: 7 },
-  { name: "AI", category: "design", color: "rose", order: 9 },
   { name: "Pathfinding", category: "design", color: "sky", order: 10 },
   { name: "Concurrency", category: "design", color: "rose", order: 11 },
   { name: "Algorithms", category: "design", color: "yellow", order: 12 },
@@ -64,8 +63,9 @@ export const SKILLS: Skill[] = [
   { name: "AI Tool", category: "product", color: "rose", order: 3 },
   { name: "Graphics Engine", category: "product", color: "periwinkle", order: 4 },
   { name: "Simulation", category: "product", color: "amber", order: 5 },
-  { name: "Board Game", category: "product", color: "lavender", order: 6 },
+  { name: "Game", category: "product", color: "lavender", order: 6 },
   { name: "Workflow", category: "product", color: "blue", order: 7 },
   { name: "iOS Shortcuts", category: "product", color: "green", order: 8 },
-  { name: "Productivity", category: "product", color: "amber", order: 9 }
+  { name: "Productivity", category: "product", color: "amber", order: 9 },
+  { name: "Lifestyle", category: "product", color: "peach", order: 10 }
 ];

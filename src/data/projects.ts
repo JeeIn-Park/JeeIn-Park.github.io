@@ -18,7 +18,18 @@ export const PROJECTS_META: ProjectMeta[] = [
     title: "RepViz - Android Developer",
     cover: "/image/image-project-thumbnail-repviz.png",
     github: "https://github.com/JeeIn-Park/Training-Tracker-Workout-Monitoring",
-    tags: ["Mobile App", "Android", "Kotlin", "Jetpack Compose", "MVVM", "Git"],
+    tags: [
+      "Mobile App",
+      "Workflow",
+      "Android",
+      "Android Studio",
+      "Kotlin",
+      "Jetpack Compose",
+      "MVVM",
+      "Algorithms",
+      "GitHub Actions",
+      "Git"
+    ],
     component: "TrainingTracker"
   },
   {
@@ -26,35 +37,72 @@ export const PROJECTS_META: ProjectMeta[] = [
     title: "NHS - Cross Platform Application Developer",
     cover: "/image/image-project-thumbnail-medicrecall.png",
     external: "https://medicrecall.com/",
-    tags: ["Cross-Platform App", "Flutter", "Firebase", "Git"],
+    tags: [
+      "Cross-Platform App",
+      "Mobile App",
+      "Workflow",
+      "Productivity",
+      "Flutter",
+      "Dart",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Algorithms",
+      "Firebase",
+      "GitHub Actions",
+      "Git"
+    ],
     component: "MedicRecall"
   },
   {
     slug: "maze-solver",
     cover: "/image/image-project-thumbnail-ai-maze-solver.png",
     github: "https://github.com/JeeIn-Park/Maze-Solving-AI",
-    tags: ["AI Tool", "Prolog", "AI", "Pathfinding", "Git"],
+    tags: ["AI Tool", "Game", "Simulation", "Prolog", "Pathfinding", "Algorithms", "Concurrency", "Git"],
     component: "MazeSolver"
   },
   {
     slug: "graphics-engine",
     cover: "/image/image-project-thumbnail-graphic-engine.png",
     github: "https://github.com/JeeIn-Park/OBJ-3D-Graphics-Animation-Engine",
-    tags: ["Graphics Engine", "C", "C++", "3D Graphics", "Rendering", "Git"],
+    tags: [
+      "Graphics Engine",
+      "Simulation",
+      "Productivity",
+      "C",
+      "C++",
+      "SDL2",
+      "Vagrant",
+      "Algorithms",
+      "3D Graphics",
+      "Rendering",
+      "Git"
+    ],
     component: "GraphicsEngine"
   },
   {
     slug: "game-of-life",
     cover: "/image/image-project-thumbnail-gameoflife.png",
     github: "https://github.com/JeeIn-Park/The-Game-of-Life-Optimisation",
-    tags: ["Simulation", "Go", "Concurrency", "AWS", "Git"],
+    tags: [
+      "Simulation",
+      "Game",
+      "Graphics Engine",
+      "Go",
+      "Concurrency",
+      "AWS",
+      "Vagrant",
+      "SDL2",
+      "Algorithms",
+      "Git"
+    ],
     component: "GameOfLife"
   },
   {
     slug: "scotland-yard",
     cover: "/image/image-project-thumbnail-scotlandyard.png",
     github: "https://github.com/JeeIn-Park/Scotland-Yard-Board-Game",
-    tags: ["Board Game", "Java", "Game Development", "Algorithms", "Git"],
+    tags: ["Game", "Java", "Algorithms", "Git"],
     component: "ScotlandYard"
   },
   {
@@ -70,7 +118,7 @@ export const PROJECTS_META: ProjectMeta[] = [
     title: "Therago | AI Assisted Mental Wellbeing WebApp",
     cover: "/image/image-project-thumbnail-therago.png",
     github: "https://github.com/hyo-yeon-lee/EncodeAIHack",
-    tags: ["AI Tool", "HTML", "CSS", "JavaScript", "Git"],
+    tags: ["AI Tool", "Lifestyle", "HTML", "CSS", "JavaScript", "Git"],
     component: "Therago"
   }
 ];
